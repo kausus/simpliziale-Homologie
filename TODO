@@ -1,0 +1,35 @@
+# finde möglichkeit english-german maschinenauslesbar zu machen
+# also dict serach, nach word, und dann automatisch auslesbar
+
+# anki mit wörtern füllen
+
+# folgende bücher ausleihen, nur von 8e bis 16e möglich
+# 80/SK {260 R848, 380 E21, 300}
+
+# link zum buch von Kozlov
+#http://proquest.tech.safaribooksonline.de/9780124045781
+
+# erstelle datenbank aus literatur von unbekannten englishen wörtern
+
+# zeige für einen top. vektorraum, das innere einer konvexen menge ist
+  wieder
+
+# schreibe haskell programm ,das zu einer endichen menge [1..n], den
+  abstrakten simplex ausgibt, nutze powerset
+  schreibe zudem eine funktion die prüft ob eine menge ein simplex ist
+
+# schreibe haskell funktion die eine zeichen/char, n mal
+  hintereinander schreibt und ausgibt
+  foo :: String -> Int -> String
+  foo xs n = concat $ [ xs | i<-[1..n]  ]
+  nutze dies um tiefe verschachtelungen zu erzeugen
+
+# finde realisierung von abstrakten simplizialen, in haskell, insbesondere eine gute show instance, und (SCHWIERIG) Eq instance, hierzu ist ein besonderer algorithmus von nöten
+
+# ist es möglich in haskell eine neue class zu implementieren die angibt ob zwei objekte isomorphm sind, also eine class Iso
+
+# sei A eine endliche teilmenge vom \R^2, mit mehr als drei elementen,
+  finde ich stets drei punkte daraus, so das kein weiter punkt aus A
+  im Umkreis des dreieckes aus den drei gewählten punkten ist.
+
+# setze weiter links aus dem Archiv, der Literatur
