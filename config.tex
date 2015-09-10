@@ -37,9 +37,15 @@
 \newcommand{\A}{\mathscr{A}}
 \newcommand{\F}{\mathbb{F}}                                            
 \newcommand{\gs}{$(a_0\ldots a_n)$ }
+\newcommand{\gr}[1]{\left| #1 \right|}
+% TODO: schreibe newcommand, das #2 als optional nimmt, und somit kein
+% \Big| setzt
+\newcommand{\set}[2]{\left\{ #1 \; \Big| \; #2 \right\}}
 %\newcommand{\dim}{Dim}            
 %\newcommand{\sup}{sup}
        
+
+
 %\newcommand{\SS}{\mathbb{S}}
                     
 %%%%%%%%%%%%%%%%%%%%                                
@@ -66,6 +72,9 @@
 \newtheorem{Lem}[Def]{Lemma}          
 \newtheorem{Kor}[Def]{Korollar}       
 \newtheorem{Fol}[Def]{Folgerung}      
+
+%TODO: schrift soll geändert werden,
+%\renewenvironment*{proof}{\bfseries}{}
 
 %stuff used only a few times                        
 \DeclareMathOperator{\f}{\varphi} 

@@ -160,13 +160,74 @@ geometrischen Simplizialen, einen (geometrischen) Simplizialkomplex.
 \end{Def}
 %einfache beispiele
 
-\begin{Def}[Topologie auf dem Träger eines Simplizialkomplexes]
-  Eine Menge $U \subset \left| \Delta \right|$ ist genau dann offen,
-  falls für jeden Simplex $\sigma \in \Delta$ die Menge
-  $U \cap \sigma$ offen im unterliegenden Raum $\R^n$ ist.
-%	also bezüglich der spurtopologie auf \sigma
-% sie elementsOfalgtop seite 111 , review of quotient spaces, für andere beschreibung der topologie
+
+
+\begin{Def}[Geometrische Realisierung]
+  Die Geometrische Realisierung eines Simplizalkomplexes $\Delta$ ist
+  die Vereinigung all seiner Elemente, also
+  \begin{gather*}
+    |\Delta| \coloneqq \bigcup \left\{ \sigma \; \Big| \; \sigma \in
+      \Delta \right\} \subset \R^{\dim(\Delta)}
+  \end{gather*}
 \end{Def}
+
+%TODO: zeige das dies topologie definiert
+\begin{Def}[schwache Topologie]
+  Sei $\Delta$ ein Simplizalkomplex, dann definiere die
+  \textbf{schwache Topologie} auf der geometrischen Realisierung $| \Delta |$,
+  durch folgende Charakterisierung der abgeschlossenen Mengen.
+  \begin{gather*}
+    A \subset \Delta \text{ abgeschlossen } :\Leftrightarrow A \cap
+    \sigma \text{ abgeschlossen für alle } \sigma \in \Delta
+  \end{gather*}
+  Wobei auf der rechten Seite die Menge abgeschlossen bezüglich der
+  Standardtopologie auf dem $\R^{\dim(\Delta)}$ ist.
+\end{Def}
+
+\begin{Lem}
+  Die schwache Topologie ist feiner als die Standardtopologie und
+  falls $\Delta$ endlich ist stimmen Standardtopologie, schwache
+  Topologie auf $\gr{\Delta}$ überein.
+  \begin{proof}
+    Sei \OE\; $\gr{\Delta} \subset \R^N$ und $A \subset \gr{\Delta}$
+    eine abgeschlossene Menge, so existiert ein $B \subset \R^N$
+    abgeschlossen so dass $A = B \cap \gr{\Delta}$ gilt. Nun gilt für
+    jeden Simplex $\sigma \in \Delta$ folgende Gleichheit:
+    $A \cap \sigma = B \cap \gr{\Delta} \cap \sigma = B \cap \sigma$
+    und somit ist $A \cap \sigma$ abgeschlossen bezüglich $\sigma$,
+    also abgeschlossen bezüglich der schwachen Topologie.
+
+    Falls nun $\Delta$ eine endliche Menge von Simplizes ist, gilt für
+    eine abgeschlossene Menge $A$ bezüglich $\gr{\Delta}$ das
+    $A \cap \sigma$ abgeschlossen in $\sigma$ ist und durch
+    Vereinigung über die endlichen vielen Simplizes die
+    Abgeschlossenheit bezüglich der Standardtopologie erreicht wird.
+  \end{proof}
+\end{Lem}
+
+\begin{Bem}
+  Die schwache Topologie ist im allgemeinen feiner als die
+  Spurtopologie auf $\gr{\Delta}$ bezüglich dem $\R^N$. Betrachte
+  hierzu den folgenden Simplizialkomplex,
+  $\Delta \coloneqq \set{ \{t\} }{t \in \R}$.  Hierbei ist die
+  Geometrische Realisierung gleich zu $\R$, aber die schwache
+  Topologie entspricht der Diskreten, denn für eine beliebige
+  Teilmenge von $A \subset \R$ ist der Schnitt $A \cap \{ t \}$ für
+  ein beliebigen $0$-Simplex aus $\Delta$ gleich dem Simplex selbst,
+  somit stets abgeschlossen, also ist jede Teilmenge abgeschlossen und
+  damit die schwache Topologie auf der Realisierung der diskreten und
+  damit ungleich der Standardtopologie auf $\R$.
+\end{Bem}
+
+
+
+% \begin{Def}[Topologie auf dem Träger eines Simplizialkomplexes]
+%   Eine Menge $U \subset \left| \Delta \right|$ ist genau dann offen,
+%   falls für jeden Simplex $\sigma \in \Delta$ die Menge
+%   $U \cap \sigma$ offen im unterliegenden Raum $\R^n$ ist.
+% %	also bezüglich der spurtopologie auf \sigma
+% % sie elementsOfalgtop seite 111 , review of quotient spaces, für andere beschreibung der topologie
+% \end{Def}
 
 %TODO: topologie von sim komplexen ist hausdorffsch
 
