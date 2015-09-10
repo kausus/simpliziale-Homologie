@@ -9,14 +9,162 @@
 %warum simpliziale komplexe bzw mengen gebraucht werden, selbe homotophietheorie und selbe homotopiegruppen, einfachere berechnung der homotopiegruppen.
 
 %homotopiegruppen sind invarianten von top räumen, einfaches kriterium
-zur unterscheidung von top räumen
+%zur unterscheidung von top räumen
+
+% 
+
+\section{Geometrische Simplizialkomplexe}
 
 
-\begin{Def}[Geometrisch unabhängig]
-	bla
+Wir definieren zunächst grundlegende Begriffe zu den Simplizialen.
+
+\begin{Def}[Geometrisch unabhängig\footnote{Oder auch affine Unabhängigkeit}]
+	Eine Menge $\{ a_0\ldots a_n \} \subset \R^N$ heißt 
+	geometrisch unabhängig, falls das System von Vektoren
+	\begin{gather*}
+		a_0 - a_1 ,  \ldots , a_0 - a_n
+	\end{gather*}
+	unabhängig im Sinne der Linearen Algebra ist.
 \end{Def}
 
+%\begin{Bem}
+%	Man nennt die geometrische Unabhängigkeit auch affine Unabhängigkeit
+%\end{Bem}
+
+\begin{Def}[geometrischer $n$-Simplex]
+	Zu einem geometrisch unabhängigen System \gs, nennt man die Menge
+	\begin{gather*}
+		(a_0 \ldots a_n) = 
+		\left\{ 
+			 \sum\limits_{i=0}^n t_i a_i \; \Big| \; % finde bessere
+			 t_i \in [0,1] \; , \;  \sum\limits_{i=0}^n t_i = 1
+		\right\}
+	\end{gather*}
+	den (geometrischen) $n$-Simplex und schreibt $\sigma^n$.
+\end{Def}
+
+%TODO: erstes Beispiel zu einem simplex, zeiche in tikz \sigma^k für k =0,1,2,3
+
+Nach diesen ersten einfachen Beispielen definiere weitere wichtige 
+Begriffsbildungen.
+
+\begin{Def}[Baryzentrische Koordinaten, Seite]
+	Es bezeichnet $x$ einen Punkt aus einem geometrischen Simplex $\sigma$. In der Darstellung $x = \sum\limits_{i=0}^n t_i a_i$ 
+	nennt man die $t_i$, die \textbf{baryzentrischen} Koordinaten.
+	
+	Eine Teilmenge eines Simplex, heißt \textbf{Seite} falls diese wiederum einen Simplex bildet. Eine Seite heißt echt, falls sie verschieden von $\sigma$ ist.
+\end{Def}
+
+\begin{Def}[Eckmenge, Rand, Inneres]
+	Sei $\sigma$ ein geometrischer $n$-Simplex, so definiere folgende
+	geometrische Objekte
+%TODO: soll die nummerierung fett gehalten sein
+	\begin{enumerate}[{\bfseries1)}] 
+		\item Die Menge $\{  a_0 , \ldots , a_n \}$ bezeichnet man als Eckmenge $V(\sigma)$
+		\item Der Rand von $\sigma$ ist die folgende Menge:
+			\begin{gather*}
+				\partial\sigma = \bigcup \; \left\{ \tau  \; \Big| \; \tau \text{ ist  echte Seite von } \sigma \right\}
+			\end{gather*} 
+		\item Das Innere Des Simplex ist $\Int(\sigma) \coloneqq 
+		\sigma \setminus \partial\sigma$
+	\end{enumerate}
+\end{Def}
+
+Es werden nun einige Charakterisierungen und Aussagen über die Simplizes und deren geometrischen Objekten bewiesen.
+
+\begin{Satz}
+	\upshape Sei $\sigma = (a_0 , \ldots , a_n)$ ein $n$-Simplex, $x \in \sigma$ mit der baryzentrischen Darstellung $x=\sum\limits_{i=0}^n t_i a_i$ , so gelten folgende Aussagen:
+	\begin{enumerate}[1)]%[{\scshape1)}]
+		\item $x \in \partial\sigma \Leftrightarrow \exists \; 0 \leq i \leq n : t_i = 0$
+		\item $x \in \Int(\sigma) \Leftrightarrow \forall \; 0 \leq i \leq n : t_i > 0$
+%TODO: entweder \in (0,1) oder t_i \geq 0
+		\item  Die baryzentrischen Koordinaten $t_i(x)$ als Funktionen, sind stetig in $x$
+		\item $\sigma$ ist eine konvexe, kompakte Teilmenge vom $\R^N$ und $\Int(\sigma)$ ist offen und konvex.
+		\item Es gilt $\overline{\Int(\sigma)} = \sigma$
+		\item Es gibt einen Homöomorphismus $\sigma \simeq \Bn$ der 
+		das Innere $\Int{\sigma}$ auf die $\Sp^{n-1}$ abbildet
+	\end{enumerate}
+	\begin{proof}
+		foo
+%TODO: noch zu beweisen
+	\end{proof}
+\end{Satz}
+
+
+
+%TODO: eckmenge, k-skelett	dimension, n-simplex(kurznotation), unterkomplex, 
+\begin{Def}[Geometrischer Simplizialkomplex]
+  Wir nennen $\Delta$ einen \textit{geometrischen Simplizialkomplex} 
+  falls er folgende Bedingungen erfüllt:
+  \begin{enumerate}[(K1)]
+  	\item $\emptyset \in \Delta$
+  	\item Für jeden Simplex $\sigma \in \Delta$ ist auch jede Seite $\tau$ in $\Delta$ enthalten
+  	\item Mit allen Simplexen $\sigma, \sigma' \in \Delta$ ist auch ihr Schnitt in $\Delta$ enhalten.
+  \end{enumerate}
+\end{Def}
+%einfache beispiele
+
+\begin{Def}[Topologie auf dem Träger eines Simplizialkomplexes]
+	Eine Menge $U \subset  \left| \Delta \right|$ ist genau dann offen, falls für jeden Simplex $\sigma \in \Delta$ die Menge $U \cap \sigma$ offen im unterliegenden Raum $\R^n$ ist. 
+%	also bezüglich der spurtopologie auf \sigma
+% sie elementsOfalgtop seite 111 , review of quotient spaces, für andere beschreibung der topologie
+\end{Def}
+
+%TODO: topologie von sim komplexen ist hausdorffsch
+
+%TODO: ziegler - literatur : seite 11 (in reader abgelesen)
+
+
+% abzählbare mengen können nur durch 0-simplexe trianguliert werden
+
+
+
 %Begriffe:
-%geometrisch unabhängig
+%geometrisch unabhängig, und linear unabhängig vergleichen gegenüberstellen
+% simplex, geometrischer simplizialkomplex, abstrakter simplizialkomplex 
 
 
+% n-ebene, menge von punkten, aufgespannt durch geo.unab system mit konvexkombinationen
+% die faktoren sind eindeutig bestimmt
+
+%affine transformation: x -> Ax+b
+
+%geo.unab systeme werden durch affine transformationen auf geo.unab systeme abgebildet
+
+% n simplex
+
+% baryzentrische koordinaten
+
+% ist die leere menge eine simplizial?
+
+% ein simplex ist genau die konvexe hülle von einer endlichen teilmenge vom \R^N
+
+% eine seite eines simplex ist ein teilsimplex der dimension d
+
+% anzahl der d teilsimplexe ist binomial_koeff(n+1,d+1), für einen n dim simplex
+% klar wähle aus den n+1 punkten d+1 stück aus
+
+% verwende das schläfli symbol zur beschreibung der umgebung eines
+% punktes aus einem simplex für triangulierungen werden nur 2fache
+% schläflisymbole benötigt, also {p,q}, da bei der triangulierung nur
+% \laplace^2 simplexe verwendet werden, vereinfacht sich das symbol
+% auf die form {3,q}. gebe nun zu jedem punkt auf der
+% mannigfaltigkeit, also den 0 dimensionalen simplexen, die anzahl der
+% angrenzenden dreiecker/laplace^2 simplexe an
+
+
+% schreibe in die appendix ein eigenen anhang nur mit getikzten beispielen
+% die komplette pflasterung von \R^2 oder allgemein die füllung des \R^n mit \laplace^n
+% verschiedene triangulierungen
+
+% zeige nicht-kompakte teilmengen vom \R^n sind nicht triangulierbar,
+% einfachstes bsp (0,1), einfach das geometrische realisierungen stets
+% kompakte mengen sind, somit kann es keinen homöomorphismus geben
+
+
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "main"
+%%% End:
