@@ -4,7 +4,7 @@
 
 %TODO: bessere zusammenfassung schreiben
 Die geometrischen Simpliziale allein reichen nicht aus um beliebige 
-Teilmenge des $\R^N$ zu beschreiben, es ist noch notwendig eine Ansammlung
+Teilmenge des $\R^N$ zu beschreiben bzw. modellieren, es ist noch notwendig eine Ansammlung
 von Simpliziale auf richtige art und Weise beschreiben zu können. Hierzu
 sind die Simplizialkomplexe da.
 
@@ -20,23 +20,50 @@ sind die Simplizialkomplexe da.
 	\end{enumerate}
 \end{Def}
 
-\begin{Def}[Teilkomplex, $k$-Skelett, Dimension]
-	Sei $\Delta$ ein Simplizialkomplex, so definiere
-	\begin{enumerate}[1)]
-		\item Eine Teilmenge $\Delta'$ von $\Delta$ heißt Teilkomplex, falls
-		$\Delta'$ diese Menge wiederum einen Simplizialkomplex bildet.
-		\item Die Dimension eines Simplizalkomplexes ist wie folgt
-		definiert:
-		\begin{gather*}
-			\dim(\Delta) \coloneqq \sup \left\{ \dim(\sigma) \; \Big| \;
-			\sigma \in \Delta \right\}
-		\end{gather*}
-		die Dimension kann auch unendlich sein.
-		\item Das $k$-Skelett $\Delta^k$ ist der Teilkomplex aller Simplizes
-		mit der Dimension kleiner gleich $k$.  Ein Spezialfall davon ist
-		die Eckmenge, dies entspr
+\begin{Bsp}
+	\item Sei $\sigma^n \coloneqq \{ e_0 \ldots e_n \}$ der Standardsimplex.
+		Dieser bildet mit all seinen Seiten einen geometrischen Simplizialkomplex, schreibe hierfür $\Delta^n$.
+%TODO: tikz bilder einfügen
+\end{Bsp}
+
+%TODO: polytope oder zugrunde liegender raum?
+%\begin{Def}[Geometrische Realisierung]
+%	Die Geometrische Realisierung eines Simplizalkomplexes $\Delta$ ist
+%	die Vereinigung all seiner Elemente.
+%	\begin{gather*}
+%	|\Delta| \coloneqq \bigcup \left\{ \sigma \; \Big| \; \sigma \in
+%	\Delta \right\} \subset \R^{\dim(\Delta)}
+%	\end{gather*}
+%\end{Def}
+
+\begin{Def}[Unterkomplex, $k$-Skelett, Dimension, Polytop]
+  Sei $\Delta$ ein Simplizialkomplex, so definiere
+  \begin{enumerate}[1)]
+  \item Eine Teilmenge $\Delta'$ von $\Delta$ heißt
+    \textbf{Unterkomplex}, falls $\Delta'$ wiederum einen
+    Simplizialkomplex bildet.
+  \item Die Dimension eines Simplizalkomplexes ist wie folgt
+    definiert:
+    \begin{gather*}
+      \dim(\Delta) \coloneqq \sup \left\{ \dim(\sigma) \; \Big| \;
+        \sigma \in \Delta \right\}
+    \end{gather*}
+    Falls die Dimension unbeschränkt ist, wird diese auf unendlich
+    gesetzt.
+  \item Das \textbf{$k$-Skelett} $\Delta^{(k)}$ ist der Unterkomplex
+    aller Simplizes mit der Dimension kleiner gleich $k$. Der
+    Spezialfall $\Delta^{(0)}$ bezeichnet die Eckmenge von $\Delta$.
+  \item Das \textbf{Polytop} ist wie folgt definiert
+    \begin{gather*}
+      |\Delta| \coloneqq \bigcup \left\{ \sigma \; \Big| \; \sigma \in
+        \Delta \right\} \subset \R^{\dim(\Delta)}.
+    \end{gather*}
+    Dies entspricht dem Komplex zugrundeliegenden Raum.
 	\end{enumerate}
 \end{Def}
+
+Definiere auf dem zugrunde liegenden Raum eines Simplizialkomplexes eine 
+Topologie.
 
 %TODO: zeige das dies topologie definiert
 \begin{Def}[schwache Topologie]
@@ -52,41 +79,63 @@ sind die Simplizialkomplexe da.
 \end{Def}
 
 \begin{Lem}
-	Die schwache Topologie ist feiner als die Standardtopologie und
-	falls $\Delta$ endlich ist stimmen Standardtopologie, schwache
-	Topologie auf $\gr{\Delta}$ überein.
-	\begin{proof}
-		Sei \OE\; $\gr{\Delta} \subset \R^N$ und $A \subset \gr{\Delta}$
-		eine abgeschlossene Menge, so existiert ein $B \subset \R^N$
-		abgeschlossen so dass $A = B \cap \gr{\Delta}$ gilt. Nun gilt für
-		jeden Simplex $\sigma \in \Delta$ folgende Gleichheit:
-		$A \cap \sigma = B \cap \gr{\Delta} \cap \sigma = B \cap \sigma$
-		und somit ist $A \cap \sigma$ abgeschlossen bezüglich $\sigma$,
-		also abgeschlossen bezüglich der schwachen Topologie.
+  Die schwache Topologie ist feiner als die Standardtopologie und
+  falls $\Delta$ endlich ist stimmen Standardtopologie, schwache
+  Topologie auf $\gr{\Delta}$ überein.
+  \begin{proof}
+    Sei \OE\; $\gr{\Delta} \subset \R^N$ und $A \subset \gr{\Delta}$
+    eine abgeschlossene Menge, so existiert ein $B \subset \R^N$
+    abgeschlossen so dass $A = B \cap \gr{\Delta}$ gilt. Nun gilt für
+    jeden Simplex $\sigma \in \Delta$ folgende Gleichheit:
+    $A \cap \sigma = B \cap \gr{\Delta} \cap \sigma = B \cap \sigma$
+    und somit ist $A \cap \sigma$ abgeschlossen bezüglich $\sigma$,
+    also abgeschlossen bezüglich der schwachen Topologie.
 		
-		Falls nun $\Delta$ eine endliche Menge von Simplizes ist, gilt für
-		eine abgeschlossene Menge $A$ bezüglich $\gr{\Delta}$ das
-		$A \cap \sigma$ abgeschlossen in $\sigma$ ist und durch
-		Vereinigung über die endlichen vielen Simplizes die
-		Abgeschlossenheit bezüglich der Standardtopologie erreicht wird.
-	\end{proof}
+    Falls nun $\Delta$ eine endliche Menge von Simplizes ist, gilt für
+    eine abgeschlossene Menge $A$ bezüglich $\gr{\Delta}$ das
+    $A \cap \sigma$ abgeschlossen in $\sigma$ ist und durch
+    Vereinigung über die endlichen vielen Simplizes die
+    Abgeschlossenheit bezüglich der Standardtopologie erreicht wird.
+  \end{proof}
 \end{Lem}
 
 \begin{Bem}
-	Die schwache Topologie ist im allgemeinen feiner als die
-	Spurtopologie auf $\gr{\Delta}$ bezüglich dem $\R^N$. Betrachte
-	hierzu den folgenden Simplizialkomplex,
-	$\Delta \coloneqq \set{ \{t\} }{t \in \R}$.  Hierbei ist die
-	Geometrische Realisierung gleich zu $\R$, aber die schwache
-	Topologie entspricht der Diskreten, denn für eine beliebige
-	Teilmenge von $A \subset \R$ ist der Schnitt $A \cap \{ t \}$ für
-	ein beliebigen $0$-Simplex aus $\Delta$ gleich dem Simplex selbst,
-	somit stets abgeschlossen, also ist jede Teilmenge abgeschlossen und
-	damit die schwache Topologie auf der Realisierung der diskreten und
-	damit ungleich der Standardtopologie auf $\R$.
+  Die schwache Topologie ist im allgemeinen feiner als die
+  Spurtopologie auf $\gr{\Delta}$ bezüglich dem $\R^N$. Betrachte
+  hierzu den folgenden Simplizialkomplex,
+  $\Delta \coloneqq \set{ \{t\} }{t \in \R}$.  Hierbei ist die
+  Geometrische Realisierung gleich zu $\R$, aber die schwache
+  Topologie entspricht der Diskreten, denn für eine beliebige
+  Teilmenge von $A \subset \R$ ist der Schnitt $A \cap \{ t \}$ für
+  ein beliebigen $0$-Simplex aus $\Delta$ gleich dem Simplex selbst,
+  somit stets abgeschlossen, also ist jede Teilmenge abgeschlossen und
+  damit die schwache Topologie auf der Realisierung der diskreten und
+  damit ungleich der Standardtopologie auf $\R$.
 \end{Bem}
 
-%TODO: topologie von sim komplexen ist hausdorffsch
+Beweise nun einige Aussagen über die schwache Topologie.
+
+\begin{Satz}
+  Sei $\Delta$ ein Simplizialkomplex, so gelten folgende Aussagen
+  \begin{enumerate}[(1)]
+        \item Die schwache Topologie ist hausdorffsch.
+        \item Sei $A \subset \gr{\Delta}$ eine kompakte Teilmenge,
+          dann existiert eine endlicher Unterkomplex $\Delta'$ der $A$
+          enthält.
+	\end{enumerate}
+	\begin{proof}
+          % TODO: noch zu beweisen
+	\end{proof}
+\end{Satz}
+
+
+
+%definiere (lineare) simpliziale abbildung, isomorphismus von komplexen
+%und beweise das jeder endliche simplizialkomplex isomorphm zu einem unterkomplex
+% 
+% definire \Delta^n für n beliebige kardinalszahl, gilt die obige
+% aussage immer noch wenn man unendliche komplexe betrachtet?
+
 
 %TODO: ziegler - literatur : seite 11 (in reader abgelesen)
 
@@ -110,14 +159,7 @@ sind die Simplizialkomplexe da.
 
 
 
-\begin{Def}[Geometrische Realisierung]
-	Die Geometrische Realisierung eines Simplizalkomplexes $\Delta$ ist
-	die Vereinigung all seiner Elemente.
-	\begin{gather*}
-	|\Delta| \coloneqq \bigcup \left\{ \sigma \; \Big| \; \sigma \in
-	\Delta \right\} \subset \R^{\dim(\Delta)}
-	\end{gather*}
-\end{Def}
+
 
 
 
