@@ -1,0 +1,173 @@
+%% abstrakte simplizialkomplexe
+
+\section{abstrakte Simplizialkomplexe}
+
+Definiere nun auf sinnvolle art und Weise eine Ansammlung von
+geometrischen Simplizialen, einen (geometrischen) Simplizialkomplex.
+
+\begin{Def}
+	Eine Menge $\Delta$ von (geometrischen) Simplizialen heißt
+	\textbf{Simplizialkomplex} falls die folgenden Bedingungen erfüllt
+	sind.
+	\begin{enumerate}[1)]
+		\item $\emptyset \in \Delta$
+		\item Mit einem Simplex $\sigma$ aus $\Delta$ sind auch alle Seiten
+		aus $\Delta$.
+		\item Für je zwei Simplizies aus $\Delta$ ist auch ihr Schnitt
+		wiederum in $\Delta$.
+	\end{enumerate}
+\end{Def}
+
+% TODO: zeige das für ein element aus \bigcup K ein eindeutiges
+% Element aus K existiert so dass das element aus \Int dieses element
+% ist
+
+\begin{Def}[Teilkomplex, $k$-Skelett, Dimension]
+	Sei $\Delta$ ein Simplizialkomplex, so definiere
+	\begin{enumerate}[1)]
+		\item Eine Teilmenge $\Delta'$ von $\Delta$ heißt Teilkomplex, falls
+		$\Delta'$ diese Menge wiederum einen Simplizialkomplex bildet.
+		\item Die Dimension eines Simplizalkomplexes ist wie folgt
+		definiert:
+		\begin{gather*}
+		\dim(\Delta) \coloneqq \sup \left\{ \dim(\sigma) \; \Big| \;
+		\sigma \in \Delta \right\}
+		\end{gather*}
+		die Dimension kann auch unendlich sein.
+		\item Das $k$-Skelett $\Delta^k$ ist der Teilkomplex aller Simplizes
+		mit der Dimension kleiner gleich $k$.  Ein Spezialfall davon ist
+		die Eckmenge, dies entspr
+	\end{enumerate}
+\end{Def}
+
+
+% TODO: eckmenge, k-skelett dimension, n-simplex(kurznotation),
+% unterkomplex,
+
+%einfache beispiele
+
+
+
+\begin{Def}[Geometrische Realisierung]
+	Die Geometrische Realisierung eines Simplizalkomplexes $\Delta$ ist
+	die Vereinigung all seiner Elemente, also
+	\begin{gather*}
+	|\Delta| \coloneqq \bigcup \left\{ \sigma \; \Big| \; \sigma \in
+	\Delta \right\} \subset \R^{\dim(\Delta)}
+	\end{gather*}
+\end{Def}
+
+%TODO: zeige das dies topologie definiert
+\begin{Def}[schwache Topologie]
+	Sei $\Delta$ ein Simplizalkomplex, dann definiere die
+	\textbf{schwache Topologie} auf der geometrischen Realisierung $| \Delta |$,
+	durch folgende Charakterisierung der abgeschlossenen Mengen.
+	\begin{gather*}
+	A \subset \Delta \text{ abgeschlossen } :\Leftrightarrow A \cap
+	\sigma \text{ abgeschlossen für alle } \sigma \in \Delta
+	\end{gather*}
+	Wobei auf der rechten Seite die Menge abgeschlossen bezüglich der
+	Standardtopologie auf dem $\R^{\dim(\Delta)}$ ist.
+\end{Def}
+
+\begin{Lem}
+	Die schwache Topologie ist feiner als die Standardtopologie und
+	falls $\Delta$ endlich ist stimmen Standardtopologie, schwache
+	Topologie auf $\gr{\Delta}$ überein.
+	\begin{proof}
+		Sei \OE\; $\gr{\Delta} \subset \R^N$ und $A \subset \gr{\Delta}$
+		eine abgeschlossene Menge, so existiert ein $B \subset \R^N$
+		abgeschlossen so dass $A = B \cap \gr{\Delta}$ gilt. Nun gilt für
+		jeden Simplex $\sigma \in \Delta$ folgende Gleichheit:
+		$A \cap \sigma = B \cap \gr{\Delta} \cap \sigma = B \cap \sigma$
+		und somit ist $A \cap \sigma$ abgeschlossen bezüglich $\sigma$,
+		also abgeschlossen bezüglich der schwachen Topologie.
+		
+		Falls nun $\Delta$ eine endliche Menge von Simplizes ist, gilt für
+		eine abgeschlossene Menge $A$ bezüglich $\gr{\Delta}$ das
+		$A \cap \sigma$ abgeschlossen in $\sigma$ ist und durch
+		Vereinigung über die endlichen vielen Simplizes die
+		Abgeschlossenheit bezüglich der Standardtopologie erreicht wird.
+	\end{proof}
+\end{Lem}
+
+\begin{Bem}
+	Die schwache Topologie ist im allgemeinen feiner als die
+	Spurtopologie auf $\gr{\Delta}$ bezüglich dem $\R^N$. Betrachte
+	hierzu den folgenden Simplizialkomplex,
+	$\Delta \coloneqq \set{ \{t\} }{t \in \R}$.  Hierbei ist die
+	Geometrische Realisierung gleich zu $\R$, aber die schwache
+	Topologie entspricht der Diskreten, denn für eine beliebige
+	Teilmenge von $A \subset \R$ ist der Schnitt $A \cap \{ t \}$ für
+	ein beliebigen $0$-Simplex aus $\Delta$ gleich dem Simplex selbst,
+	somit stets abgeschlossen, also ist jede Teilmenge abgeschlossen und
+	damit die schwache Topologie auf der Realisierung der diskreten und
+	damit ungleich der Standardtopologie auf $\R$.
+\end{Bem}
+
+
+
+% \begin{Def}[Topologie auf dem Träger eines Simplizialkomplexes]
+%   Eine Menge $U \subset \left| \Delta \right|$ ist genau dann offen,
+%   falls für jeden Simplex $\sigma \in \Delta$ die Menge
+%   $U \cap \sigma$ offen im unterliegenden Raum $\R^n$ ist.
+% %	also bezüglich der spurtopologie auf \sigma
+% % sie elementsOfalgtop seite 111 , review of quotient spaces, für andere beschreibung der topologie
+% \end{Def}
+
+%TODO: topologie von sim komplexen ist hausdorffsch
+
+%TODO: ziegler - literatur : seite 11 (in reader abgelesen)
+
+
+% abzählbare mengen können nur durch 0-simplexe trianguliert werden
+
+
+
+%Begriffe:
+%geometrisch unabhängig, und linear unabhängig vergleichen gegenüberstellen
+% simplex, geometrischer simplizialkomplex, abstrakter simplizialkomplex 
+
+
+% n-ebene, menge von punkten, aufgespannt durch geo.unab system mit konvexkombinationen
+% die faktoren sind eindeutig bestimmt
+
+%affine transformation: x -> Ax+b
+
+%geo.unab systeme werden durch affine transformationen auf geo.unab systeme abgebildet
+
+% n simplex
+
+% baryzentrische koordinaten
+
+% ist die leere menge eine simplizial?
+
+% ein simplex ist genau die konvexe hülle von einer endlichen teilmenge vom \R^N
+
+% eine seite eines simplex ist ein teilsimplex der dimension d
+
+% anzahl der d teilsimplexe ist binomial_koeff(n+1,d+1), für einen n dim simplex
+% klar wähle aus den n+1 punkten d+1 stück aus
+
+% verwende das schläfli symbol zur beschreibung der umgebung eines
+% punktes aus einem simplex für triangulierungen werden nur 2fache
+% schläflisymbole benötigt, also {p,q}, da bei der triangulierung nur
+% \laplace^2 simplexe verwendet werden, vereinfacht sich das symbol
+% auf die form {3,q}. gebe nun zu jedem punkt auf der
+% mannigfaltigkeit, also den 0 dimensionalen simplexen, die anzahl der
+% angrenzenden dreiecker/laplace^2 simplexe an
+
+
+% schreibe in die appendix ein eigenen anhang nur mit getikzten beispielen
+% die komplette pflasterung von \R^2 oder allgemein die füllung des \R^n mit \laplace^n
+% verschiedene triangulierungen
+
+% zeige nicht-kompakte teilmengen vom \R^n sind nicht triangulierbar,
+% einfachstes bsp (0,1), einfach das geometrische realisierungen stets
+% kompakte mengen sind, somit kann es keinen homöomorphismus geben
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "main"
+%%% End:

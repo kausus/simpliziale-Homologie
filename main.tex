@@ -1,4 +1,4 @@
-\documentclass[paper=a4, twoside=false, twocolumn=false, ngerman, fontsize=10pt, titlepage=false, parskip=half, abstract=false,toc=listof]{scrartcl}
+\documentclass[paper=a4, twoside=false, twocolumn=false, ngerman, fontsize=10pt, titlepage=false, parskip=half, abstract=false,toc=flat,left,listof,indent]{scrartcl}
 
 %\makeindex
 
@@ -42,13 +42,20 @@
 
 %inhaltsverzeichnis
 \tableofcontents
-
+\pagebreak
 %gesamt content
 
+% konventionen
+\input{chap0.tex}
 
-%% mit neuen dokument und input
+%% kapitel über simplizies
 \input{chap1.tex}
 
+%% kapitel über geometrische simplizialkomplexe und simplizialabbildunge
+\input{chap2.tex}
+
+%% kapitel über abstrakte simplizialkomplexe
+\input{chap3.tex}
 %\printindex
 
 %\index{marker}
