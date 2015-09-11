@@ -21,12 +21,13 @@ Homologiegruppen berechnen kann.
 Wir definieren zunächst grundlegende Begriffe zu den Simplizialen.
 
 \begin{Def}[Geometrisch unabhängig\footnote{Oder auch affine Unabhängigkeit}]
-  Eine Menge $\{ a_0\ldots a_n \} \subset \R^N$ heißt \textbf{geometrisch %
-  unabhängig}, falls das System von Vektoren
+  Eine Menge endliche $\{ a_0\ldots a_n \} \subset \R^N$ heißt
+  \textbf{geometrisch unabhängig}, falls das System von Vektoren
   \begin{gather*}
     a_0 - a_1 , \ldots , a_0 - a_n
   \end{gather*}
   unabhängig im Sinne der Linearen Algebra ist.
+
 \end{Def}
 
 \begin{Lem}
@@ -144,7 +145,20 @@ Simplizes und deren geometrischen Objekten bewiesen.
 %TODO: definiere die simpliziale auch für \R^J für J eine beliebige Menge
 %also auch für unendliche dimension
 
-
+\begin{Bem}
+  Für eine beliebige Menge $J$ ist der Raum der Funktionen $\R^J$ ein
+  $\R$-Vektorraum, dessen Elemente als Tupel $(x_j)_{j \in J}$
+  geschrieben werden. Betrachte den Untervektorraum $\E^J \coloneqq \bigoplus\limits_{j \in J} \R$ der
+  Elemente die bis auf endlich viele von Null verschieden
+  sind. Definiere für zwei Elemente $x,y \in \E^J$ eine Metrik
+  \begin{gather*}
+    \gr{x-y} \coloneqq \sup \set{ \gr{x_j - y_j } }{ j \in J}.
+  \end{gather*}
+  Die obigen Definitionen und Aussagen funktionieren ebenso falls man
+  die Simpliziale indem Raum $\E^J$ betrachtet, somit ist sind 
+  auch geometrische Simpliziale der Kardinalität größer als der von $\R$
+  möglich.
+\end{Bem}
 
 
 
