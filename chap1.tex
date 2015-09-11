@@ -16,9 +16,9 @@
 % schlagwort verzeichnis
 %TODO: folgende begriffe müssen definiert, verwendet und verstanden sein: simplex, seite, eckmenge, dimension, simplizialkomplex, n-skelett, geometrischer simplizialkomplex, geometrische realisierung, schwache topologie, triangulierbar, simpliziale abbildung, baryzentrische koordinaten, 
 
-\section{Geometrische Simplizialkomplexe}
+\section{Simplizialkomplexe}
 
-simpliziale sind rein kombinatorische objekte, mit denen man auf gute
+Simpliziale sind rein kombinatorische objekte, mit denen man auf gute
 art und weise topologische räume beschreiben kann, insbesondere ihre
 homologiegruppen ausrechnen kann.
 
@@ -36,18 +36,28 @@ Wir definieren zunächst grundlegende Begriffe zu den Simplizialen.
   unabhängig im Sinne der Linearen Algebra ist.
 \end{Def}
 
-% \begin{Bem}
-%	Man nennt die geometrische Unabhängigkeit auch affine Unabhängigkeit
-%\end{Bem}
+\begin{Lem}
+  Teilsysteme von geometrisch unabhängigen Systemen sind geometrisch
+  unabhängig.
+  \begin{proof}
+    Sei $\{ a_0 , \ldots , a_n \}$ ein geometrisch unabhängiges System und hierzu 
+    ein Teilsystem $\{ a_{i_0},\ldots,a_{i_r} \}$. 
+    Sei \OE~ $i_0 = 0$ , sonst nummeriere um oder betrachte ein anderes $i_j$, so dass für dieses $i_j$ das ursprüngliche geometrisch unabhängige System der Punkt $a_{i_j}$ als Basispunkt gewählt werden kann. Nun ist nach Definition $ a_0 - a_1 , \ldots , a_0 - a_n$ linear unabhängig und somit auch das Teilsystem $ a_0 - a_ {i_1}, \ldots , a_0 - a_{i_r}$.
+    Damit folgt die Behauptung.
+  \end{proof}
+\end{Lem}
+
+In der nächsten Definition wird das diesem Vortrag zugrundeliegende Objekt von Interesse definiert.
 
 \begin{Def}[geometrischer $n$-Simplex]
-  Zu einem geometrisch unabhängigen System \gs, nennt man die Menge
+  Zu einem geometrisch unabhängigen System \gs $\subset \R^N$, nennt man die Menge
   \begin{gather*}
-    (a_0 \ldots a_n) = \left\{ \sum\limits_{i=0}^n t_i a_i \; \Big|
-      \; % finde bessere
-      t_i \in [0,1] \; , \; \sum\limits_{i=0}^n t_i = 1 \right\}
+    (a_0 \ldots a_n) 
+      =
+    \set{\sum\limits_{i=0}^n t_i a_i \in \R^N}{ t_i \in [0,1] ~,~ \sum\limits_{i=0}^n t_i = 1}
   \end{gather*}
-  den (geometrischen) $n$-Simplex und schreibt $\sigma^n$.
+  den (geometrischen) $n$-Simplex und schreibt $\sigma^n$. Als Konvention 
+  ist $\sigma^n$ stets in den $\R^N$ eingebettet für $n \leq N$.
 \end{Def}
 
 %TODO: erstes Beispiel zu einem simplex, zeiche in tikz \sigma^k für k =0,1,2,3
@@ -55,15 +65,29 @@ Wir definieren zunächst grundlegende Begriffe zu den Simplizialen.
 Nach diesen ersten einfachen Beispielen definiere weitere wichtige
 Begriffsbildungen.
 
-\begin{Def}[Baryzentrische Koordinaten, Seite]
-  Es bezeichnet $x$ einen Punkt aus einem geometrischen Simplex
-  $\sigma$. In der Darstellung $x = \sum\limits_{i=0}^n t_i a_i$ nennt
-  man die $t_i$, die \textbf{baryzentrischen} Koordinaten.
+\begin{Lem}[Baryzentrische Koordinaten, Seite]
+  \normalfont Es bezeichnet $x$ einen Punkt aus einem geometrischen Simplex
+  $\sigma^n$. In der Darstellung $x = \sum\limits_{i=0}^n t_i a_i$ nennt
+  man die $t_i$, die \textbf{baryzentrischen} Koordinaten. Diese sind durch $x$
+  eindeutig bestimmt und als Funktionen $t_i : \sigma^n \rightarrow [0,1]$ stetig.
+  \begin{proof}
+  	Beweise zunächst die Eindeutigkeit über eine äquivalente Formulierung der
+  	geometrischen Unabhängigkeit 
+  	\begin{description}
+  		\item[Äquivalenz: ] Es gilt:
+	  		\begin{Beh}
+	  			bla
+	  		\end{Beh}
+  		\item[Eindeutigkeit: ] 
+  		\item[Stetigkeit: ]
+  	\end{description}
+  \end{proof}
 	
-  Eine Teilmenge eines Simplex, heißt \textbf{Seite} falls diese
-  wiederum einen Simplex bildet. Eine Seite heißt echt, falls sie
-  verschieden von $\sigma$ ist.
-\end{Def}
+	
+%  Eine Teilmenge eines Simplex, heißt \textbf{Seite} falls diese
+%  wiederum einen Simplex bildet. Eine Seite heißt echt, falls sie
+%  verschieden von $\sigma$ ist.
+\end{Lem}
 
 \begin{Def}[Eckmenge, Rand, Inneres]
   Sei $\sigma$ ein geometrischer $n$-Simplex, so definiere folgende
@@ -77,8 +101,10 @@ Begriffsbildungen.
       \partial\sigma = \bigcup \; \left\{ \tau \; \Big| \; \tau \text{
           ist echte Seite von } \sigma \right\}
     \end{gather*}
-  \item Das Innere Des Simplex ist
-    $\Int(\sigma) \coloneqq \sigma \setminus \partial\sigma$
+  \item Das Innere des Simplex ist die Menge
+    \begin{gather*}
+    	\Int(\sigma) \coloneqq \sigma \setminus \partial\sigma
+    \end{gather*}
   \end{enumerate}
 \end{Def}
 
@@ -111,8 +137,10 @@ Simplizes und deren geometrischen Objekten bewiesen.
   \end{proof}
 \end{Satz}
 
+\subsection{geometrische Simplizalkomplexe}
 
-\subsection{Simplizialkomplex}
+
+\section{abstrakte Simplizialkomplexe}
 
 Definiere nun auf sinnvolle art und Weise eine Ansammlung von
 geometrischen Simplizialen, einen (geometrischen) Simplizialkomplex.
