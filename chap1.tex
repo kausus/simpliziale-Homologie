@@ -16,13 +16,13 @@
 
 Simpliziale sind rein kombinatorische Objekte, mit denen man auf gute
 art und Weise topologische Räume beschreiben kann, insbesondere ihre
-Homologiegruppen ausrechnen kann.
+Homologiegruppen berechnen kann.
 
 Wir definieren zunächst grundlegende Begriffe zu den Simplizialen.
 
 \begin{Def}[Geometrisch unabhängig\footnote{Oder auch affine Unabhängigkeit}]
-  Eine Menge $\{ a_0\ldots a_n \} \subset \R^N$ heißt geometrisch
-  unabhängig, falls das System von Vektoren
+  Eine Menge $\{ a_0\ldots a_n \} \subset \R^N$ heißt \textbf{geometrisch %
+  unabhängig}, falls das System von Vektoren
   \begin{gather*}
     a_0 - a_1 , \ldots , a_0 - a_n
   \end{gather*}
@@ -31,12 +31,17 @@ Wir definieren zunächst grundlegende Begriffe zu den Simplizialen.
 
 \begin{Lem}
   Teilsysteme von geometrisch unabhängigen Systemen sind geometrisch
-  unabhängig.
+  unabhängig und für ein Menge $\{ a_0 , \ldots , a_n \} \subset \R^N$ sind folgende Aussagen zueinander äquivalent:
+  \begin{enumerate}[i)]
+  	\item $\{ a_0 , \ldots , a_n \}$ ist geometrische unabhängig
+  	\item Für $\sum\limits_{i=0}^n t_i = 0$ und $\sum\limits_{i=0}^n t_i a_i = 0$ folgt stets $t_i = 0$ für alle $i \in \{ 0,\ldots,n\}$
+  \end{enumerate}
   \begin{proof}
     Sei $\{ a_0 , \ldots , a_n \}$ ein geometrisch unabhängiges System und hierzu 
     ein Teilsystem $\{ a_{i_0},\ldots,a_{i_r} \}$. 
     Sei \OE~ $i_0 = 0$ , sonst nummeriere um oder betrachte ein anderes $i_j$, so dass für dieses $i_j$ das ursprüngliche geometrisch unabhängige System der Punkt $a_{i_j}$ als Basispunkt gewählt werden kann. Nun ist nach Definition $ a_0 - a_1 , \ldots , a_0 - a_n$ linear unabhängig und somit auch das Teilsystem $ a_0 - a_ {i_1}, \ldots , a_0 - a_{i_r}$.
-    Damit folgt die Behauptung.
+    Für die Äquivalenz:
+%TODO: beweis noch fertig machen
   \end{proof}
 \end{Lem}
 
@@ -136,7 +141,8 @@ Simplizes und deren geometrischen Objekten bewiesen.
   \end{proof}
 \end{Satz}
 
-
+%TODO: definiere die simpliziale auch für \R^J für J eine beliebige Menge
+%also auch für unendliche dimension
 
 
 

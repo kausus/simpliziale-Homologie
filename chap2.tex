@@ -1,20 +1,107 @@
 % geometrische simplizialkomplexe
 
-\section{geometrische Simplizalkomplexe}
+\section{Geometrische Simplizalkomplexe}
+
+%TODO: bessere zusammenfassung schreiben
+Die geometrischen Simpliziale allein reichen nicht aus um beliebige 
+Teilmenge des $\R^N$ zu beschreiben, es ist noch notwendig eine Ansammlung
+von Simpliziale auf richtige art und Weise beschreiben zu können. Hierzu
+sind die Simplizialkomplexe da.
 
 \begin{Def}[Geometrischer Simplizialkomplex]
-	Wir nennen eine Menge $\Delta$ von (geometrischen) Simplizialen einen \textit{geometrischen Simplizialkomplex}
+	Wir nennen eine Menge $\Delta$ von (geometrischen) Simplizialen einen \textbf{geometrischen Simplizialkomplex}
 	falls er folgende Bedingungen erfüllt:
 	\begin{enumerate}[(K1)]
 		\item $\emptyset \in \Delta$
 		\item Für jeden Simplex $\sigma \in \Delta$ ist auch jede Seite
 		$\tau$ in $\Delta$ enthalten
 		\item Mit allen Simplexen $\sigma, \sigma' \in \Delta$ ist auch ihr
-		Schnitt in $\Delta$ enhalten.
+		Schnitt $\sigma \cap \sigma'$ in $\Delta$ enhalten.
 	\end{enumerate}
 \end{Def}
 
-%definitionen: unterkomplex, geometrische realisierung, k-skelett, schwache topologie, simpliziale abbildung
+\begin{Def}[Teilkomplex, $k$-Skelett, Dimension]
+	Sei $\Delta$ ein Simplizialkomplex, so definiere
+	\begin{enumerate}[1)]
+		\item Eine Teilmenge $\Delta'$ von $\Delta$ heißt Teilkomplex, falls
+		$\Delta'$ diese Menge wiederum einen Simplizialkomplex bildet.
+		\item Die Dimension eines Simplizalkomplexes ist wie folgt
+		definiert:
+		\begin{gather*}
+			\dim(\Delta) \coloneqq \sup \left\{ \dim(\sigma) \; \Big| \;
+			\sigma \in \Delta \right\}
+		\end{gather*}
+		die Dimension kann auch unendlich sein.
+		\item Das $k$-Skelett $\Delta^k$ ist der Teilkomplex aller Simplizes
+		mit der Dimension kleiner gleich $k$.  Ein Spezialfall davon ist
+		die Eckmenge, dies entspr
+	\end{enumerate}
+\end{Def}
+
+%TODO: zeige das dies topologie definiert
+\begin{Def}[schwache Topologie]
+	Sei $\Delta$ ein Simplizalkomplex, dann definiere die
+	\textbf{schwache Topologie} auf der geometrischen Realisierung $| \Delta |$,
+	durch folgende Charakterisierung der abgeschlossenen Mengen.
+	\begin{gather*}
+		A \subset \Delta \text{ abgeschlossen } :\Leftrightarrow A \cap
+		\sigma \text{ abgeschlossen für alle } \sigma \in \Delta
+	\end{gather*}
+	Wobei auf der rechten Seite die Menge abgeschlossen bezüglich der
+	Standardtopologie auf dem $\R^{\dim(\Delta)}$ ist.
+\end{Def}
+
+\begin{Lem}
+	Die schwache Topologie ist feiner als die Standardtopologie und
+	falls $\Delta$ endlich ist stimmen Standardtopologie, schwache
+	Topologie auf $\gr{\Delta}$ überein.
+	\begin{proof}
+		Sei \OE\; $\gr{\Delta} \subset \R^N$ und $A \subset \gr{\Delta}$
+		eine abgeschlossene Menge, so existiert ein $B \subset \R^N$
+		abgeschlossen so dass $A = B \cap \gr{\Delta}$ gilt. Nun gilt für
+		jeden Simplex $\sigma \in \Delta$ folgende Gleichheit:
+		$A \cap \sigma = B \cap \gr{\Delta} \cap \sigma = B \cap \sigma$
+		und somit ist $A \cap \sigma$ abgeschlossen bezüglich $\sigma$,
+		also abgeschlossen bezüglich der schwachen Topologie.
+		
+		Falls nun $\Delta$ eine endliche Menge von Simplizes ist, gilt für
+		eine abgeschlossene Menge $A$ bezüglich $\gr{\Delta}$ das
+		$A \cap \sigma$ abgeschlossen in $\sigma$ ist und durch
+		Vereinigung über die endlichen vielen Simplizes die
+		Abgeschlossenheit bezüglich der Standardtopologie erreicht wird.
+	\end{proof}
+\end{Lem}
+
+\begin{Bem}
+	Die schwache Topologie ist im allgemeinen feiner als die
+	Spurtopologie auf $\gr{\Delta}$ bezüglich dem $\R^N$. Betrachte
+	hierzu den folgenden Simplizialkomplex,
+	$\Delta \coloneqq \set{ \{t\} }{t \in \R}$.  Hierbei ist die
+	Geometrische Realisierung gleich zu $\R$, aber die schwache
+	Topologie entspricht der Diskreten, denn für eine beliebige
+	Teilmenge von $A \subset \R$ ist der Schnitt $A \cap \{ t \}$ für
+	ein beliebigen $0$-Simplex aus $\Delta$ gleich dem Simplex selbst,
+	somit stets abgeschlossen, also ist jede Teilmenge abgeschlossen und
+	damit die schwache Topologie auf der Realisierung der diskreten und
+	damit ungleich der Standardtopologie auf $\R$.
+\end{Bem}
+
+%TODO: topologie von sim komplexen ist hausdorffsch
+
+%TODO: ziegler - literatur : seite 11 (in reader abgelesen)
+
+
+
+% \begin{Def}[Topologie auf dem Träger eines Simplizialkomplexes]
+%   Eine Menge $U \subset \left| \Delta \right|$ ist genau dann offen,
+%   falls für jeden Simplex $\sigma \in \Delta$ die Menge
+%   $U \cap \sigma$ offen im unterliegenden Raum $\R^n$ ist.
+% %	also bezüglich der spurtopologie auf \sigma
+% % sie elementsOfalgtop seite 111 , review of quotient spaces, für andere beschreibung der topologie
+% \end{Def}
+
+
+%definitionen: unterkomplex, geometrische realisierung, k-skelett, schwache topologie, simpliziale abbildung, simplizialer iso, 
 
 %aussagen: 	-	für endliche komplexe stimmen topologien überein
 %			-	|\Delta| ist hausdorffsch
@@ -25,7 +112,7 @@
 
 \begin{Def}[Geometrische Realisierung]
 	Die Geometrische Realisierung eines Simplizalkomplexes $\Delta$ ist
-	die Vereinigung all seiner Elemente, also
+	die Vereinigung all seiner Elemente.
 	\begin{gather*}
 	|\Delta| \coloneqq \bigcup \left\{ \sigma \; \Big| \; \sigma \in
 	\Delta \right\} \subset \R^{\dim(\Delta)}

@@ -1,44 +1,39 @@
 %% abstrakte simplizialkomplexe
 
-\section{abstrakte Simplizialkomplexe}
+\section{Abstrakte Simplizialkomplexe}
 
-Definiere nun auf sinnvolle art und Weise eine Ansammlung von
-geometrischen Simplizialen, einen (geometrischen) Simplizialkomplex.
+Für topologische Anwendung ist der $\R^N$ in vielen Fällen zu konkret und 
+unnötig. Deshalb lassen die die Simplizialkomplexe unabhängig vom 
+euklidischen Raum definieren, diese abstrakten Simplizialkomplexe 
+werden in diesem Abschnitt behandelt.
 
 \begin{Def}
-	Eine Menge $\Delta$ von (geometrischen) Simplizialen heißt
-	\textbf{Simplizialkomplex} falls die folgenden Bedingungen erfüllt
-	sind.
-	\begin{enumerate}[1)]
-		\item $\emptyset \in \Delta$
-		\item Mit einem Simplex $\sigma$ aus $\Delta$ sind auch alle Seiten
-		aus $\Delta$.
-		\item Für je zwei Simplizies aus $\Delta$ ist auch ihr Schnitt
-		wiederum in $\Delta$.
-	\end{enumerate}
+	Eine beliebige, nichtleere Menge $\Delta$ heißt \textbf{abstrakter Simplizialkomplex}
+	falls mit jedem Element aus $\Delta$ auch jedes Teilmenge aus diesem Element in $\Delta$
+	enthalten ist. Also folgende Bedingung gilt:
+	\begin{gather*}
+		\sigma \in \Delta \text{ und } \tau \subset \sigma \Rightarrow \tau \in \Delta
+	\end{gather*}
 \end{Def}
+
+\begin{Bsp}
+	\begin{enumerate}[\textbullet]
+		\item Für einen geometrischer Simplizial $\sigma$ ist die Menge
+			all seiner Seiten ein abstrakter Simplizalkomplex
+		\item Die Menge $\Delta = \sset{%
+			 \sset{a,b},\sset{a,c},%
+			 \sset{b,c},\sset{a},\sset{b},\sset{c},\emptyset}$ ist ein Beispiel
+		\item Für eine beliebige Menge ist die Potenzmenge stets ein abstrakter
+			Simplizialkomplex
+		\item Ein ungerichteter Graph $G=(V,K)$ mit $V$ die Eckmenge und $K$ die Kanten ist ein abstrakter Simplizialkomplex
+	\end{enumerate}
+\end{Bsp}
 
 % TODO: zeige das für ein element aus \bigcup K ein eindeutiges
 % Element aus K existiert so dass das element aus \Int dieses element
 % ist
 
-\begin{Def}[Teilkomplex, $k$-Skelett, Dimension]
-	Sei $\Delta$ ein Simplizialkomplex, so definiere
-	\begin{enumerate}[1)]
-		\item Eine Teilmenge $\Delta'$ von $\Delta$ heißt Teilkomplex, falls
-		$\Delta'$ diese Menge wiederum einen Simplizialkomplex bildet.
-		\item Die Dimension eines Simplizalkomplexes ist wie folgt
-		definiert:
-		\begin{gather*}
-		\dim(\Delta) \coloneqq \sup \left\{ \dim(\sigma) \; \Big| \;
-		\sigma \in \Delta \right\}
-		\end{gather*}
-		die Dimension kann auch unendlich sein.
-		\item Das $k$-Skelett $\Delta^k$ ist der Teilkomplex aller Simplizes
-		mit der Dimension kleiner gleich $k$.  Ein Spezialfall davon ist
-		die Eckmenge, dies entspr
-	\end{enumerate}
-\end{Def}
+
 
 
 % TODO: eckmenge, k-skelett dimension, n-simplex(kurznotation),
@@ -50,67 +45,6 @@ geometrischen Simplizialen, einen (geometrischen) Simplizialkomplex.
 
 
 
-%TODO: zeige das dies topologie definiert
-\begin{Def}[schwache Topologie]
-	Sei $\Delta$ ein Simplizalkomplex, dann definiere die
-	\textbf{schwache Topologie} auf der geometrischen Realisierung $| \Delta |$,
-	durch folgende Charakterisierung der abgeschlossenen Mengen.
-	\begin{gather*}
-	A \subset \Delta \text{ abgeschlossen } :\Leftrightarrow A \cap
-	\sigma \text{ abgeschlossen für alle } \sigma \in \Delta
-	\end{gather*}
-	Wobei auf der rechten Seite die Menge abgeschlossen bezüglich der
-	Standardtopologie auf dem $\R^{\dim(\Delta)}$ ist.
-\end{Def}
-
-\begin{Lem}
-	Die schwache Topologie ist feiner als die Standardtopologie und
-	falls $\Delta$ endlich ist stimmen Standardtopologie, schwache
-	Topologie auf $\gr{\Delta}$ überein.
-	\begin{proof}
-		Sei \OE\; $\gr{\Delta} \subset \R^N$ und $A \subset \gr{\Delta}$
-		eine abgeschlossene Menge, so existiert ein $B \subset \R^N$
-		abgeschlossen so dass $A = B \cap \gr{\Delta}$ gilt. Nun gilt für
-		jeden Simplex $\sigma \in \Delta$ folgende Gleichheit:
-		$A \cap \sigma = B \cap \gr{\Delta} \cap \sigma = B \cap \sigma$
-		und somit ist $A \cap \sigma$ abgeschlossen bezüglich $\sigma$,
-		also abgeschlossen bezüglich der schwachen Topologie.
-		
-		Falls nun $\Delta$ eine endliche Menge von Simplizes ist, gilt für
-		eine abgeschlossene Menge $A$ bezüglich $\gr{\Delta}$ das
-		$A \cap \sigma$ abgeschlossen in $\sigma$ ist und durch
-		Vereinigung über die endlichen vielen Simplizes die
-		Abgeschlossenheit bezüglich der Standardtopologie erreicht wird.
-	\end{proof}
-\end{Lem}
-
-\begin{Bem}
-	Die schwache Topologie ist im allgemeinen feiner als die
-	Spurtopologie auf $\gr{\Delta}$ bezüglich dem $\R^N$. Betrachte
-	hierzu den folgenden Simplizialkomplex,
-	$\Delta \coloneqq \set{ \{t\} }{t \in \R}$.  Hierbei ist die
-	Geometrische Realisierung gleich zu $\R$, aber die schwache
-	Topologie entspricht der Diskreten, denn für eine beliebige
-	Teilmenge von $A \subset \R$ ist der Schnitt $A \cap \{ t \}$ für
-	ein beliebigen $0$-Simplex aus $\Delta$ gleich dem Simplex selbst,
-	somit stets abgeschlossen, also ist jede Teilmenge abgeschlossen und
-	damit die schwache Topologie auf der Realisierung der diskreten und
-	damit ungleich der Standardtopologie auf $\R$.
-\end{Bem}
-
-
-
-% \begin{Def}[Topologie auf dem Träger eines Simplizialkomplexes]
-%   Eine Menge $U \subset \left| \Delta \right|$ ist genau dann offen,
-%   falls für jeden Simplex $\sigma \in \Delta$ die Menge
-%   $U \cap \sigma$ offen im unterliegenden Raum $\R^n$ ist.
-% %	also bezüglich der spurtopologie auf \sigma
-% % sie elementsOfalgtop seite 111 , review of quotient spaces, für andere beschreibung der topologie
-% \end{Def}
-
-%TODO: topologie von sim komplexen ist hausdorffsch
-
-%TODO: ziegler - literatur : seite 11 (in reader abgelesen)
 
 
 % abzählbare mengen können nur durch 0-simplexe trianguliert werden
