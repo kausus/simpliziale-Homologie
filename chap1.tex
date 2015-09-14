@@ -30,19 +30,35 @@ Wir definieren zunächst grundlegende Begriffe zu den Simplizialen.
 
 \end{Def}
 
-\begin{Lem}
+Zeige für spätere Verwendung ein Hilfslemma zur obigen Definition.
+
+\begin{Lem}\label{lem:1}
   Teilsysteme von geometrisch unabhängigen Systemen sind geometrisch
   unabhängig und für ein Menge $\{ a_0 , \ldots , a_n \} \subset \R^N$ sind folgende Aussagen zueinander äquivalent:
   \begin{enumerate}[i)]
-  	\item $\{ a_0 , \ldots , a_n \}$ ist geometrische unabhängig
+  	\item $\{ a_0 , \ldots , a_n \}$ ist geometrisch unabhängig
   	\item Für $\sum\limits_{i=0}^n t_i = 0$ und $\sum\limits_{i=0}^n t_i a_i = 0$ folgt stets $t_i = 0$ für alle $i \in \{ 0,\ldots,n\}$
   \end{enumerate}
   \begin{proof}
     Sei $\{ a_0 , \ldots , a_n \}$ ein geometrisch unabhängiges System und hierzu 
     ein Teilsystem $\{ a_{i_0},\ldots,a_{i_r} \}$. 
     Sei \OE~ $i_0 = 0$ , sonst nummeriere um oder betrachte ein anderes $i_j$, so dass für dieses $i_j$ das ursprüngliche geometrisch unabhängige System der Punkt $a_{i_j}$ als Basispunkt gewählt werden kann. Nun ist nach Definition $ a_0 - a_1 , \ldots , a_0 - a_n$ linear unabhängig und somit auch das Teilsystem $ a_0 - a_ {i_1}, \ldots , a_0 - a_{i_r}$.
-    Für die Äquivalenz:
-%TODO: beweis noch fertig machen
+    Für den zweiten Teil des Beweises nutze folgende Äquivalenzen
+%    \begin{description}
+%    	\item[$i) \Rightarrow ii):$] 
+%    	\item[$i) \Leftarrow ii):$]  bla
+		\begin{align*}
+			\forall t_i =0 
+				\Leftrightarrow
+			&\sum\limits_{i=1}^n t_i(a_o - a_i) = 0\\
+				\Leftrightarrow
+			&\sum\limits_{i=1}^n t_i a_i = a_0 \cdot \sum\limits_{i=1}^n t_i\\
+				\Leftrightarrow
+			&\sum\limits_{i=1}^n t_i a_i = - a_0 t_0\\
+				\Leftrightarrow
+			&\sum\limits_{i=0}^n t_i a_i = 0
+		\end{align*}
+%TODO: besser strukturieren
   \end{proof}
 \end{Lem}
 
@@ -51,34 +67,57 @@ In der nächsten Definition wird das diesem Vortrag zugrundeliegende Objekt von 
 \begin{Def}[geometrischer $n$-Simplex]
   Zu einem geometrisch unabhängigen System \gs $\subset \R^N$, nennt man die Menge
   \begin{gather*}
-    (a_0 \ldots a_n) 
-      =
     \set{\sum\limits_{i=0}^n t_i a_i \in \R^N}{ t_i \in [0,1] ~,~ \sum\limits_{i=0}^n t_i = 1}
   \end{gather*}
-  den (geometrischen) $n$-Simplex und schreibt $\sigma^n$. Dies ist die Menge aller Konvexkombinationen des Systems \gs. Als Konvention 
-  ist $\sigma^n$ stets in den $\R^N$ eingebettet für $n \leq N$.
+  den (geometrischen) $n$-Simplex und schreibt $a_0 \ldots a_n$ oder $\sigma^n$ mit $n$ die Dimension des Simplex. Dies ist die Menge aller Konvexkombinationen des Systems \gs. Als Konvention 
+  ist der Simplex stets in den $\R^N$ eingebettet für ein $N \geq n$.
 \end{Def}
-
+ 
 %TODO: erstes Beispiel zu einem simplex, zeiche in tikz \sigma^k für k =0,1,2,3
 
 Nach diesen ersten einfachen Beispielen definiere weitere wichtige
-Begriffsbildungen.
+Begriffe.
 
 \begin{Lem}[Baryzentrische Koordinaten]
   \normalfont Es bezeichnet $x$ einen Punkt aus einem geometrischen Simplex
   $\sigma^n$. In der Darstellung $x = \sum\limits_{i=0}^n t_i a_i$ nennt
   man die $t_i$, die \textbf{baryzentrischen} Koordinaten. Diese sind durch $x$
-  eindeutig bestimmt und als Funktionen $t_i : \sigma^n \rightarrow [0,1]$ stetig.
+  eindeutig bestimmt und als Funktionen $t_i : \sigma^n \subset \R^N \rightarrow [0,1]$ stetig.
   \begin{proof}
   	Beweise zunächst die Eindeutigkeit über eine äquivalente Formulierung der
   	geometrischen Unabhängigkeit 
   	\begin{description}
-  		\item[Äquivalenz: ] Es gilt:
-	  		\begin{Beh}
-	  			bla
-	  		\end{Beh}
-  		\item[Eindeutigkeit: ] 
-  		\item[Stetigkeit: ]
+  		\item[Eindeutigkeit: ] Seien zwei Darstellungen 
+	  		\begin{gather*}
+	  		x = \sum\limits_{i=0}^n t_i a_i = \sum\limits_{i=0}^n s_i a_i \text{ mit }
+	  		\sum\limits_{i=0}^n t_i = \sum\limits_{i=0}^n s_i = 1
+	  		\end{gather*}
+		  	gegeben, so folgt durch umformen
+		  	\begin{gather*}
+		  		\sum\limits_{i=0}^n (t_i - s_i ) \cdot a_i = 0 \text{ und }
+		  		\sum\limits_{i=0}^n t_i - s_i = 0.
+		  	\end{gather*}
+		  	Da $\sset{a_0 , \ldots , a_n}$ ein geometrisch unabhängiges System ist, folgt durch \cref{lem:1} das $t_i - s_i = 0$,
+		  	also die Koordinaten eindeutig sind.
+  		\item[Stetigkeit: ] Aufgrund der Eindeutigkeit der baryzentrischen
+	  		Koordinaten, sind die Abbildungen $t_i (x)$ wohldefiniert.
+		  	Definiere die Vektoren $b_i \coloneqq a_i - a_0$ und
+		  	erweitere das linear unabhängige System $\set{ b_i }{ 1 \leq i \leq n}$ zu einer Basis	vom $\R^N$. Schreibe hierfür $\sset{ b_i }$.	Betrachte nun $x - a_0$
+%	TODO: auf diegleichung mit cref referenzieren
+		  	\begin{align*}
+		  		x - a_0 &= \sp{0}{n} t_i a_i - 1 \cdot a_0\\
+				  		&= \sp{0}{n} t_i a_i - \sp{0}{n} t_i a_0\\
+				  		&= \sp{1}{n} t_i \cdot (a_i - a_0)\\
+				  		&= \sp{1}{n} t_i b_i\\
+				  		&= \sp{1}{n} t_i b_i + \sp{n+1}{N} 0 \cdot b_i
+		  	\end{align*}
+		  	Schreibe dies nun als ein lineares Gleichungssystem, mit
+		  	$x=(x_1,\ldots,x_N),a_i=(a_i^1,\ldots,a_i^N),t=(t_1,\ldots,t_n,0,\ldots,0),B=(b_i^j)_{i,j}$,
+		  	so schreibt sich die obige Gleichung wie folgt: $x-a_0 = B\cdot t$. Durch umformen nach $t$, also dem invertieren der Matrix $B$ 
+		  	wird ersichtlich weshalb die $t_i(x)$ für $1 \leq i \leq n$
+		  	stetige Funktionen sind. Mit $t_0 = 1 - \sp{1}{n}$ ist die
+		  	Behauptung gezeigt.
+% BEMERKUNG: dies zeigt auch die eindeutigkeit der t_i, da lineares gleichungssystem, eindeutige lösung
   	\end{description}
   \end{proof}
 	
@@ -133,12 +172,23 @@ Simplizes und deren geometrischen Objekten bewiesen.
     $\{ a_0 \ldots a_n \}$ identisch mit dem Simplex $\sigma$
   \item Das Innere $\Int(\sigma)$ ist offen und konvex
   \item Es gilt $\overline{\Int(\sigma)} = \sigma$
-  \item Es gibt einen Homöomorphismus $\sigma \simeq \Bn$ der das
+  \item Es gibt einen Homöomorphismus $\sigma \simeq \Bn$, der das
     Innere $\Int{\sigma}$ auf die $\Sp^{n-1}$ abbildet
   \end{enumerate}
   \begin{proof}
-    foo
-%TODO: noch zu beweisen
+	\begin{enumerate}[a)]
+		\item 
+		\begin{description}
+% TODO: bessere anführungszeichen für hin und rückrichtung
+		\item[\glqq $\Rightarrow$\grqq] Sei $x$ im Rand $\partial\sigma$, so liegt der Punkt in einer echten Seite $\tau$ von $\sigma$. Sei \OE~ $\tau = a_0 \ldots a_m$ für ein $m < n$. Dann hat $x$ eine eindeutige baryzentrische Darstellung bezüglich des Simplex $\sigma$, aber auch eine eindeutige Darstellung bezüglich der Seite $\tau$, also existieren $t_i,s_i$, mit
+		\begin{gather*}
+			x = \sp{0}{m} s_i a_i = \sp{0}{n} t_i a_i .
+		\end{gather*}
+		Durch die Eindeutigkeit der Darstellung folgt unmittelbar das ein 
+		$0 \leq i \leq n$ existieren muss, so dass $t_i = 0$ gilt.
+		\item[\glqq $\Leftarrow$ \grqq] Sei 
+		\end{description}
+ 	\end{enumerate}
   \end{proof}
 \end{Satz}
 

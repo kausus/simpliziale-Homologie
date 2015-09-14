@@ -11,6 +11,8 @@
 %\usepackage[backend=biber,style=numeric-comp]{biblatex}
 %\bibliography{bib.bib}
 
+
+
 % %maths                                            
 \usepackage{amsmath, amsthm, amssymb, bm, bbm, mathtools, dsfont, mathrsfs}
 
@@ -29,6 +31,8 @@
 %   \proof[\ttfamily \scshape \large #1 (yes, ``#1'')]%
 % }{\endproof}
 
+%must be loaded as lastest
+\usepackage{cleveref}
                                                     
 %special mathsymbols                                
 \newcommand{\C}{\mathds{C}}                         
@@ -45,8 +49,7 @@
 % \Big| setzt
 \newcommand{\set}[2]{\left\{ #1 \; \Big| \; #2 \right\}}
 \newcommand{\sset}[1]{\left\{ #1 \right\}}
-%\newcommand{\dim}{Dim}            
-%\newcommand{\sup}{sup}
+\renewcommand{\sp}[2]{\sum\limits_{i=#1}^{#2}}
        
 
 
