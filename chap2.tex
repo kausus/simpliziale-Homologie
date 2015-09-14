@@ -4,9 +4,7 @@
 
 %TODO: bessere zusammenfassung schreiben
 Die geometrischen Simpliziale allein reichen nicht aus um beliebige 
-Teilmenge des $\R^N$ zu beschreiben bzw. modellieren, es ist noch notwendig eine Ansammlung
-von Simpliziale auf richtige art und Weise beschreiben zu können. Hierzu
-sind die Simplizialkomplexe da.
+Teilmenge des $\R^N$ zu beschreiben bzw. modellieren, es ist noch notwendig eine Ansammlung von Simplizialen auf eine richtige art und Weise beschreiben zu können. Hierzu sind die Simplizialkomplexe da.
 
 \begin{Def}[Geometrischer Simplizialkomplex]
 	Wir nennen eine Menge $\Delta$ von (geometrischen) Simplizialen einen \textbf{geometrischen Simplizialkomplex}
@@ -21,8 +19,8 @@ sind die Simplizialkomplexe da.
 \end{Def}
 
 \begin{Bsp}
-	\item Sei $\sigma^n \coloneqq \{ e_0 \ldots e_n \}$ der Standardsimplex.
-		Dieser bildet mit all seinen Seiten einen geometrischen Simplizialkomplex, schreibe hierfür $\Delta^n$.
+	\item Sei $\sigma^n \coloneqq  e_0 \ldots e_n $ der Standardsimplex.
+		Dieser bildet mit all seinen Seiten einen geometrischen Simplizialkomplex, schreibe für die Menge aller Seiten von $\sigma$ hierfür $\Delta^n$.
 %TODO: tikz bilder einfügen
 \end{Bsp}
 
@@ -62,13 +60,15 @@ sind die Simplizialkomplexe da.
 	\end{enumerate}
 \end{Def}
 
+
+
 Definiere auf dem zugrunde liegenden Raum eines Simplizialkomplexes eine 
 Topologie.
 
 %TODO: zeige das dies topologie definiert
 \begin{Def}[schwache Topologie]
 	Sei $\Delta$ ein Simplizalkomplex, dann definiere die
-	\textbf{schwache Topologie} auf der geometrischen Realisierung $| \Delta |$,
+	\textbf{schwache Topologie} auf dem Polytop $\gr{\Delta}$,
 	durch folgende Charakterisierung der abgeschlossenen Mengen.
 	\begin{gather*}
 		A \subset \Delta \text{ abgeschlossen } :\Leftrightarrow A \cap
@@ -103,13 +103,13 @@ Topologie.
   Die schwache Topologie ist im allgemeinen feiner als die
   Spurtopologie auf $\gr{\Delta}$ bezüglich dem $\R^N$. Betrachte
   hierzu den folgenden Simplizialkomplex,
-  $\Delta \coloneqq \set{ \{t\} }{t \in \R}$.  Hierbei ist die
-  Geometrische Realisierung gleich zu $\R$, aber die schwache
-  Topologie entspricht der Diskreten, denn für eine beliebige
-  Teilmenge von $A \subset \R$ ist der Schnitt $A \cap \{ t \}$ für
-  ein beliebigen $0$-Simplex aus $\Delta$ gleich dem Simplex selbst,
+  $\Delta \coloneqq \set{ \{t\} }{t \in \R}$.  Hierbei ist das
+  Polytop gleich zu $\R$, aber die schwache
+  Topologie entspricht der Diskreten. Für eine beliebige
+  Teilmenge von $A \subset \R$ ist der Schnitt $A \cap \{ t \}$ mit
+  einen beliebigen $0$-Simplex aus $\Delta$ gleich dem Simplex selbst oder die leere Menge,
   somit stets abgeschlossen, also ist jede Teilmenge abgeschlossen und
-  damit die schwache Topologie auf der Realisierung der diskreten und
+  damit die schwache Topologie auf dem Polytop der Diskreten und
   damit ungleich der Standardtopologie auf $\R$.
 \end{Bem}
 
@@ -128,6 +128,45 @@ Beweise nun einige Aussagen über die schwache Topologie.
 	\end{proof}
 \end{Satz}
 
+Definiere nun für spätere Zwecke Abbildung zwischen Simplizialkomplexen.
+
+\begin{Def}[Simpliziale Abbildung]
+	Seien zwei Simplizialkomplexe $\Delta, \Delta'$ gegeben, dann heißt
+	eine Abbildung $f: \Delta^{(0)} \rightarrow \Delta'^{(0)}$ zwischen
+	den Eckmengen eine \textbf{Simpliziale Abbildung}, falls für jeden
+	Simplex $a_0 \ldots a_n$ aus $\Delta$ die Ecken auf einen Simplex
+	$f(a_0) \ldots f(a_n)$ aus $\Delta'$ abgebildet werden. Man schreibt
+	dann $f: \Delta \rightarrow \Delta'$.
+\end{Def}
+
+%TODO: durch sim abbildung induzierte abbildung, verkettung von induzierten ist wieder eine induzierte, 
+
+\begin{Satz}
+	Seien $\Delta, \Delta'$ zwei Simplizialkomplexe und $f: \Delta \rightarrow \Delta'$ eine simpliziale Abbildung, dann gelten
+	folgende Aussagen
+	\begin{enumerate}[(1)]
+		\item $f(\Delta)$ ist ein Unterkomplex und das Urbild eines Unterkomplexes ist wieder ein Unterkomplex.
+%TODO: ist das bild eines echten unterkomplexes wieder ein unterkomplex, siehe trivial gegenbeispiele
+		\item Es gibt eine stetige Abbildung $\gr{f} : \gr{\Delta} \rightarrow \gr{\Delta'}$ die durch $f$ induziert wird und folgende Bedingung erfüllt:
+			\begin{gather*}
+				x = \sp{0}{n} t_i a_i \Rightarrow \gr{f}(x) = \sp{0}{n} t_i f(a_i) 
+			\end{gather*}
+			Man nennt $\gr{f}$ die induzierte simpliziale Abbildung.
+		\item Die Verkettung von induzierten simplizialen Abbildung ist wieder eine induzierte Simpliziale.
+		\item Falls $f$ eine bijektive simpliziale Abbildung ist, dann ist 
+			die induzierte Abbildung $\gr{f}$ ein Homöomorphismus. Wir nennen dann $\gr{f}$ einen simplizialen Homöomorphismus, bzw. Isomorphismus.
+		\item Sei $\Delta$ ein endlicher simplizialer Komplex, dann existiert eine natürliche Zahl $N$, so dass $\Delta$ isomorph zu 
+		einem Unterkomplex von $\Delta^N$ ist.
+	\end{enumerate}
+	\begin{proof}
+%TODO: noch zu bweisen, zu a) verwende coherent, 
+foo	
+	\end{proof}
+\end{Satz}
+
+\begin{Bsp}[Triangulation]
+%TODO: beweise folgende triangulierengen \S^2 \simeq \gr{(\Delta^3)^{(2)}}, behauptung diese aussage gilt für allgemeines n, also \S^n \simeq \gr{(\Delta^{n+1})^{(n)}}
+\end{Bsp}
 
 
 %definiere (lineare) simpliziale abbildung, isomorphismus von komplexen

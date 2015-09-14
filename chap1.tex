@@ -115,7 +115,7 @@ Begriffe.
 		  	$x=(x_1,\ldots,x_N),a_i=(a_i^1,\ldots,a_i^N),t=(t_1,\ldots,t_n,0,\ldots,0),B=(b_i^j)_{i,j}$,
 		  	so schreibt sich die obige Gleichung wie folgt: $x-a_0 = B\cdot t$. Durch umformen nach $t$, also dem invertieren der Matrix $B$ 
 		  	wird ersichtlich weshalb die $t_i(x)$ für $1 \leq i \leq n$
-		  	stetige Funktionen sind. Mit $t_0 = 1 - \sp{1}{n}$ ist die
+		  	stetige Funktionen sind. Mit $t_0 = 1 - \sp{1}{n} t_i$ ist die
 		  	Behauptung gezeigt.
 % BEMERKUNG: dies zeigt auch die eindeutigkeit der t_i, da lineares gleichungssystem, eindeutige lösung
   	\end{description}
@@ -176,7 +176,7 @@ Simplizes und deren geometrischen Objekten bewiesen.
     Innere $\Int{\sigma}$ auf die $\Sp^{n-1}$ abbildet
   \end{enumerate}
   \begin{proof}
-	\begin{enumerate}[a)]
+	\begin{enumerate}[a):]
 		\item 
 		\begin{description}
 % TODO: bessere anführungszeichen für hin und rückrichtung
@@ -186,8 +186,17 @@ Simplizes und deren geometrischen Objekten bewiesen.
 		\end{gather*}
 		Durch die Eindeutigkeit der Darstellung folgt unmittelbar das ein 
 		$0 \leq i \leq n$ existieren muss, so dass $t_i = 0$ gilt.
-		\item[\glqq $\Leftarrow$ \grqq] Sei 
+		\item[\glqq $\Leftarrow$ \grqq] Gilt nun umgekehrt $t_i = 0$ für
+			ein $0 \leq i \leq n$, liegt der Punkt $x$ in der echten Seite $a_0 \ldots a_{i-1} a_{i+1} \ldots a_n$ und damit im Rand.
 		\end{description}
+		\item Diese Aussage folgt unmittelbar als Negation von a) und 
+			der Tatsache das $\sigma = \partial\sigma \cup \Int(\sigma)$
+			eine disjunkte Vereinigung ist.
+		\item foo
+%TODO: beweis für kompaktheit und konvex, nutze affine transformation für obda \sigma ist e_0 ... e_n nutze basis, und t_i sind beschränkt
+		\item foo
+		\item foo
+		\item foo
  	\end{enumerate}
   \end{proof}
 \end{Satz}
