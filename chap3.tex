@@ -2,28 +2,28 @@
 
 \section{Abstrakte Simplizialkomplexe}
 
-Für topologische Anwendung ist der $\R^N$ in vielen Fällen zu konkret und 
-unnötig. Deshalb lassen die die Simplizialkomplexe unabhängig vom 
+Für topologische Anwendung ist der $\R^J$ in vielen Fällen zu konkret und 
+unnötig. Deshalb sollte man die Simplizialkomplexe unabhängig vom 
 euklidischen Raum definieren, diese abstrakten Simplizialkomplexe 
 werden in diesem Abschnitt behandelt.
 
 \begin{Def}
-	Eine beliebige, nichtleere Menge $\Delta$ heißt \textbf{abstrakter Simplizialkomplex}
-	falls mit jedem Element aus $\Delta$ auch jedes Teilmenge aus diesem Element in $\Delta$
-	enthalten ist. Also folgende Bedingung gilt:
+	Eine beliebige, nichtleere Menge $\Delta$ heißt \textbf{abstrakter Simplizialkomplex} oder auch nur abstrakter Komplex,
+	falls mit jedem Element aus $\Delta$ auch jede Teilmenge aus diesem Element in $\Delta$
+	enthalten ist und jedes Element eine endliche, nichtleere Menge ist. Oder in Formeln geschrieben
 	\begin{gather*}
-		\sigma \in \Delta \text{ und } \tau \subset \sigma \Rightarrow \tau \in \Delta
+		\sigma \in \Delta \text{ und } \emptyset \neq \tau \subset \sigma \Rightarrow \tau \in \Delta
 	\end{gather*}
 \end{Def}
 
 \begin{Bsp}
 	\begin{enumerate}[\textbullet]
-		\item Für einen geometrischer Simplizial $\sigma$ ist die Menge
+		\item Für einen geometrischen Komplex $\sigma$ ist die Menge
 			all seiner Seiten ein abstrakter Simplizalkomplex
 		\item Die Menge $\Delta = \sset{%
 			 \sset{a,b},\sset{a,c},%
-			 \sset{b,c},\sset{a},\sset{b},\sset{c},\emptyset}$ ist ein Beispiel
-		\item Für eine beliebige Menge ist die Potenzmenge stets ein abstrakter
+			 \sset{b,c},\sset{a},\sset{b},\sset{c}}$ ist ein Beispiel
+		\item Für eine beliebige Menge ist die Potenzmenge ohne die leere Menge stets ein abstrakter
 			Simplizialkomplex
 		\item Ein ungerichteter Graph $G=(V,K)$ mit $V$ die Eckmenge und $K$ die Kanten ist ein abstrakter Simplizialkomplex
 	\end{enumerate}
@@ -36,7 +36,7 @@ werden in diesem Abschnitt behandelt.
 
 
 
-% TODO: eckmenge, k-skelett dimension, n-simplex(kurznotation),
+% TODO: eckmenge, k-skelett dimension, n-simplex(kurznotation), simpliziale abbildung, isomorphismus, verbindung zu den geometrischen Komplexen, label und zweidim abwicklungen vom torus, zylinder, kugel und kleinsche flasche
 % unterkomplex,
 
 %einfache beispiele

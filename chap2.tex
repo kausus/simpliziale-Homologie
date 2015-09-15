@@ -3,24 +3,29 @@
 \section{Geometrische Simplizalkomplexe}
 
 %TODO: bessere zusammenfassung schreiben
-Die geometrischen Simpliziale allein reichen nicht aus um beliebige 
-Teilmenge des $\R^N$ zu beschreiben bzw. modellieren, es ist noch notwendig eine Ansammlung von Simplizialen auf eine richtige art und Weise beschreiben zu können. Hierzu sind die Simplizialkomplexe da.
+Die geometrischen Simpliziale allein reichen nicht aus um beliebige
+Teilmenge des $\R^N$ zu beschreiben bzw. modellieren, es ist noch
+notwendig eine Ansammlung von Simplizialen auf eine richtige Art und
+Weise beschreiben zu können. Hierzu sind die Simplizialkomplexe da.
 
 \begin{Def}[Geometrischer Simplizialkomplex]
-	Wir nennen eine Menge $\Delta$ von (geometrischen) Simplizialen einen \textbf{geometrischen Simplizialkomplex}
-	falls er folgende Bedingungen erfüllt:
-	\begin{enumerate}[(K1)]
-		\item $\emptyset \in \Delta$
-		\item Für jeden Simplex $\sigma \in \Delta$ ist auch jede Seite
-		$\tau$ in $\Delta$ enthalten
-		\item Mit allen Simplexen $\sigma, \sigma' \in \Delta$ ist auch ihr
-		Schnitt $\sigma \cap \sigma'$ in $\Delta$ enhalten.
-	\end{enumerate}
+  Wir nennen eine Menge $\Delta$ von (geometrischen) Simplizialen
+  einen \textbf{geometrischen Simplizialkomplex} oder einfach
+  geomerischer Komplex falls er folgende Bedingungen erfüllt:
+  \begin{enumerate}[(K1)]
+  \item $\emptyset \in \Delta$
+  \item Für jeden Simplex $\sigma \in \Delta$ ist auch jede Seite
+    $\tau$ in $\Delta$ enthalten
+  \item Mit allen Simplexen $\sigma, \sigma' \in \Delta$ ist auch ihr
+    Schnitt $\sigma \cap \sigma'$ in $\Delta$ enhalten.
+  \end{enumerate}
 \end{Def}
 
 \begin{Bsp}
-	\item Sei $\sigma^n \coloneqq  e_0 \ldots e_n $ der Standardsimplex.
-		Dieser bildet mit all seinen Seiten einen geometrischen Simplizialkomplex, schreibe für die Menge aller Seiten von $\sigma$ hierfür $\Delta^n$.
+  Sei $\sigma^n \coloneqq e_0 \ldots e_n $ der Standardsimplex.
+  Dieser bildet mit all seinen Seiten einen geometrischen
+  Simplizialkomplex, schreibe für die Menge aller Seiten von $\sigma$
+  hierfür $\Delta^n$.
 %TODO: tikz bilder einfügen
 \end{Bsp}
 
@@ -35,8 +40,8 @@ Teilmenge des $\R^N$ zu beschreiben bzw. modellieren, es ist noch notwendig eine
 %\end{Def}
 
 \begin{Def}[Unterkomplex, $k$-Skelett, Dimension, Polytop]
-  Sei $\Delta$ ein Simplizialkomplex, so definiere
-  \begin{enumerate}[1)]
+  Sei $\Delta$ ein geometrischer Komplex, so definiere
+  \begin{enumerate}[(1)]
   \item Eine Teilmenge $\Delta'$ von $\Delta$ heißt
     \textbf{Unterkomplex}, falls $\Delta'$ wiederum einen
     Simplizialkomplex bildet.
@@ -51,7 +56,7 @@ Teilmenge des $\R^N$ zu beschreiben bzw. modellieren, es ist noch notwendig eine
   \item Das \textbf{$k$-Skelett} $\Delta^{(k)}$ ist der Unterkomplex
     aller Simplizes mit der Dimension kleiner gleich $k$. Der
     Spezialfall $\Delta^{(0)}$ bezeichnet die Eckmenge von $\Delta$.
-  \item Das \textbf{Polytop} ist wie folgt definiert
+  \item Das \textbf{Polytop} von $\Delta$ ist wie folgt definiert
     \begin{gather*}
       |\Delta| \coloneqq \bigcup \left\{ \sigma \; \Big| \; \sigma \in
         \Delta \right\} \subset \R^{\dim(\Delta)}.
@@ -71,8 +76,9 @@ Topologie.
 	\textbf{schwache Topologie} auf dem Polytop $\gr{\Delta}$,
 	durch folgende Charakterisierung der abgeschlossenen Mengen.
 	\begin{gather*}
-		A \subset \Delta \text{ abgeschlossen } :\Leftrightarrow A \cap
-		\sigma \text{ abgeschlossen für alle } \sigma \in \Delta
+          A \subset \gr{\Delta} \text{ abgeschlossen }
+          :\Leftrightarrow A \cap \sigma \text{ abgeschlossen für alle
+          } \sigma \in \Delta
 	\end{gather*}
 	Wobei auf der rechten Seite die Menge abgeschlossen bezüglich der
 	Standardtopologie auf dem $\R^{\dim(\Delta)}$ ist.
@@ -117,11 +123,11 @@ Beweise nun einige Aussagen über die schwache Topologie.
 
 \begin{Satz}
   Sei $\Delta$ ein Simplizialkomplex, so gelten folgende Aussagen
-  \begin{enumerate}[(1)]
+  \begin{enumerate}[(a)]
         \item Die schwache Topologie ist hausdorffsch.
         \item Sei $A \subset \gr{\Delta}$ eine kompakte Teilmenge,
-          dann existiert eine endlicher Unterkomplex $\Delta'$ der $A$
-          enthält.
+          dann existiert eine endlicher Unterkomplex $\Delta'$ in
+          dessen Polytop $A$ enthalten ist.
 	\end{enumerate}
 	\begin{proof}
           % TODO: noch zu beweisen
