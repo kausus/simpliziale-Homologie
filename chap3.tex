@@ -2,45 +2,135 @@
 
 \section{Abstrakte Simplizialkomplexe}
 
-Für topologische Anwendung ist der $\R^J$ in vielen Fällen zu konkret und 
-unnötig. Deshalb sollte man die Simplizialkomplexe unabhängig vom 
-euklidischen Raum definieren, diese abstrakten Simplizialkomplexe 
+Für topologische Anwendung ist der $\R^J$ in vielen Fällen zu konkret
+und unnötig. Deshalb sollte man die Simplizialkomplexe unabhängig vom
+euklidischen Raum definieren, diese abstrakten Simplizialkomplexe
 werden in diesem Abschnitt behandelt.
 
 \begin{Def}
-	Eine beliebige, nichtleere Menge $\Delta$ heißt \textbf{abstrakter Simplizialkomplex} oder auch nur abstrakter Komplex,
-	falls mit jedem Element aus $\Delta$ auch jede Teilmenge aus diesem Element in $\Delta$
-	enthalten ist und jedes Element eine endliche, nichtleere Menge ist. Oder in Formeln geschrieben
-	\begin{gather*}
-		\sigma \in \Delta \text{ und } \emptyset \neq \tau \subset \sigma \Rightarrow \tau \in \Delta
-	\end{gather*}
+  Eine beliebige, nichtleere Menge $\Delta$ heißt \textbf{abstrakter
+    Simplizialkomplex} oder auch nur abstrakter Komplex, falls mit
+  jedem Element aus $\Delta$ auch jede Teilmenge aus diesem Element in
+  $\Delta$ enthalten ist und jedes Element eine endliche, nichtleere
+  Menge ist. Oder in Formeln geschrieben
+%  \setcounter{equation}{(*)}
+\renewcommand*{\theequation}{\textbullet}
+  \begin{gather}
+    \sigma \in \Delta \text{ und } \emptyset \neq \tau \subset \sigma
+    \Rightarrow \tau \in \Delta
+  \end{gather}
+  Für einen abstrakten Komplex werden folgende Begriffe benötigt
+  \begin{enumerate}[({A}1)]
+% dimension, seite, knoten, unterkomplex, simpliziale abbildung, isomorphie
+  \item Ein Element des Komplexes heißt \textbf{Seite}. Die Teilmenge aller
+    Seiten der Mächtigkeit kleiner gleich $k$ heißt das \textbf{$k$-Skelett},
+    insbesondere für $k=1$ ist dies die \textbf{Knotenmenge}.
+  \item Die \textbf{Dimension} des Komplexes ist das Supremum über die
+    Mächtigkeit der Seiten von $\Delta$.
+  \item Eine Teilmenge vom Komplex die (\textbullet) erfüllt, heißt
+    \textbf{Unterkomplex}.
+  \item Eine Abbildung zwischen den Knotenmenge zweier abstrakten
+    Komplexe heißt \textbf{simpliziale Abbildung}, falls die Eckmenge eines
+    Simplizials auf ein Simplizial abgebildet wird.
+  \item Zwei abstrakte Komplexe heißen \textbf{isomorph}, falls es eine
+    bijektive simpliziale Abbildung gibt, deren Inverses auch
+    simplizial ist.
+  \item Sei $\Delta$ ein geometrisch Komplex so bezeichnet die Menge
+    \begin{gather*}
+      \set{ A \subset \Delta^{(0) }}{ A = a_0 \ldots a_n \text{ ist
+          eine Seite}}
+    \end{gather*}
+    das \textbf{Knotenschema} von $\Delta$.
+  \item Ist ein abstrakter Komplex $\Delta$ isomorph zum Knotenschema
+    eine geometrischen Komplexes $\Delta'$, so nennen wir $\Delta'$
+    eine \textbf{geometrische Realisierung} von $\Delta$.
+  \end{enumerate}
 \end{Def}
 
 \begin{Bsp}
-	\begin{enumerate}[\textbullet]
-		\item Für einen geometrischen Komplex $\sigma$ ist die Menge
-			all seiner Seiten ein abstrakter Simplizalkomplex
-		\item Die Menge $\Delta = \sset{%
-			 \sset{a,b},\sset{a,c},%
-			 \sset{b,c},\sset{a},\sset{b},\sset{c}}$ ist ein Beispiel
-		\item Für eine beliebige Menge ist die Potenzmenge ohne die leere Menge stets ein abstrakter
-			Simplizialkomplex
-		\item Ein ungerichteter Graph $G=(V,K)$ mit $V$ die Eckmenge und $K$ die Kanten ist ein abstrakter Simplizialkomplex
-	\end{enumerate}
+  \begin{enumerate}[\textbullet]
+  \item Für einen geometrischen Komplex $\sigma$ ist die Menge all
+    seiner Seiten ein abstrakter Simplizalkomplex
+  \item Die Menge $\Delta = \sset{%
+      \sset{a,b},\sset{a,c},%
+      \sset{b,c},\sset{a},\sset{b},\sset{c}}$ ist ein Beispiel
+  \item Für eine beliebige Menge ist die Potenzmenge ohne die leere
+    Menge stets ein abstrakter Simplizialkomplex
+  \item Ein ungerichteter Graph $G=(V,K)$ mit $V$ die Eckmenge und $K$
+    die Kanten ist ein abstrakter Simplizialkomplex
+  \item Ein Knotenschema von einem geometrisch Komplex ist ein
+    abstrakter Komplex (siehe unten)
+  \end{enumerate}
 \end{Bsp}
 
 % TODO: zeige das für ein element aus \bigcup K ein eindeutiges
 % Element aus K existiert so dass das element aus \Int dieses element
 % ist
 
+Der Zusammenhang zwischen geometrischen und abstrakten Komplexen ergibt sich 
+aus der folgenden Definition.
 
+\begin{Def}[Knotenschema]
+\end{Def}
 
+\begin{Bsp}
+  foo
+  % TODO: füge ein bild von einen geo komplex ein, aus dem das
+  % knotenschema extrahiert wird
+\end{Bsp}
 
-% TODO: eckmenge, k-skelett dimension, n-simplex(kurznotation), simpliziale abbildung, isomorphismus, verbindung zu den geometrischen Komplexen, label und zweidim abwicklungen vom torus, zylinder, kugel und kleinsche flasche
-% unterkomplex,
+\begin{Satz}
+  Es gelten folgende Aussagen
+  \begin{enumerate}[(1)]
+  \item Für jeden abstrakten Komplex existiert ein geometrischer
+    Komplex dessen Knotenschema (abstrakt) isomorph zu diesem Komplex
+    ist.
+  \item Zwei geometrisch Komplexe sind (linear) isomorph, genau dann
+    wenn die entsprechenden Knotenschemata (abstrakt) isomorph sind.
+  \end{enumerate}
+  \begin{proof}
+%TODO: noch zu beweisen
+    foo
+  \end{proof}
+\end{Satz}
+
+% erkläre das labeln von triangulierungen, bzw
+% geometrischen,abstrakten simplizialkomplexen
+
+\begin{Bem}[Label,Abwicklung]
+  Da im weiteren Verlauf des Seminars meist nicht zweidimensionale
+  Triangulierungen angegeben und benötigt werden, ist es notwendig
+  eine vereinfachte Darstellung dieser höher dimensionalen Objekte
+  abzugeben. Hierzu wird das Labeln von Triangulierungen angegeben.
+
+  Betrachte zunächst für die Idee des Verfahrens den Tetraeder und
+  seine standard Abwicklung im Zweidimensionalen.
+  % zeichne dreidim tetraeder, und eine zweidim abwicklung, tikz
+  Bei der Abwicklung werden die $0$-Simplexe fortlaufend alphabetisch
+  nummeriert. Bei Knoten die in der ursprünglichen Dimension
+  zusammenfallen wird das gleiche Label verwendet.
+
+%TODO: auch für unendlich dimensionale abwicklung
+  Die Formalisierung der obigen Idee wird durch die Angabe eines
+  abstrakten Komplexes gegeben, dessen geometrische Realisierung dem
+  geometrischen Komplex entspricht. Sei $\Delta$ ein endlich
+  dimensionaler geometrischer Komplex gegeben. Dann ist die Abwicklung
+  durch einen zweidimensionalen geometrischen Komplex $\Delta'$ und
+  eine surjektive Abbildung $f: \Delta \rightarrow \Delta'$ gegeben.
+
+%TODO: weiter ausführen
+
+\end{Bem}
+
+% TODO: label und zweidim abwicklungen vom torus, zylinder, kugel und kleinsche flasche
 
 %einfache beispiele
 
+\begin{Bsp}
+  Es werden nun Triangulierungen von für Kugel, Zylinder, Torus angegeben.
+  Wobei auch die nicht Eindeutigkeit von Triangulierungen anhand des Torus
+  aufgezeigt werden.
+\end{Bsp}
 
 
 

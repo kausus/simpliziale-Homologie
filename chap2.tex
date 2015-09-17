@@ -62,7 +62,9 @@ Weise beschreiben zu können. Hierzu sind die Simplizialkomplexe da.
         \Delta \right\} \subset \R^{\dim(\Delta)}.
     \end{gather*}
     Dies entspricht dem Komplex zugrundeliegenden Raum.
-	\end{enumerate}
+  \item Teilmengen vom $\R^N$ heißen \textbf{triangulierbar}, falls
+    sie homöomorph zu einem Polytop eines geometrischen Komplexes sind.
+  \end{enumerate}
 \end{Def}
 
 
@@ -71,7 +73,7 @@ Definiere auf dem zugrunde liegenden Raum eines Simplizialkomplexes eine
 Topologie.
 
 %TODO: zeige das dies topologie definiert
-\begin{Def}[schwache Topologie]
+\begin{Def}[schwach Topologie]
 	Sei $\Delta$ ein Simplizalkomplex, dann definiere die
 	\textbf{schwache Topologie} auf dem Polytop $\gr{\Delta}$,
 	durch folgende Charakterisierung der abgeschlossenen Mengen.
@@ -128,6 +130,9 @@ Beweise nun einige Aussagen über die schwache Topologie.
         \item Sei $A \subset \gr{\Delta}$ eine kompakte Teilmenge,
           dann existiert eine endlicher Unterkomplex $\Delta'$ in
           dessen Polytop $A$ enthalten ist.
+        \item Eine Abbildung $f: \gr{\Delta} \rightarrow X$ ist
+          stetig, genau dann wenn $f_{| \sigma}$ für alle
+          $\sigma \in \Delta$ stetig ist.
 	\end{enumerate}
 	\begin{proof}
           % TODO: noch zu beweisen
