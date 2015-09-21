@@ -96,7 +96,7 @@ Objekt von Interesse definiert.
 Nach diesen ersten einfachen Beispielen definiere weitere wichtige
 Begriffe.
 
-\begin{Lem}[Baryzentrische Koordinaten]
+\begin{Lem}[Baryzentrische Koordinaten]\label{lem:bary}
   \normalfont Es bezeichnet $x$ einen Punkt aus einem geometrischen
   Simplex $\sigma^n$. In der Darstellung
   $x = \sum\limits_{i=0}^n t_i a_i$ nennt man die $t_i$, die
@@ -188,7 +188,7 @@ Simplizes und deren geometrischen Objekten bewiesen.
   \item
     $x \in \partial\sigma \Leftrightarrow \exists \; 0 \leq i \leq n :
     t_i = 0$
-  \item
+  \item \label{satz:a}
     $x \in \Int(\sigma) \Leftrightarrow \forall \; 0 \leq i \leq n :
     t_i > 0$
   \item Jeder Simplex $\sigma$ ist eine konvexe, kompakte Teilmenge (
@@ -196,9 +196,9 @@ Simplizes und deren geometrischen Objekten bewiesen.
     $\{ a_0 \ldots a_n \}$ identisch mit dem Simplex $\sigma$
   \item Das Innere $\Int(\sigma)$ ist offen und konvex
   \item Zwei Simplexe der selben Dimension sind homöomorph.
-  \item Es gilt $\overline{\Int(\sigma)} = \sigma$
+  \item Es gilt $\overline{\Int(\sigma)} = \sigma$.
   \item Es gibt einen Homöomorphismus $\sigma \simeq \Bn$, der das
-    Innere $\Int{\sigma}$ auf die $\Sp^{n-1}$ abbildet
+    Innere $\Int(\sigma)$ auf die $\Sp^{n}$ abbildet.
   \end{enumerate}
   \begin{proof}
     \begin{enumerate}[a):]
@@ -224,12 +224,104 @@ Simplizes und deren geometrischen Objekten bewiesen.
     \item Diese Aussage folgt unmittelbar als Negation von a) und der
       Tatsache das $\sigma = \partial\sigma \cup \Int(\sigma)$ eine
       disjunkte Vereinigung ist.
-    \item foo
-% konvex durch andere darstellung und kompaktheit durch bild der abbildung von t_0 ... t_n auf \sum t_i a_i  , kompaktes bild
-%TODO: beweis für kompaktheit und konvex, nutze affine transformation für obda \sigma ist e_0 ... e_n nutze basis, und t_i sind beschränkt
-    \item foo
-    \item foo
-    \item foo
+    \item \begin{description}
+      \item[kompakt:] Definiere eine stetige Abbildung
+        $f : \R^{n+1} \rightarrow \R^N$ mit
+        $ f(t_0,\ldots ,t_n) = \sp{0}{n} t_i a_i$, diese ist nach
+        \cref{lem:bary} stetig. Die Menge
+        \begin{gather*}
+          A= \set{ (t_0,\ldots,t_n) \in \R^{n+1}}{ \sp{0}{n} t_i = 1
+            \text{ und für alle } i , t_i > 0}
+        \end{gather*}
+        ist kompakt, da man sie durch die $1$-Norm $\nn_1$ wie folgt
+        schreiben kann $A = (\nn_1)^{-1}(\{ 1 \}) \cap
+        [0,1]^{n+1}$.
+        Somit ist $\sigma = f(A)$ als bild einer kompakten Mengen
+        unter einer stetigen Abbildung wieder kompakt.
+      \item[konvex:] Seien zwei Punkte $x,y \in \sigma$ gegeben,
+        mit ihren baryzentrischen Darstellungen. $x = \sum t_i a_i$
+        und $y = \sum s_i a_i$ mit $\sum t_i = \sum s_i = 1$. Dann
+        folgt für eine Konvexkombination mit $\lambda \in [0,1]$.
+        \begin{align}
+          \lambda x + (1- \lambda)y &= \lambda \cdot \sp{0}{n} t_i a_i%
+                                      + (1-\lambda) \cdot \sp{0}{n} s_i a_i \\
+                                    &= \sp{0}{n} (\lambda t_i +%
+                                      (1-\lambda) s_i) \cdot a_i 
+        \end{align}
+        Jeder Punkt dieser Gerade liegt wieder in $\sigma$, denn 
+        \begin{align*}
+          \sp{0}{n} \lambda t_i + (1-\lambda) s_i 
+          &= \lambda \cdot \sp{0}{n} t_i + (1-\lambda) \cdot \sp{0}{n} s_i \\
+          &= \lambda + (1 - \lambda) = 1
+        \end{align*}
+        Also folgt $\lambda x + (1- \lambda)y \in \sigma$.  
+      \item[Konvexe Hülle:] Es ist zu zeigen
+        $\conv(\sset{a_0,\ldots , a_n}) = \sigma$, hierbei gilt
+        $\sset{a_0,\ldots,a_n} \subset \sigma$, da $\conv$ monoton
+        ist, also $\conv(\sset{a_0,\ldots , a_n}) \subset \sigma$.
+        Nun gilt $a_ia_j \subset \conv( \sset{a_0,\ldots , a_n} )$, da
+        mit $a_i \in \ch$ auch jeder Punkt der sich als
+        Konvexkombinationen schreiben lässt in der konvexen Hülle
+        liegt. Durch Induktion über $n$, folgt nun mit der Darstellung
+        $x = t_0 a_0 + \lambda \cdot \sp{1}{n} \frac{t_i}{\lambda}
+        a_0$ die andere Inklusion.
+        
+    %     Beweise zunächst folgende Darstellung
+    %   \begin{gather*}
+    %     \sigma = \bigcup \set{ a_0 b}{b \in a_1\ldots a_n}
+    %   \end{gather*}
+    %   Betrachte hierzu für einen Punkt $a_0 \not= x \in \sigma$ dessen baryzentrische
+    %   Darstellung, so folgt
+    %   \begin{align*}
+    %     x &= \sp{0}{n} t_i a_i \\
+    %       &= t_0 a_0 + \sp{1}{n} t_i a_i \\
+    %       &= t_0 a_0 + \lambda \cdot \sp{1}{n} \frac{t_i}{\lambda} a_i 
+    %   \end{align*}
+    %   Mit $\lambda \coloneqq \sp{1}{n} t_i \not= 0$, so ist
+    %   $ \sp{1}{n} \frac{t_i}{\lambda} a_i \in a_1 \ldots a_n$, denn
+    %   $\sp{1}{n} \frac{t_i}{\lambda} = \frac{1}{\lambda} \cdot
+    %   \sp{1}{n} t_i = 1$.
+      
+    %   % konvex durch andere darstellung und kompaktheit durch bild der
+    %   % abbildung von t_0 ... t_n auf \sum t_i a_i , kompaktes bild
+    %   % TODO: beweis für kompaktheit und konvex, nutze affine
+    %   % transformation für obda \sigma ist e_0 ... e_n nutze basis,
+    %   % und t_i sind beschränkt
+     \end{description}
+      \item \begin{description}
+        \item[offen:] Da jede Seite $\tau \subset \sigma$ wieder ein
+          Simplex ist, ist diese auch kompakt, insbesondere
+          abgeschlossen. Nun ist der Rand $\partial\sigma$ Vereinigung
+          dieser abgeschlossen Mengen, also wieder abgeschlossen. Das
+          Innere ist nun das Komplement der abgeschlossen Menge, also
+          offen.
+            \item[konvex:] Seien zwei Punkte $x,y \in \Int(\sigma)$ gegeben, dann 
+              % TODO: besseren cref verwenden
+              gilt nach \cref{satz:a} , das für die baryzentrischen
+              Koordinaten der Punkte $t_i,s_i >0$ gilt. Sei nun
+              $\lambda \in [0,1]$, so gilt für die baryzentrischen
+              Koordinaten der Konvexkombinationen
+              $\lambda x + (1-\lambda y)$ die Darstellung
+              $\lambda t_i + (1-\lambda)s_i$. Dies ist stets größer
+              als $0$.
+        \end{description}
+      \item Zeige das ein beliebiger Simplex homöomorph zum
+        Standardsimplex $e_0\ldots e_n$ ist. Betrachte hierfür die
+        affine Transformation $f(x) = Ax+b$ mit $A \in \GL(N,\R)$ und
+        $b \in \R^N$, die $a_i$ auf $e_i$ abbildet. Dies ist
+        offentsichlich ein Homöomorphismus.
+    \item TODO
+    \item Betrachte die stetige Abbildung
+      $f : \R^{n+1} \setminus \sset{0} \rightarrow \Sp^n, f(x) = \frac{x}{\nn[x]}$.
+      Definiere für $a \in \Int(\sigma), p \in \R^N \setminus \{ 0 \}$ die Menge
+      $ap_+ \coloneqq \set{ a + tp}{ t \geq 0}$. Dann beweise folgende Behauptung.
+      \begin{Beh}
+        Der Schnitt $\partial\sigma \cap ap_+$ hat genau ein Element.
+        \begin{proof}
+          Zur Existenz des Element betrachte die Menge $ap_+ \cap \Int(\sigma)$.
+          Diese ist homöomorph zu $[0,b)$ für ein $b>0$. 
+        \end{proof}
+      \end{Beh}
     \end{enumerate}
   \end{proof}
 \end{Satz}

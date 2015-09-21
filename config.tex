@@ -35,11 +35,18 @@
 \usepackage{cleveref}
                                                     
 %special mathsymbols                                
+
 \newcommand{\C}{\mathds{C}}                         
 \newcommand{\R}{\mathds{R}}                         
 \newcommand{\N}{\mathds{N}}                         
 \newcommand{\Z}{\mathds{Z}}                         
 \newcommand{\Q}{\mathds{Q}}
+
+% oder alternativ, funktioniert aber nicht
+%\defmathbbsymbols{Z Q C}
+%\defmathbbsymbolsubs{N R}
+
+
 \newcommand{\pma}[1]{\begin{pmatrix} #1 \end{pmatrix}}
 \newcommand{\A}{\mathscr{A}}
 \newcommand{\F}{\mathbb{F}}                                            
@@ -50,8 +57,11 @@
 \newcommand{\set}[2]{\left\{ #1 \; \Big| \; #2 \right\}}
 \newcommand{\sset}[1]{\left\{ #1 \right\}}
 \renewcommand{\sp}[2]{\sum\limits_{i=#1}^{#2}}
-       
 
+\newcommand{\nn}[1][\,\bullet\,]{\left\| #1 \right\|}	% norm       
+\newcommand{\foo}[2][]{#1 und #2 }
+
+\newcommand{\ch}{\conv(\sset{a_0,\ldots , a_n})}
 
 %\newcommand{\SS}{\mathbb{S}}
                     
@@ -94,9 +104,15 @@
 \DeclareMathOperator{\diag}{diag}
 \DeclareMathOperator{\Int}{Int}
 \DeclareMathOperator{\B}{B}
-\DeclareMathOperator{\Bn}{\overline{\B_n(0)}}
+\DeclareMathOperator{\Bn}{\overline{\B_{n+1}(0)}}
 \DeclareMathOperator{\Sp}{S} 
 \DeclareMathOperator{\V}{V}
+\DeclareMathOperator{\conv}{conv}
+
+\DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
+
+
+
 %\DeclareMathOperator{\E}{E}
 % \newcommand{\exxp}[1]{\exp \left( #1 \right)}       
 % \renewcommand{\sin}[1]{\sin \left( #1 \right)}      
@@ -108,3 +124,5 @@
 %%% mode: latex
 %%% TeX-master: "main"
 %%% End:
+
+
