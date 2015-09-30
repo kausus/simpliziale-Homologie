@@ -9,7 +9,7 @@ notwendig eine Ansammlung von Simplizialen auf eine richtige Art und
 Weise beschreiben zu können. Hierzu sind die Simplizialkomplexe da.
 
 \begin{Def}[Geometrischer Simplizialkomplex]
-  Wir nennen eine Menge $\Delta$ von (geometrischen) Simplizialen
+  Wir nennen eine nichtleere Menge $\Delta$ von (geometrischen) Simplizialen
   einen \textbf{geometrischen Simplizialkomplex} oder einfach
   geomerischer Komplex falls er folgende Bedingungen $(K1) - (K3)$
   erfüllt.
@@ -26,24 +26,56 @@ Weise beschreiben zu können. Hierzu sind die Simplizialkomplexe da.
 
 
 \begin{Bsp}
-  Sei $\sigma^n \coloneqq e_0 \ldots e_n $ der Standardsimplex.
-  Dieser bildet mit all seinen Seiten einen geometrischen
-  Simplizialkomplex, schreibe für die Menge aller Seiten von $\sigma$
-  hierfür $\Delta^n$.
-%TODO: tikz bilder einfügen
+  \begin{enumerate}[(1)]
+  \item Sei $\sigma^n \coloneqq e_0 \ldots e_n $ der Standardsimplex.
+    Die Menge aller Seiten von $\sigma^n$ bildet einen geometrischen
+    Simplizialkomplex, schreibe hierfür $\Delta^n$.
+  \item Ein Weiteres Standardbeispiel\\
+    \begin{center}
+    \begin{tikzpicture}[opacity=0.7]
+        \draw [thin,fill=lightgray] (0,0) to (1,0) to (0,1) to (0,0);
+        \draw [thin,fill=lightgray] (1,0) to (2,0) to (1,1) to (1,0);
+        \fill (0,0) circle[radius=0.07cm];
+        \fill (1,0) circle[radius=0.07cm];
+        \fill (0,1) circle[radius=0.07cm];
+        \fill (2,0) circle[radius=0.07cm];
+        \fill (1,1) circle[radius=0.07cm];
+    \end{tikzpicture}
+  \end{center}
+  und ein negativ Beispiel
+  \begin{center}
+  \begin{tikzpicture}[opacity=0.7]
+        \draw [thin,fill=lightgray] (0,0) to (1,0) to (0,1) to (0,0);
+        \draw [thin,fill=lightgray] (0.5,0) to (1.5,0) to (0.5,1) to (0.5,0);
+        \foreach \foo in {(0,0),(1,0),(0,1),(0.5,0),(1.5,0),(0.5,1)}
+        \fill \foo circle[radius=0.07cm];
+    \end{tikzpicture}
+  \end{center}
+\item Ein Komplex muss weder endlich noch als beschränkt sein.\\
+    \begin{tikzpicture}
+      \draw [ultra thin] (-0.5,0) to (10.5,0); 
+      \node (r) at (11,0) {$= \R$};
+      \draw (-0.5,-1)--++(11,0);
+      \foreach \foo in {0,...,10}
+      \fill (\foo,-1) circle[radius=0.07cm];
+    \end{tikzpicture}
+
+    Wobei der zweite Komplex die reelle Achse vollkommen ausfüllt
+    bzw. darstellt.  Hierzu wird ein Begriff benötigt der in der
+    folgenden Definition klar wird.
+    
+    % \draw [thin,fill=lightgray] (-0.7,0) to (0.7,0) to (-0.7,0);
+    % \draw [thin,fill=lightgray] (90:1) to (210:1) to (330:1) to (90:1);
+    % \fill (a,b) circle[radius=0.07cm];
+    % \node (s) at (1,2) {$n=3$};
+    % \draw [thin,fill=lightgray] (0,0.2) to (1.8,0) to (1,1.7) to (0,0.2);
+    % \draw [thin,fill=lightgray] (1.8,0) to (1.8,0.7) to (1,1.7) to (1.8,0);
+    % \draw [thin,dashed] (1.8,0.7) to (0,0.2);
+
+\end{enumerate}
 \end{Bsp}
 
-%TODO: polytope oder zugrunde liegender raum?
-%\begin{Def}[Geometrische Realisierung]
-%	Die Geometrische Realisierung eines Simplizalkomplexes $\Delta$ ist
-%	die Vereinigung all seiner Elemente.
-%	\begin{gather*}
-%	|\Delta| \coloneqq \bigcup \left\{ \sigma \; \Big| \; \sigma \in
-%	\Delta \right\} \subset \R^{\dim(\Delta)}
-%	\end{gather*}
-%\end{Def}
-
-\begin{Def}[Unterkomplex, $k$-Skelett, Dimension, Polytop]
+\begin{Def}[Unterkomplex, $k$-Skelett, Dimension, Polyeder]
   Sei $\Delta$ ein geometrischer Komplex, so definiere
   \begin{enumerate}[(a)]
   \item Eine Teilmenge $\Delta'$ von $\Delta$ heißt
@@ -60,16 +92,72 @@ Weise beschreiben zu können. Hierzu sind die Simplizialkomplexe da.
   \item Das \textbf{$k$-Skelett} $\Delta^{(k)}$ ist der Unterkomplex
     aller Simplizes mit der Dimension kleiner gleich $k$. Der
     Spezialfall $\Delta^{(0)}$ bezeichnet die Eckmenge von $\Delta$.
-  \item Das \textbf{Polytop} von $\Delta$ ist wie folgt definiert
+  \item Der \textbf{Polyeder} von $\Delta$ ist wie folgt definiert
     \begin{gather*}
       |\Delta| \coloneqq \bigcup \left\{ \sigma \; \Big| \; \sigma \in
         \Delta \right\} \subset \R^{\dim(\Delta)}.
     \end{gather*}
     Dies entspricht dem Komplex zugrundeliegenden Raum.
   \item Teilmengen vom $\R^N$ heißen \textbf{triangulierbar}, falls
-    sie homöomorph zu einem Polytop eines geometrischen Komplexes sind.
+    sie homöomorph zu einem Polyeder eines geometrischen Komplexes sind.
   \end{enumerate}
 \end{Def}
+
+Zur Veranschaulichung der obigen definierten Begriffe ein Beispiel.
+
+\begin{Bsp}
+  \begin{description}
+  \item[Skelette:] Betrachte den folgenden Komplex $\Delta$ mit $\dim(\Delta)=2$\\
+    \begin{center}
+    \begin{tikzpicture}
+      \draw [thin,fill=lightgray] (0,0) to (1,0) to (0,1) to (0,0);
+      \draw [thin] (1,0) to (2,0);
+      \draw [thin] (2,0) to (3,0) to (3,1) to (2,0);
+      \foreach \foo in {(0,0),(1,0),(0,1),(2,0),(3,0),(3,1)}
+      \fill \foo circle[radius=0.07cm];      
+    \end{tikzpicture}
+  \end{center}
+  Dann gibt es zu diesem Komplex folgende $k$-Skelette\\
+  \begin{center}
+    \parbox{0.7\linewidth}{%
+  \begin{tikzpicture}
+    \draw [thin] (0,0) to (1,0) to (0,1) to (0,0);
+      \draw [thin] (1,0) to (2,0);
+      \draw [thin] (2,0) to (3,0) to (3,1) to (2,0);
+      \foreach \foo in {(0,0),(1,0),(0,1),(2,0),(3,0),(3,1)}
+      \fill \foo circle[radius=0.07cm];      
+      \node (a) at (1.5,-1) {$\Delta^{(1)}$};
+  \end{tikzpicture}
+  \hfill
+  \begin{tikzpicture}
+      \foreach \foo in {(0,0),(1,0),(0,1),(2,0),(3,0),(3,1)}
+      \fill \foo circle[radius=0.07cm];      
+      \node (a) at (1.5,-1) {$\Delta^{(0)}$};
+  \end{tikzpicture}}
+\end{center}  
+
+\item[Triangulierung:] Betrachte den folgenden geometrischen Komplex
+  $\Delta \coloneqq (\Delta^2)^{(1)}$. Also besitzt der Komplex von
+  einem Dreieck die Seiten und Ecken. Das Polyeder von $\Delta$ ist
+  homöomorph zur $\Sp^1$, den betrachte die stetige Abbildung
+  $f : \R^2 \setminus \sset{0} \rightarrow \Sp^1 , x \mapsto
+  \frac{x}{\nn[x]}$.
+  Eingeschränkt auf den Polyeder von $\sigma$ erhält man eine stetige
+  bijektive Abbildung und da die beiden Räume hausdorffsch und kompakt
+  sind, muss die eingeschränkte Abbildung schon ein Homöomorphismus
+  sein. 
+  \begin{center}
+  \begin{tikzpicture}
+    \draw [thin] (90:1) to (210:1) to (330:1) to (90:1);
+    \draw [thick] (0,0)circle(1cm);
+    \foreach \foo in {90,210,330}
+    \fill (\foo:1) circle[radius=0.07cm];
+  \end{tikzpicture}
+\end{center}
+Anschaulich biegt man die Seiten nach aussen auf den Kreisbogen.  Also
+ist die $\Sp^1$ triangulierbar.
+\end{description}
+\end{Bsp}
 
 \begin{Lem}\label{lem:eindeutigSimplex}
   Es gilt für eine Menge $\Delta$ folgende Äquivalenz
@@ -94,7 +182,7 @@ Topologie.
 %TODO: zeige das dies topologie definiert
 \begin{Def}[schwach Topologie]
 	Sei $\Delta$ ein Simplizalkomplex, dann definiere die
-	\textbf{schwache Topologie} auf dem Polytop $\gr{\Delta}$,
+	\textbf{schwache Topologie} auf dem Polyeder $\gr{\Delta}$,
 	durch folgende Charakterisierung der abgeschlossenen Mengen.
 	\begin{gather*}
           A \subset \gr{\Delta} \text{ abgeschlossen }
@@ -127,16 +215,16 @@ Topologie.
 \end{Lem}
 
 \begin{Bem}
-  Die schwache Topologie ist im allgemeinen feiner als die
+  Die schwache Topologie ist im allgemeinen echt feiner als die
   Spurtopologie auf $\gr{\Delta}$ bezüglich dem $\R^N$. Betrachte
   hierzu den folgenden Simplizialkomplex,
-  $\Delta \coloneqq \set{ \{t\} }{t \in \R}$.  Hierbei ist das Polytop
+  $\Delta \coloneqq \set{ \{t\} }{t \in \R}$.  Hierbei ist das Polyeder
   gleich zu $\R$, aber die schwache Topologie entspricht der
   Diskreten. Für eine beliebige Teilmenge von $A \subset \R$ ist der
   Schnitt $A \cap \{ t \}$ mit einen beliebigen $0$-Simplex aus
   $\Delta$ gleich dem Simplex selbst oder die leere Menge, somit stets
   abgeschlossen, also ist jede Teilmenge abgeschlossen und damit die
-  schwache Topologie auf dem Polytop der Diskreten und damit ungleich
+  schwache Topologie auf dem Polyeder der Diskreten und damit ungleich
   der Standardtopologie auf $\R$.
 \end{Bem}
 
@@ -148,7 +236,7 @@ Beweise nun einige Aussagen über die schwache Topologie.
         \item Die schwache Topologie ist hausdorffsch.
         \item Sei $A \subset \gr{\Delta}$ eine kompakte Teilmenge,
           dann existiert eine endlicher Unterkomplex $\Delta'$ in
-          dessen Polytop $A$ enthalten ist. Insbesondere ist ein
+          dessen Polyeder $A$ enthalten ist. Insbesondere ist ein
           endlicher Komplex kompakt.
         \item Eine Abbildung $f: \gr{\Delta} \rightarrow X$ ist
           stetig, genau dann wenn $f_{| \sigma}$ für alle
@@ -179,7 +267,7 @@ Beweise nun einige Aussagen über die schwache Topologie.
             $U_2 \coloneqq \set{x}{ t_v(x)>r}$, so sind für je zwei
             Punkte disjunkte, offene Umgebungen konstruiert und der
             Raum ist hausdorffsch.
-          \item Sei $A$ eine kompakte Teilmenge des Polytops
+          \item Sei $A$ eine kompakte Teilmenge des Polyeders
             $\gr{\Delta}$ die in keinem endlichen Unterkomplex von
             $\Delta$ enthalten ist. So wähle je einen Punkt
             $x_\sigma \in A \cap \Int(\sigma)$, für alle $\sigma$ mit
@@ -203,6 +291,9 @@ Beweise nun einige Aussagen über die schwache Topologie.
             wiederrum kompakt ist.
           \item 
             \begin{description}
+              % TODO: zeige noch für kohärente topologien, das bei der
+              % definition abgeschlossen durch offen ersetzt werden
+              % kann.
             \item[\glqq $\Rightarrow$\grqq] Falls die Abbildung
               bezüglich $\gr{\Delta}$ stetig ist, dann auch auch die
               Restriktion nach einem Unterraum
@@ -225,7 +316,7 @@ Beweise nun einige Aussagen über die schwache Topologie.
 
 Definiere nun für spätere Zwecke Abbildungen zwischen Simplizialkomplexen.
 
-\begin{Def}[Simpliziale Abbildung]
+\begin{Def}[Simpliziale Abbildung] 
   Seien zwei Simplizialkomplexe $\Delta, \Delta'$ gegeben, dann heißt
   eine Abbildung $f: \Delta^{(0)} \rightarrow \Delta'^{(0)}$ zwischen
   den Eckmengen eine \textbf{Simpliziale Abbildung}, falls für jeden
@@ -265,7 +356,7 @@ Definiere nun für spätere Zwecke Abbildungen zwischen Simplizialkomplexen.
 	\end{enumerate}
 	\begin{proof}
           \begin{enumerate}[(a)]
-
+			\item foo
           \end{enumerate}
 	\end{proof}
 \end{Satz}

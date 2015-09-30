@@ -11,7 +11,8 @@
 %\usepackage[backend=biber,style=numeric-comp]{biblatex}
 %\bibliography{bib.bib}
 
-
+% for fancy colors
+\usepackage{xcolor}
 
 % %maths                                            
 \usepackage{amsmath, amsthm, amssymb, bm, bbm, mathtools, dsfont, mathrsfs}
@@ -20,7 +21,7 @@
 \usepackage{verbatim}
 
 %commutative diagramms
-%\usepackage{tikz-cd}
+\usepackage{tikz}
 
 % links, TODO
 %\usepackage[pdftitle={Seminar: "K1 von Ringen"},pdfauthor={Julian Seipel}, pdfsubject={Seminararbeit}]{hyperref}
@@ -33,7 +34,8 @@
 
 %must be loaded as lastest
 \usepackage{cleveref}
-                                                    
+% out of lemma 1.1 to Lemma 1.1
+\let\cref=\Cref                                                    
 %special mathsymbols                                
 
 \newcommand{\C}{\mathds{C}}                         
@@ -67,28 +69,45 @@
                     
 %%%%%%%%%%%%%%%%%%%%                                
 %theoremstyle                                       
-%\theoremstyle{definition}                           
-%\newtheorem*{Def}{Defintion}                        
-%\theoremstyle{plain}                               
-%\newtheorem{Beh}{Beh}                              
-%\newtheorem{Vor}{Vor}                                                    
+\newtheoremstyle{mythms}
+ {15pt}% space above
+ {12pt}% space below 
+ {\mdseries}% body font
+ {}% indent amount
+ {\bfseries}% theorem head font
+ {:}% punctuation after theorem head
+ {0.6cm plus 0.25cm minus 0.1cm}% space after theorem head (\newline possible)
+ {}% theorem head spec 
+
+
                           
 % math (theorems)                     
-\theoremstyle{definition}             
+%\theoremstyle{Definition}             
+%\newtheorem{Def}{Definition}[section] 
+\theoremstyle{mythms}             
 \newtheorem{Def}{Definition}[section] 
 \newtheorem{Bsp}[Def]{Beispiel}       
 
-\theoremstyle{remark}               
+%\theoremstyle{remark}               
 \newtheorem{Bem}[Def]{Bemerkung}      
 \newtheorem{Wdh}[Def]{Wiederholung}   
 
-\theoremstyle{plain}                  
+%\theoremstyle{plain}                  
 \newtheorem{Satz}[Def]{Satz}          
 \newtheorem*{satz}{Satz}              
 \newtheorem*{Beh}{Behauptung}
 \newtheorem{Lem}[Def]{Lemma}          
 \newtheorem{Kor}[Def]{Korollar}       
 \newtheorem{Fol}[Def]{Folgerung}      
+
+%own color for proof environment
+\definecolor{mygray}{rgb}{0.2,0.2,0.2}
+
+%\renewenvironment{center}{\begin{quote}\bfseries}{\end{quote}}
+% use for font, [slshape,mdseries]
+\renewenvironment{proof}{{ \vspace{0.5cm} \bfseries ~\newline Beweis:\newline}\slshape\color{mygray}}{\hfill$\blacksquare$}
+
+
 
 %TODO: schrift soll geändert werden,
 %\renewenvironment*{proof}{\bfseries}{}
@@ -104,13 +123,15 @@
 \DeclareMathOperator{\diag}{diag}
 \DeclareMathOperator{\Int}{Int}
 \DeclareMathOperator{\B}{B}
-\DeclareMathOperator{\Bn}{\overline{\B_{n+1}(0)}}
+\DeclareMathOperator{\Bn}{\overline{\B_{n}(0)}}
 \DeclareMathOperator{\Sp}{S} 
 \DeclareMathOperator{\V}{V}
 \DeclareMathOperator{\conv}{conv}
 
 \DeclarePairedDelimiter{\norm}{\lVert}{\rVert}
 
+%\newcommand{\LLeftrightarrow}{~\Leftrightarrow ~}
+%\let\Leftrightarrow=\LLeftrightarrow
 
 
 %\DeclareMathOperator{\E}{E}
