@@ -42,7 +42,7 @@ Weise beschreiben zu können. Hierzu sind die Simplizialkomplexe da.
         \fill (1,1) circle[radius=0.07cm];
     \end{tikzpicture}
   \end{center}
-  und ein negativ Beispiel
+  und eine Menge von Simplizialen die keinen Komplex bilden.
   \begin{center}
   \begin{tikzpicture}[opacity=0.7]
         \draw [thin,fill=lightgray] (0,0) to (1,0) to (0,1) to (0,0);
@@ -161,7 +161,7 @@ ist die $\Sp^1$ triangulierbar.
 
 \begin{Lem}\label{lem:eindeutigSimplex}
   Es gilt für eine Menge $\Delta$ folgende Äquivalenz
-  \begin{enumerate}[(i)]\normalfont
+  \begin{enumerate}[(i)]
   \item (K1),(K2) und (K3)
   \item (K1),(K2) und (K4)
   \end{enumerate}
@@ -169,8 +169,31 @@ ist die $\Sp^1$ triangulierbar.
   gilt, das für jeden Punkt $x \in \gr{\Delta}$ es genau ein
   $\sigma \in \Delta$ gibt, so dass $x \in \Int(\sigma)$ gilt.
   \begin{proof}
-    foo
-    % TODO: zu beweisen
+    \begin{description}
+    \item[$i) \Rightarrow ii)$] Sei zunächst $(K3)$ gegeben. Dann
+      betrachte zu zwei verschiedenen Simplizialen
+      $\sigma,\tau \in \Delta$ ihren Schnitt. Dieser ist nach
+      Vorraussetzung wieder ein Simplex aus $\Delta$. Setze
+      $s \coloneqq \sigma \cap \tau$ und zeige das falls
+      $\Int(\sigma) \cap \Int(\tau)$ nichtleer ist, das die beiden
+      Simpliziale übereinstimmen müssen. Sei
+      $x \in \Int(\sigma) \cap \Int(\tau) \subset s$. Nun gilt das $s$
+      eine echte Seite von $\sigma$ oder $\tau$ sein muss, also muss
+      gelten $s \subset \partial\sigma , \partial\tau$. Aber nach
+      vorheriger Wahl von $x$ aus den Inneren kann dieser Punkt nun
+      nicht im Rand liegen, also muss
+      $\Int(\sigma) \cap \Int(\tau) = \emptyset$ gelten.
+      \item[$ii) \Rightarrow i)$] foo
+    \end{description}
+    Sei nun $\Delta$ ein geometrischer Komplex und
+    $x \in \gr{\Delta}$, dann existiert offentsichlich ein Simplex
+    $\sigma$ aus $\Delta$, so dass der Punkt aus diesem Simplex
+    ist. Es kann nun aber auch stets das Innere von einem Simplex aus
+    dem Komplex gewählt werden, denn falls für einen gewählten Simplex
+    $\sigma$ der Punkt am Rand liegt muss der Punkt nun auch in einer
+    echten Seite enthalten sein. Für einen endlichen Komplex kann man
+    nun stets einen Simplex finden so dass der Punkt im Innneren
+    liegt, sonst steige zu einer echten Seite ab.
   \end{proof}
 \end{Lem}
 
@@ -274,11 +297,11 @@ Beweise nun einige Aussagen über die schwache Topologie.
             nichtleeren Schnitt mit $A$. Die Menge
             $\Sigma \subset \gr{\Delta}$ all dieser Punkte ist nicht
             endlich und besitzt als induzierte Topologie die
-            diskrete. Denn eine Teilmenge von $\Sigma$ hat stets
+            Diskrete. Denn eine Teilmenge von $\Sigma$ hat stets
             endlichen Schnitt mit allen $\sigma \in \Delta$ und ist in
             der schwachen Topologie stets abgeschlossen, also sind
             alle Teilmengen abgeschlossen und die Menge $\Sigma$ somit
-            diskret. 
+            diskret.
 % TODO: suche quelle, nicht grundkurs-topologie
             Es ergibt sich nun ein Widerspruch dadurch das eine
             kompakte und nicht endliche Menge stets einen
@@ -346,9 +369,10 @@ Definiere nun für spätere Zwecke Abbildungen zwischen Simplizialkomplexen.
           Man nennt $\gr{f}$ die induzierte simpliziale Abbildung.
         \item Die Verkettung von induzierten simplizialen Abbildung
           ist wieder eine induzierte Simpliziale.
-        \item Falls $f$ eine bijektive simpliziale Abbildung ist, dann
-          ist die induzierte Abbildung $\gr{f}$ ein
-          Homöomorphismus. Wir nennen dann $\gr{f}$ einen simplizialen
+        \item Falls $f$ eine bijektive simpliziale Abbildung ist,
+          deren Umkehrfunktion wiederrum simplizial ist. Dann ist die
+          induzierte Abbildung $\gr{f}$ ein Homöomorphismus. Wir
+          nennen dann $\gr{f}$ oder auch $f$ einen simplizialen
           Homöomorphismus, bzw. Isomorphismus.
         \item Sei $\Delta$ ein endlicher simplizialer Komplex, dann
           existiert eine natürliche Zahl $N$, so dass $\Delta$
@@ -356,42 +380,59 @@ Definiere nun für spätere Zwecke Abbildungen zwischen Simplizialkomplexen.
 	\end{enumerate}
 	\begin{proof}
           \begin{enumerate}[(a)]
-			\item foo
+          \item Prüfe die Axiome $(K1)-(K3)$ nach. $(K1)$ ist klar als
+            Bild der leeren Menge. Sei $\sigma \in f(\Delta)$, dann
+            existiert $\sset{a_i} \subset \Delta^{(0)}$ so dass
+            $\sigma = f(a_0)\ldots f(a_n)$. Nun wird jede Seite von
+            $\sigma$ durch eine Teilmenge von $\sset{a_i}$ aufgespannt
+            und ist nun aufgrund der Eigenschaft der simplizialen
+            Abbildung wiederrum aus $f(\Delta)$. 
+
+          \item foo
+          \item Betrachte die Abbildungen
+            $f : \Delta \rightarrow \Delta' , g : \Delta' \rightarrow
+            \Delta''$.
+            Dann ist die Verkettung $\gr{g} \circ \gr{f}$ für den Punkt
+            $x = \sp{0}{n} t_i a_i \in \gr{\Delta}$
+            \begin{gather*}
+              \left( \gr{g} \circ \gr{f} \right) (x) = \gr{g} \left(
+                \sp{0}{n} t_i f(a_i) \right) = \sp{0}{n} t_i g(f(a_i)
+            \end{gather*}
+            wieder eine simpliziale Abbildung, diese wird von
+            $g \circ f$ induziert.
+          \item Die induzierten Abbildungen $\gr{f},\gr{f^{-1}}$ sind
+            stetig nach $(b)$. Es ist nur zu zeigen das diese
+            zueinander inverse Abbildungen sind. Dies sieht man sofort
+            aufgrund der Linearität ein bzw. für einen Punkt
+            $x = \sp{0}{n} t_i a_i \in \gr{\Delta}$ folgt
+            \begin{gather*}
+              \left( \gr{f^{-1}} \circ \gr{f} \right) (x) =
+              \gr{f^{-1}} \left( \sp{0}{n} t_i f(a_i) \right) =
+              \sp{0}{n} t_i f^{-1}(f(a_i) = x
+            \end{gather*}
+            Ebenso die andere Richtung.
+          \item Da der Komplex $\Delta$ endlich ist, besteht die
+            Eckmenge $\Delta^{(0)} = \sset{ a_0 , \ldots a_n}$ aus
+            $n+1$ unterschiedlichen Punkten die nicht geometrisch
+            unabhängig sein müssen. Sei nun zudem der Standardkomplex
+            $\Delta^n$ mit $n+1$ geometrisch unabhängigen Punkten
+            $\sset{b_0 \ldots , b_n}$ als Eckmenge dieses Komplexes
+            gegeben.
+
+            Betrachte nun zu den gegeben Daten die folgende
+            simpliziale Abbildung
+            $f : \Delta \rightarrow \Delta^n , a_i \mapsto b_i$.  Die
+            Abbildung $f$ ist nach Konstruktion injektiv (also
+            bijektiv, wegen den endlichen Mengen) und simplizial,
+            falls man nun den Bildbereich noch auf den Komplex
+            $f(\Delta)$ einschränkt, wird die Umkehrabbildung
+            simplizial und nach $(d)$ ein Isomorphismus.
           \end{enumerate}
 	\end{proof}
 \end{Satz}
 
-\begin{Bsp}[Triangulation]
-%TODO: beweise folgende triangulierengen \S^2 \simeq \gr{(\Delta^3)^{(2)}}, behauptung diese aussage gilt für allgemeines n, also \S^n \simeq \gr{(\Delta^{n+1})^{(n)}}
-\end{Bsp}
 
 
-%definiere (lineare) simpliziale abbildung, isomorphismus von komplexen
-%und beweise das jeder endliche simplizialkomplex isomorphm zu einem unterkomplex
-% 
-% definire \Delta^n für n beliebige kardinalszahl, gilt die obige
-% aussage immer noch wenn man unendliche komplexe betrachtet?
-
-
-%TODO: ziegler - literatur : seite 11 (in reader abgelesen)
-
-
-
-% \begin{Def}[Topologie auf dem Träger eines Simplizialkomplexes]
-%   Eine Menge $U \subset \left| \Delta \right|$ ist genau dann offen,
-%   falls für jeden Simplex $\sigma \in \Delta$ die Menge
-%   $U \cap \sigma$ offen im unterliegenden Raum $\R^n$ ist.
-% %	also bezüglich der spurtopologie auf \sigma
-% % sie elementsOfalgtop seite 111 , review of quotient spaces, für andere beschreibung der topologie
-% \end{Def}
-
-
-%definitionen: unterkomplex, geometrische realisierung, k-skelett, schwache topologie, simpliziale abbildung, simplizialer iso, 
-
-%aussagen: 	-	für endliche komplexe stimmen topologien überein
-%			-	|\Delta| ist hausdorffsch
-%			- 	Aussagen über kompaktheit, und kompakte teilmengen von \Delta
-%			-	
 
 
 

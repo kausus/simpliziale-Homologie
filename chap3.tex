@@ -3,22 +3,23 @@
 \section{Abstrakte Simplizialkomplexe}
 
 Für topologische Anwendung ist der $\R^J$ in vielen Fällen zu konkret
-und unnötig. Deshalb sollte man die Simplizialkomplexe unabhängig vom
-euklidischen Raum definieren, diese abstrakten Simplizialkomplexe
-werden in diesem Abschnitt behandelt. Diese scheinen zunächst eine zu
-starke Vereinfachung, doch stellen sie sich als eine äquivalente
-Darstellung zu den geometrischen Komplexen heraus.
+und unnötiger gedanklicher Balast. Deshalb sollte man die
+Simplizialkomplexe unabhängig vom euklidischen Raum definieren. Diese
+abstrakten Simplizialkomplexe werden in diesem Abschnitt
+behandelt. Die zunächst stark erscheinende Vereinfachung, stellt sich
+als eine äquivalente Darstellung zu den geometrischen Komplexen
+heraus.
 
 \begin{Def}
   Eine beliebige, nichtleere Menge $\Delta$ heißt \textbf{abstrakter
     Simplizialkomplex} oder auch nur abstrakter Komplex, falls mit
   jedem Element aus $\Delta$ auch jede Teilmenge aus diesem Element in
-  $\Delta$ enthalten ist und jedes Element eine endliche, nichtleere
+  $\Delta$ enthalten ist und jedes Element eine endliche
   Menge ist. Oder in Formeln geschrieben
 %  \setcounter{equation}{(*)}
 \renewcommand*{\theequation}{\textbullet}
   \begin{gather}
-    \sigma \in \Delta \text{ und } \emptyset \neq \tau \subset \sigma
+    \sigma \in \Delta \text{ und }  \tau \subset \sigma
     \Rightarrow \tau \in \Delta
   \end{gather}
   Für einen abstrakten Komplex werden folgende Begriffe benötigt
@@ -32,15 +33,15 @@ Darstellung zu den geometrischen Komplexen heraus.
   \item Eine Teilmenge vom Komplex die (\textbullet) erfüllt, heißt
     \textbf{Unterkomplex}.
   \item Eine Abbildung zwischen den Knotenmenge zweier abstrakten
-    Komplexe heißt \textbf{simpliziale Abbildung}, falls die Eckmenge eines
-    Simplizials auf ein Simplizial abgebildet wird.
+    Komplexe heißt \textbf{simpliziale Abbildung}, falls Seiten auf
+    Seiten abgebildet werden.
   \item Zwei abstrakte Komplexe heißen \textbf{isomorph}, falls es eine
     bijektive simpliziale Abbildung gibt, deren Inverses auch
     simplizial ist.
-  \item Sei $\Delta$ ein geometrisch Komplex so bezeichnet die Menge
+  \item Sei $\Delta$ ein geometrischer Komplex so bezeichnet die Menge
     \begin{gather*}
-      \set{ A \subset \Delta^{(0) }}{ A = a_0 \ldots a_n \text{ ist
-          eine Seite}}
+      \set{ \sset{a_0 \ldots a_n} \subset \Delta^{(0)} }{ a_0 \ldots
+        a_n \in \Delta}
     \end{gather*}
     das \textbf{Knotenschema} von $\Delta$.
   \item Ist ein abstrakter Komplex $\Delta$ isomorph zum Knotenschema
@@ -52,12 +53,33 @@ Darstellung zu den geometrischen Komplexen heraus.
 \begin{Bsp}
   \begin{enumerate}[\textbullet]
   \item Für einen geometrischen Komplex $\sigma$ ist die Menge all
-    seiner Seiten ein abstrakter Simplizalkomplex
+    seiner Seiten ein abstrakter Simplizalkomplex und das Knotenschema
+    wird auf triviale Art und Weise geometrisch durch $\sigma$
+    realisiert.
   \item Die Menge $\Delta = \sset{%
       \sset{a,b},\sset{a,c},%
-      \sset{b,c},\sset{a},\sset{b},\sset{c}}$ ist ein Beispiel
+      \sset{b,c},\sset{a},\sset{b},\sset{c},\emptyset}$ ist ein Beispiel und 
+    seine geometrische Realisierung sieht wie folgt aus
+    \begin{center}
+      \begin{tikzpicture}
+        \draw [thin] (90:1) to (210:1) to (330:1) to (90:1);
+        \foreach \foo in {90,210,330}
+        \fill (\foo:1) circle[radius=0.07cm];
+      \end{tikzpicture}
+    \end{center}
+
+  \item Betrachte die Menge
+    $\set{ \sset{i,i+1} , \sset{i} }{ i \in \Z} \cup \sset{\emptyset}$
+    dann ist der Polyeder zu einer geometrischen Realisierung
+    homöomorph zu $\R$
+
   \item Für eine beliebige Menge ist die Potenzmenge ohne die leere
     Menge stets ein abstrakter Simplizialkomplex
+  \item Die von-Neumann Zahlen liefern einen nicht endlichen
+    abstrakten Komplex.  Diese Menge erhält man wie folgt, setze
+    $V_0 \coloneqq \emptyset$ und
+    $V_{n+1} \coloneqq \sset{V_n} \cup \V_n$, dann ist der Komplex
+    $V \coloneqq \bigcup\limits_{n \geq 0} V_n$ nicht endlich.
   \item Ein ungerichteter Graph $G=(V,K)$ mit $V$ die Eckmenge und $K$
     die Kanten ist ein abstrakter Simplizialkomplex
   \item Ein Knotenschema von einem geometrisch Komplex ist ein
@@ -95,6 +117,8 @@ aus der folgenden Definition.
     foo
   \end{proof}
 \end{Satz}
+
+% todo: topologie --literatur/archiv seite 333ff
 
 % erkläre das labeln von triangulierungen, bzw
 % geometrischen,abstrakten simplizialkomplexen
@@ -134,6 +158,9 @@ aus der folgenden Definition.
   aufgezeigt werden.
 \end{Bsp}
 
+\begin{Bsp}[Triangulation]
+%TODO: beweise folgende triangulierengen \S^2 \simeq \gr{(\Delta^3)^{(2)}}, behauptung diese aussage gilt für allgemeines n, also \S^n \simeq \gr{(\Delta^{n+1})^{(n)}}
+\end{Bsp}
 
 
 
