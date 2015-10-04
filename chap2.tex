@@ -2,11 +2,10 @@
 
 \section{Geometrische Simplizalkomplexe}
 
-%TODO: bessere zusammenfassung schreiben
-Die geometrischen Simpliziale allein reichen nicht aus um beliebige
-Teilmenge des $\R^N$ zu beschreiben bzw. modellieren, es ist noch
-notwendig eine Ansammlung von Simplizialen auf eine richtige Art und
-Weise beschreiben zu können. Hierzu sind die Simplizialkomplexe da.
+Die geometrischen Simpliziale allein reichen nicht aus um einen
+komplizierten topolgischen Raum zu beschreiben bzw. modellieren. Denn
+ein $\sigma^n$ ist nach \cref{satz:simp} isomorph zu $\Bn$.
+Mithilfe von Komplexen von Simplizialen können kompliziertere topologische Räume modelliert werden.
 
 \begin{Def}[Geometrischer Simplizialkomplex]
   Wir nennen eine nichtleere Menge $\Delta$ von (geometrischen) Simplizialen
@@ -16,7 +15,7 @@ Weise beschreiben zu können. Hierzu sind die Simplizialkomplexe da.
   \begin{enumerate}[(K1)]
   \item $\emptyset \in \Delta$
   \item Für jeden Simplex $\sigma \in \Delta$ ist auch jede Seite
-    $\tau$ in $\Delta$ enthalten
+    $\tau$ von $\sigma$ in $\Delta$ enthalten
   \item Mit allen Simplexen $\sigma, \sigma' \in \Delta$ ist auch ihr
     Schnitt $\sigma \cap \sigma'$ in $\Delta$ enhalten.
   \item[(K4)] Für zwei verschiedenen Simplexe $\sigma,\tau \in \Delta$
@@ -45,8 +44,8 @@ Weise beschreiben zu können. Hierzu sind die Simplizialkomplexe da.
   und eine Menge von Simplizialen die keinen Komplex bilden.
   \begin{center}
   \begin{tikzpicture}[opacity=0.7]
-        \draw [thin,fill=lightgray] (0,0) to (1,0) to (0,1) to (0,0);
-        \draw [thin,fill=lightgray] (0.5,0) to (1.5,0) to (0.5,1) to (0.5,0);
+        \draw [thick,fill=lightgray] (0,0) to (1,0) to (0,1) to (0,0);
+        \draw [thick,fill=lightgray] (0.5,0) to (1.5,0) to (0.5,1) to (0.5,0);
         \foreach \foo in {(0,0),(1,0),(0,1),(0.5,0),(1.5,0),(0.5,1)}
         \fill \foo circle[radius=0.07cm];
     \end{tikzpicture}
@@ -91,21 +90,23 @@ Weise beschreiben zu können. Hierzu sind die Simplizialkomplexe da.
     gesetzt.
   \item Das \textbf{$k$-Skelett} $\Delta^{(k)}$ ist der Unterkomplex
     aller Simplizes mit der Dimension kleiner gleich $k$. Der
-    Spezialfall $\Delta^{(0)}$ bezeichnet die Eckmenge von $\Delta$.
+    Spezialfall $\Delta^{(0)}$ bezeichnet die \textbf{Eckmenge} von
+    $\Delta$.
   \item Der \textbf{Polyeder} von $\Delta$ ist wie folgt definiert
     \begin{gather*}
       |\Delta| \coloneqq \bigcup \left\{ \sigma \; \Big| \; \sigma \in
         \Delta \right\} \subset \R^{\dim(\Delta)}.
     \end{gather*}
     Dies entspricht dem Komplex zugrundeliegenden Raum.
-  \item Teilmengen vom $\R^N$ heißen \textbf{triangulierbar}, falls
-    sie homöomorph zu einem Polyeder eines geometrischen Komplexes sind.
+  \item Eine Teilmenge von $\R^N$ heißt \textbf{triangulierbar}, falls
+    sie homöomorph zu einem Polyeder eines geometrischen Komplexes
+    sind.
   \end{enumerate}
 \end{Def}
 
 Zur Veranschaulichung der obigen definierten Begriffe ein Beispiel.
 
-\begin{Bsp}
+\begin{Bsp}\label{bsp:triangulierung}
   \begin{description}
   \item[Skelette:] Betrachte den folgenden Komplex $\Delta$ mit $\dim(\Delta)=2$\\
     \begin{center}
@@ -139,22 +140,25 @@ Zur Veranschaulichung der obigen definierten Begriffe ein Beispiel.
 \item[Triangulierung:] Betrachte den folgenden geometrischen Komplex
   $\Delta \coloneqq (\Delta^2)^{(1)}$. Also besitzt der Komplex von
   einem Dreieck die Seiten und Ecken. Das Polyeder von $\Delta$ ist
-  homöomorph zur $\Sp^1$, den betrachte die stetige Abbildung
+  homöomorph zur $\Sp^1$. Den betrachte die stetige Abbildung
   $f : \R^2 \setminus \sset{0} \rightarrow \Sp^1 , x \mapsto
   \frac{x}{\nn[x]}$.
   Eingeschränkt auf den Polyeder von $\sigma$ erhält man eine stetige
   bijektive Abbildung und da die beiden Räume hausdorffsch und kompakt
   sind, muss die eingeschränkte Abbildung schon ein Homöomorphismus
-  sein. 
+  sein.
   \begin{center}
   \begin{tikzpicture}
     \draw [thin] (90:1) to (210:1) to (330:1) to (90:1);
     \draw [thick] (0,0)circle(1cm);
     \foreach \foo in {90,210,330}
     \fill (\foo:1) circle[radius=0.07cm];
+
+    \node (a) at (0,0) {$\Delta$};
+    \node (b) at (30:1.5) {$\Sp^1$};
   \end{tikzpicture}
 \end{center}
-Anschaulich biegt man die Seiten nach aussen auf den Kreisbogen.  Also
+Anschaulich biegt man die Seiten nach außen auf den Kreisbogen. Somit
 ist die $\Sp^1$ triangulierbar.
 \end{description}
 \end{Bsp}
@@ -218,8 +222,8 @@ Topologie.
 
 \begin{Lem}
   Die schwache Topologie ist feiner als die Standardtopologie und
-  falls $\Delta$ endlich ist stimmen Standardtopologie, schwache
-  Topologie auf $\gr{\Delta}$ überein.
+  falls ein geometrischer Komplex $\Delta$ endlich ist, stimmen
+  Standardtopologie und schwache Topologie auf $\gr{\Delta}$ überein.
   \begin{proof}
     Sei \OE\; $\gr{\Delta} \subset \R^N$ und $A \subset \gr{\Delta}$
     eine abgeschlossene Menge, so existiert ein $B \subset \R^N$
@@ -326,10 +330,11 @@ Beweise nun einige Aussagen über die schwache Topologie.
               $\sigma \in \Delta$ nach Vorraussetzung wieder offen,
               dann gilt aber
               \begin{align*}
-                f^{-1}(U) &= f^{-1} \left(U \cap \gr{\Delta} \right)\\ &=
-                f^{-1} \left(\bigcup \set{ U \cap \sigma }{ \sigma \in
-                    \Delta} \right)\\ &= \bigcup \set{ f^{-1}(U \cap
-                  \sigma) }{ \sigma \in \Delta}
+                f^{-1}(U) &= f^{-1} (U) \cap \gr{\Delta} \\ 
+                          &= f^{-1} (U) \cap \bigcup \set{\sigma }%
+                            { \sigma \in \Delta} \\ 
+                          &= \bigcup \set{ f^{-1}(U) \cap \sigma }%
+                            { \sigma \in \Delta}
               \end{align*}
               als Vereinigung offener Mengen wieder offen.
             \end{description}
@@ -350,7 +355,7 @@ Definiere nun für spätere Zwecke Abbildungen zwischen Simplizialkomplexen.
 
 %TODO: durch sim abbildung induzierte abbildung, verkettung von induzierten ist wieder eine induzierte, 
 
-\begin{Satz}
+\begin{Satz} \label{satz:geomsimp}
   Seien $\Delta, \Delta'$ zwei Simplizialkomplexe und
   $f: \Delta \rightarrow \Delta'$ eine simpliziale Abbildung, dann
   gelten folgende Aussagen
@@ -366,7 +371,8 @@ Definiere nun für spätere Zwecke Abbildungen zwischen Simplizialkomplexen.
             x = \sp{0}{n} t_i a_i \Rightarrow \gr{f}(x) = \sp{0}{n}
             t_i f(a_i)
           \end{gather*}
-          Man nennt $\gr{f}$ die induzierte simpliziale Abbildung.
+          Man nennt $\gr{f}$ die induzierte simpliziale Abbildung von
+          $f$.
         \item Die Verkettung von induzierten simplizialen Abbildung
           ist wieder eine induzierte Simpliziale.
         \item Falls $f$ eine bijektive simpliziale Abbildung ist,
@@ -388,6 +394,7 @@ Definiere nun für spätere Zwecke Abbildungen zwischen Simplizialkomplexen.
             und ist nun aufgrund der Eigenschaft der simplizialen
             Abbildung wiederrum aus $f(\Delta)$. 
 
+            %TODO: Urbild
           \item foo
           \item Betrachte die Abbildungen
             $f : \Delta \rightarrow \Delta' , g : \Delta' \rightarrow
@@ -431,6 +438,11 @@ Definiere nun für spätere Zwecke Abbildungen zwischen Simplizialkomplexen.
 	\end{proof}
 \end{Satz}
 
+\begin{Bem}
+  Nach \cref{satz:geosimp} $e)$ ist $\Delta^n$ das essentielle
+  Beispiel für geometrische Komplexen, denn jeder endliche Komplex ist
+  als ein isomorpher Unterkomplex in $\Delta^n$ enthalten.
+\end{Bem}
 
 
 

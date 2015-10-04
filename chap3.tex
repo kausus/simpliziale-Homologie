@@ -40,8 +40,8 @@ heraus.
     simplizial ist.
   \item Sei $\Delta$ ein geometrischer Komplex so bezeichnet die Menge
     \begin{gather*}
-      \set{ \sset{a_0 \ldots a_n} \subset \Delta^{(0)} }{ a_0 \ldots
-        a_n \in \Delta}
+      V(\Delta) \coloneqq \set{ \sset{a_0 \ldots a_n} \subset
+        \Delta^{(0)} }{ a_0 \ldots a_n \in \Delta}
     \end{gather*}
     das \textbf{Knotenschema} von $\Delta$.
   \item Ist ein abstrakter Komplex $\Delta$ isomorph zum Knotenschema
@@ -65,6 +65,10 @@ heraus.
         \draw [thin] (90:1) to (210:1) to (330:1) to (90:1);
         \foreach \foo in {90,210,330}
         \fill (\foo:1) circle[radius=0.07cm];
+
+        \node (a) at (90:1.3) {$a$};
+        \node (b) at (210:1.3) {$b$};
+        \node (c) at (330:1.3) {$c$};
       \end{tikzpicture}
     \end{center}
 
@@ -73,35 +77,27 @@ heraus.
     dann ist der Polyeder zu einer geometrischen Realisierung
     homöomorph zu $\R$
 
-  \item Für eine beliebige Menge ist die Potenzmenge ohne die leere
-    Menge stets ein abstrakter Simplizialkomplex
-  \item Die von-Neumann Zahlen liefern einen nicht endlichen
+  \item Für eine beliebige Menge $M$ deren Elemente endliche Mengen
+    sind, lässt sich stets ein abstrakter Komplex bilden, indem man
+    alle Teilmengen der Elemente hinzu nimmt. Schreibe dies als
+    $\pow^*(M)$.
+
+  \item Die von-Neumann Zahlen liefern als Menge einen nicht endlichen
     abstrakten Komplex.  Diese Menge erhält man wie folgt, setze
     $V_0 \coloneqq \emptyset$ und
-    $V_{n+1} \coloneqq \sset{V_n} \cup \V_n$, dann ist der Komplex
-    $V \coloneqq \bigcup\limits_{n \geq 0} V_n$ nicht endlich.
+    $V_{n+1} \coloneqq \sset{V_n} \cup \V_n$, dann ist 
+    $V \coloneqq \bigcup\limits_{n \geq 0} V_n$ ein nicht endlicher Komplex.
   \item Ein ungerichteter Graph $G=(V,K)$ mit $V$ die Eckmenge und $K$
     die Kanten ist ein abstrakter Simplizialkomplex
-  \item Ein Knotenschema von einem geometrisch Komplex ist ein
+  \item Das Knotenschema von einem geometrisch Komplex ist ein
     abstrakter Komplex (siehe unten)
   \end{enumerate}
 \end{Bsp}
 
-% TODO: zeige das für ein element aus \bigcup K ein eindeutiges
-% Element aus K existiert so dass das element aus \Int dieses element
-% ist
+Der folgende Satz hat als Aussage, dass das letzte Beispiel das
+Entscheidende ist. Der Zusammenhang zwischen geometrischen und
+abstrakten Komplexen ergibt sich aus der folgenden Definition.
 
-Der Zusammenhang zwischen geometrischen und abstrakten Komplexen ergibt sich 
-aus der folgenden Definition.
-
-\begin{Def}[Knotenschema]
-\end{Def}
-
-\begin{Bsp}
-  foo
-  % TODO: füge ein bild von einen geo komplex ein, aus dem das
-  % knotenschema extrahiert wird
-\end{Bsp}
 
 \begin{Satz}
   Es gelten folgende Aussagen
@@ -110,11 +106,34 @@ aus der folgenden Definition.
     Komplex dessen Knotenschema (abstrakt) isomorph zu diesem Komplex
     ist.
   \item Zwei geometrisch Komplexe sind (linear) isomorph, genau dann
-    wenn die entsprechenden Knotenschemata (abstrakt) isomorph sind.
+    wenn die dazuentsprechenden Knotenschemata (abstrakt) isomorph
+    sind.
   \end{enumerate}
   \begin{proof}
-%TODO: noch zu beweisen
-    foo
+    \begin{enumerate}[(1)]
+    \item Nach \cref{satz:geomsimp} $(e)$ existiert für einen
+      endlichen geometrischen Komplex stets ein Standardkomplex
+      $\Delta^n$ so dass dieser als ein isomorpher Teilkomplex darin
+      enthalten ist. Verallgemeinere nun diesen Standardkomplex auf
+      einen unendlich dimensionalen im Raum $\E^J$. Hierzu wird
+      $\Delta^J$ von all den Einheitsvektoren im $\E^J$
+      aufgespannt. Dies bildet wiederrum einen geometrischen Komplex.
+      Sei nun einen abstrakten Komplex $\Delta$ seine Knotenmenge
+      $\Delta^{(0)}$, dann betrachte die Einbettung
+      $f : \Delta^{(0)} \rightarrow J$. Es ist nun klar, dass die
+      Simplexe die von denen Einheitsvektoren $e_j$ aus dem Bild von
+      $f$ aufgespannt werden einen geometrischen Komplex bilden der
+      nach Konstruktion ein Knotenschema besitzt das isomorph zu
+      $\Delta$ ist.
+
+    \item Seien zwei geometrischen Komplexe $\Delta,\Delta'$ mit ihren
+      Knotenschemata $V(\Delta),V(\Delta')$ gegeben. Falls nun ein
+      Isomorphismus zwischen $\Delta,\Delta'$ existiert dann erfüllt
+      er eingeschränkt auf die Knotenmenge genau die Eigenschaft der
+      abstrakten simplizialen Abbildung zwischen den Knotenschemata
+      als abstrakte Komplexe und somit entsprechen sich diese
+      Isomorphismen gegenseitig.
+    \end{enumerate}
   \end{proof}
 \end{Satz}
 
@@ -152,15 +171,167 @@ aus der folgenden Definition.
 
 %einfache beispiele
 
-\begin{Bsp}
+\begin{Bsp}[Triangulation]
   Es werden nun Triangulierungen von für Kugel, Zylinder, Torus angegeben.
   Wobei auch die nicht Eindeutigkeit von Triangulierungen anhand des Torus
   aufgezeigt werden.
+
+  \begin{description}
+  \item[Zylinder:] Betrachte die Menge
+    \begin{gather*}
+      \Delta \coloneqq
+      \sset{\sset{a,b,c},\sset{b,c,e},\sset{c,e,f},\sset{c,d,f}%
+        ,\sset{a,d,f},\sset{a,b,f}}
+    \end{gather*}
+    Dann ist $\pow^*(\Delta)$ ein abstrakter Komplex.  Durch
+    identifizieren der Punkte gleichen Labels wird durch
+    zusammenfalten im dreidimensionalen daraus eine Fläche die
+    homöomorph zur Zylinderoberfläche ist. Dies sieht man unmittelbar
+    ein, indem man zunächst annimmt das die Kante $\sset{a,b}$
+    parallel zur $z$-Achse im $\R^3$ ist und dann eine
+    Normierungsabbildung in der $x-y$-Ebene als Abbildung verwendet.
+    \newline
+  \begin{center}
+      \parbox{0.7\linewidth}{%
+      \begin{tikzpicture}
+        \draw(0,0) rectangle (3,1); 
+        \draw (1,0) to (1,1);
+        \draw (2,0) to (2,1);
+        \draw (0,1) to (1,0) to (2,1) to (3,0);
+
+        \node (a1) at (0,-0.2) {$a$};
+        \node (c) at (1,-0.2) {$c$};
+        \node (d) at (2,-0.2) {$d$};
+        \node (a2) at (3,-0.2) {$a$};
+
+        \node (b1) at (0,1.2) {$b$};
+        \node (e) at (1,1.2) {$e$};
+        \node (f) at (2,1.2) {$f$};
+        \node (b2) at (3,1.2) {$b$};
+      \end{tikzpicture}
+      \hfill
+      \begin{tikzpicture}
+        \node (a) at (-0.2,0.2) {$a$};
+        \node (b) at (-0.2,2.2) {$b$};
+        \node (c) at (2,0.7) {$c$};
+        \node (d) at (1.8,0) {$d$};
+        \node (e) at (2,2.7) {$e$};
+        \node (f) at (1.5,2.2) {$f$};
+%        \draw [thin,fill=lightgray] (0,0.2) to (1.8,0) to (1,1.7) to (0,0.2);
+%        \draw [thin,fill=lightgray] (1.8,0) to (1.8,0.7) to (1,1.7) to (1.8,0);
+%        \draw [thin,dashed] (1.8,0.7) to (0,0.2);
+        \draw [thin] (1.6,0) to (1.8,0.7) to (0,0.2) to (1.6,0);
+        \draw [thin] (1.6,2) to (1.8,2.7) to (0,2.2) to (1.6,2);
+        \draw [thin] (1.6,0) to (1.8,0.7) to (1.8,2.7) to (1.6,2) to (1.6,0);
+        \draw [thin] (0,0.2) to (0,2.2);
+        \draw [thin,dashed] (0,2.2) to (1.8,0.7);
+        \draw [thin] (1.8,0.7) to (1.6,2);
+        \draw [thin] (1.6,2) to (0,0.2);
+      \end{tikzpicture}}
+    \end{center}
+  \item[Torus:] Zur Triangulierung des Torus ($\Sp^1 \times \Sp^1$)
+    ist ein wesentlich komplizierterer abstrakter Komplex
+    vonnöten.
+
+    Betrachte hierzu die Menge
+    \begin{align*}
+      \Delta &\coloneqq \{ \sset{a,c,i},\sset{a,d,i},\\
+        &\sset{b,c,f},\sset{c,f,i},\sset{a,b,d},\sset{b,d,f},\\
+        &\sset{d,h,i},\sset{d,e,h},\sset{i,g,h},\sset{i,g,f},\\
+        &\sset{d,e,f},\sset{e,f,g},\sset{a,c,e},\sset{c,e,h},\\
+        &\sset{b,c,h},\sset{b,g,h},\sset{a,b,g},\sset{a,e,g} \}
+    \end{align*}
+
+    Dann ist $\pow^*(\Delta)$ ein abstrakter Komplex.
+
+    \begin{center}
+    \parbox{0.8\linewidth}{%
+      \begin{tikzpicture}
+      \draw[step=1] (0,0)grid(3,3);    
+      \draw [thin] (0,3) to (3,0);
+      \draw [thin] (0,2) to (2,0);
+      \draw [thin] (0,1) to (1,0);
+      \draw [thin] (1,3) to (3,1);
+      \draw [thin] (2,3) to (3,2);
+
+        \node (a1) at (-0.2,-0.2) {$a$};
+        \node (a2) at (3.2,-0.2) {$a$};
+        \node (a3) at (3.2,3.2) {$a$};
+        \node (a4) at (-0.2,3.2) {$a$};
+
+        \node (b1) at (-0.2,1) {$b$};
+        \node (b2) at (3.2,1) {$b$};
+        \node (c1) at (-0.2,2) {$c$};
+        \node (c2) at (3.2,2) {$c$};
+
+        \node (d1) at (1,-0.2) {$d$};
+        \node (d2) at (1,3.2) {$d$};
+        \node (e1) at (2,-0.2) {$e$};
+        \node (e2) at (2,3.2) {$e$};
+
+        \node (f) at (0.8,0.75) {$f$};
+        \node (g) at (1.8,0.8) {$g$};
+        \node (h) at (1.8,1.8) {$h$};
+        \node (i) at (0.8,1.8) {$i$};
+
+    \end{tikzpicture}
+    \hfill
+    \begin{tikzpicture}[scale=1.3]
+      \draw ellipse (2cm and 1cm);
+      \begin{scope}
+        \clip (-0.7,0)rectangle(0.7,0.5);
+        \draw ellipse (0.7cm and 0.25cm);
+      \end{scope}
+      \begin{scope}
+        \clip (-0.9,0.1)rectangle(0.9,-0.5);
+        \draw (0,0.3) ellipse (1cm and 0.4cm);
+      \end{scope}
+    \end{tikzpicture}}
+  \end{center}
+  Identifiziert man nun jeweils die gegenüberliegende Seiten, dann
+  erhält man den Torus als zwei dimensionale Fläche im $\R^3$.
+\item[Kugel:]
+  Betrachte den Komplex
+  \begin{gather*}
+    \Delta \coloneqq \{ \sset{a,b,c},\sset{a,c,d},
+    \sset{a,b,d},\sset{b,c,d} \}
+  \end{gather*}
+  und alle Teilmengen der Elemente oder kürzer geschrieben durch
+  $\pow(\sset{a,b,c,d}) \setminus \{ a,b,c,d \}$.  Dann ist hierdurch
+  eine Triangulierung der $\Sp^2$ gegeben.
+
+  \begin{center}
+    \parbox{0.7\linewidth}{%
+\begin{tikzpicture}
+  \node (a1) at (30:2.2) {$a$};
+   \node (a2) at (150:2.2) {$a$};
+   \node (a3) at (270:2.2) {$a$};
+   \node (b) at (90:1.2) {$b$};
+   \node (c) at (210:1.2) {$c$};
+   \node (e) at (330:1.2) {$d$};
+
+%  \draw [thin] (90:1) to (210:1) to (330:1) to (90:1);
+  \draw [thin] (330:1) to (30:2) to (90:1) to (330:1);
+  \draw [thin] (90:1) to (150:2) to (210:1) to (90:1);
+  \draw [thin] (210:1) to (270:2) to (330:1) to (210:1);
+\end{tikzpicture}
+\hfill
+\begin{tikzpicture}[scale=1.7]
+  \draw [thin] (0,1.2) to (1.8,1) to (1,2.7) to (0,1.2);
+  \draw [thin] (1.8,1) to (1.8,1.7) to (1,2.7) to (1.8,1);
+  \draw [thin,dashed] (1.8,1.7) to (0,1.2);
+\end{tikzpicture}}
+\end{center}
+
+Beschreibt man nun diesen erhaltenen Tetraeder in eine Sphäre ein, so
+folgt genauso wie in \cref{bsp:triangulierung} das dies eine
+Triangulierung der Sphäre liefert.
+
+\end{description}
+  
 \end{Bsp}
 
-\begin{Bsp}[Triangulation]
 %TODO: beweise folgende triangulierengen \S^2 \simeq \gr{(\Delta^3)^{(2)}}, behauptung diese aussage gilt für allgemeines n, also \S^n \simeq \gr{(\Delta^{n+1})^{(n)}}
-\end{Bsp}
 
 
 

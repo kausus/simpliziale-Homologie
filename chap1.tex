@@ -14,12 +14,19 @@
 
 \section{Geometrische Simpliziale}
 
-Simpliziale sind rein kombinatorische Objekte, mit denen man auf gute
-Art und Weise topologische Räume beschreiben kann, insbesondere ihre
-Homologiegruppen berechnen kann.
+Topologische Räume sind im allgemeinen sehr schwer zu beschreibende
+mathematische Objekte. Dieses Seminar behandelt eine Methode eine
+bestimmte Klasse von topologischen Räume durch einfache geometrische
+Objekte, den Simplizialen, zu beschreiben und zu verstehen.
 
-Wir definieren zunächst grundlegende Begriffe für die spätere
-Defintione der Simpliziale.
+Simpliziale sind einfache geometrische Objekte für beliebige
+Dimensionen. Diese bilden eine unmittelbare Verallgemeinerung der
+bekannten in den Dimension kleiner gleich drei, wie das gleichseitige
+Dreieck und den Tetraeder.
+
+Wir definieren zunächst grundlegende Begriffe für die anschließende
+Defintion der Simpliziale.
+
 \begin{Def}[Geometrisch unabhängig\footnote{Oder auch affine
     Unabhängigkeit}]
   \label{def:1}
@@ -42,12 +49,14 @@ geometrischen Unabhängigkeit.
   hat maximal $N+1$ Elemente und für ein Menge
   $\{ a_0 , \ldots , a_n \} \subset \R^N$ sind folgende Aussagen
   zueinander äquivalent:
+
   \begin{enumerate}[$(i)$]
-  \item $\{ a_0 , \ldots , a_n \}$ ist geometrisch unabhängig
+  \item $\{ a_0 , \ldots , a_n \}$ ist geometrisch unabhängig.
   \item Für $\sum\limits_{i=0}^n t_i = 0$ und
     $\sum\limits_{i=0}^n t_i a_i = 0$ folgt stets $t_i = 0$ für alle
-    $i \in \{ 0,\ldots,n\}$
+    $i \in \{ 0,\ldots,n\}$.
   \end{enumerate}
+
   \begin{proof}
     Sei $\{ a_0 , \ldots , a_n \}$ ein geometrisch unabhängiges System
     und hierzu ein Teilsystem $\{ a_{i_0},\ldots,a_{i_r} \}$.  Sei
@@ -61,9 +70,9 @@ geometrischen Unabhängigkeit.
     dann ist nach \cref{def:1}, für ein Element $a \in A$, das System
     $\set{ a - a'}{a' \in A \setminus \sset{a} }$ linear unabhängig.
     Die Kardinalität des Systems ist offentsichtlich durch die
-    Dimension des Vektorraum beschränkt und somit maximal gleich
-    $N+1$. Für den letzten Teil des Beweises nutze man folgende
-    Äquivalenzen
+    Dimension des Vektorraum beschränkt und somit maximal gleich $N$,
+    mit dem Basispunkt also $N+1$. Für den letzten Teil des Beweises
+    nutze man folgende Äquivalenzen
  % \newcommand{\lla}{~\Leftrightarrow~}
  %    \begin{align*}
  %      \forall~t_i =0 
@@ -95,9 +104,9 @@ geometrischen Unabhängigkeit.
 
 In der nächsten Definition wird das in diesem Vortrag zugrundeliegende
 Objekt von Interesse definiert. Dieses dient im weiteren Verlauf als
-Baustein für Komplexe.
+Baustein für die Komplexe.
 
-\begin{Def}[geometrischer $n$-Simplex]
+\begin{Def}[Geometrischer $n$-Simplex]
   Zu einem geometrisch unabhängigen System \gs $\subset \R^N$, nennt
   man die Menge
   \begin{gather*}
@@ -105,22 +114,16 @@ Baustein für Komplexe.
       \sum\limits_{i=0}^n t_i = 1}
   \end{gather*}
   den (geometrischen) $n$-Simplex und schreibt $a_0 \ldots a_n$ oder
-  ohne die Punkte genauer zu spezifizieren $\sigma^n$ mit $n$ die
-  Dimension des geometrischen Systems. Dies ist die Menge aller
-  Konvexkombinationen des Systems \gs. Als Konvention ist der Simplex
-  stets in den $\R^N$ eingebettet für ein $N \geq n$.
+  ohne die Punkte genauer zu spezifizieren $\sigma^n$. Dies ist die
+  Menge aller Konvexkombinationen des Systems \gs. Als Konvention ist
+  der Simplex stets in den $\R^N$ eingebettet für ein $N \geq n$.
 \end{Def}
 
 
-% TODO: erstes Beispiel zu einem simplex, zeiche in tikz \sigma^k für
-% k =0,1,2,3
 \begin{Bsp}[Einfache Beispiele]
-Definiere den Standardsimplex $\sigma^n \coloneqq e_0\ldots e_n$. Die Fälle $n = 0,1,2,3$ sind hier aufgezeichnet
-\newline
-
-%{$n=0$}\hfill{$n=1$}\hfill{$n=2$}\hfill{$n=3$}
-
-% objekte müssen nebeneinander sein
+  Definiere den \textbf{Standardsimplex}
+  $\sigma^n \coloneqq e_0\ldots e_n$. Die Fälle $n = 0,1,2,3$ sind
+  hier aufgezeichnet \newline
 
 % 0 - simplex, punkt
 % besseren punkt ausdenken, kleinen kreis mit blauer farbe, 
@@ -163,7 +166,7 @@ Definiere den Standardsimplex $\sigma^n \coloneqq e_0\ldots e_n$. Die Fälle $n 
 
 \end{Bsp}
 
-Um die Punkte innerhalb eines Simplexes unabhängig von der Lage im
+Um Punkte aus einem Simplexes unabhängig von der Lage des Simplex im
 umliegenden Raum zu beschreiben sind spezielle Koordinaten
 vonnöten. Diese werden nun definiert und ihre Eindeutigkeit und
 Stetigkeit bezüglich des Punktes bewiesen.
@@ -172,11 +175,11 @@ Stetigkeit bezüglich des Punktes bewiesen.
 \begin{Lem}[Baryzentrische Koordinaten]\label{lem:bary}
   \normalfont Es bezeichnet $x$ einen Punkt aus dem Simplex
   $\sigma^n = a_0\ldots a_n$. In der Darstellung
-  $x = \sum_{i=0}^n t_i a_i$ nennt man $t_i$ \textbf{baryzentrische}
-  Koordinaten. Diese sind durch $x$ eindeutig bestimmt und als
+  $x = \sum_{i=0}^n t_i a_i$ nennt man $t_i$ \textbf{baryzentrische
+    Koordinaten}. Diese sind durch $x$ eindeutig bestimmt und als
   Funktionen $t_i : \sigma^n \subset \R^N \rightarrow [0,1]$ stetig.
   \begin{proof}
-    Beweise zunächst die Eindeutigkeit über die äquivalente
+    Zeige zunächst die Eindeutigkeit über die äquivalente
     Formulierung der geometrischen Unabhängigkeit aus \cref{lem:1}
     \begin{description}
     \item[Eindeutigkeit: ] Seien zwei Darstellungen
@@ -208,21 +211,28 @@ Stetigkeit bezüglich des Punktes bewiesen.
                 &= \sp{1}{n} t_i b_i\\
                 &= \sp{1}{n} t_i b_i + \sp{n+1}{N} 0 \cdot b_i
       \end{align*}
-      Hierbei entspricht $(*):$ $\sp{0}{n} t_i = 1$. Schreibe dies nun als
-      ein lineares Gleichungssystem, mit
-      $x=(x_1,\ldots,x_N),a_i=(a_i^1,\ldots,a_i^N),t=(t_1,\ldots,t_n,0,\ldots,0),B=(b_i^j)_{i,j}$,
-      so schreibt sich die obige Gleichung wie folgt:
-      $x-a_0 = B\cdot t$. Durch umformen nach $t$, also dem
-      invertieren der Matrix $B$, wird ersichtlich weshalb die $t_i(x)$
-      für $1 \leq i \leq n$ stetige Funktionen sind. Mit
-      $t_0 = 1 - \sp{1}{n} t_i$ ist die Behauptung gezeigt.
+      Hierbei wird $(*):$ $\sp{0}{n} t_i = 1$ verwendet. Schreibe dies
+      nun als ein lineares Gleichungssystem, mit
+      $x=(x_1,\ldots,x_N),a_i=(a_i^1,\ldots,a_i^N),%
+      t=(t_1,\ldots,t_n,0,\ldots,0),B=(b_i^j)_{i,j}$.
+      Somit schreibt sich die obige Gleichung wie folgt:
+      $x-a_0 = B\cdot t$.
+     
+      Forme nach $t$ um, dies ist möglich da $B$ als darstellende
+      Matrix von einer Basis invertierbar ist. Nun wird ersichtlich
+      weshalb die $t_i$ für $1 \leq i \leq n$ stetige Funktionen sind.
+
+      Mit $t_0 = 1 - \sp{1}{n} t_i$ ist die Behauptung gezeigt.
       % BEMERKUNG: dies zeigt auch die eindeutigkeit der t_i, da
       % lineares gleichungssystem, eindeutige lösung
     \end{description}
   \end{proof}
 \end{Lem}
 
-Eine weitere Definition
+Die Baryzentrischen als ausgezeichnete Koordinaten ermöglichen eine
+gute Art der Beschreibung der Punkte innerhalb des Simplex. Mit dieser
+Darstellung ist es leicht möglich viele Eigenschaften von Simplizialen
+zu zeigen.
 
 \begin{Def}[Eckmenge, Dimension, Seite, Rand, Inneres]
   Sei $\sigma = a_0 \ldots a_n$ ein geometrischer $n$-Simplex, so
@@ -234,8 +244,9 @@ Eine weitere Definition
   \item Ein Teilmenge $\tau \subset \sigma$ heißt \textbf{Seite} falls
     $\tau$ einen Simplex bildet. Eine Seite heißt \textbf{echt} falls
     sie von $\sigma$ verschieden ist.
-	\item Die \textbf{Dimension} von $\sigma$ ist die Zahl $n$ bzw. 
-		$\dim(\sigma) = \gr{\V(\sigma)} - 1$
+  \item Die \textbf{Dimension} von $\sigma$ ist die Zahl $n$ bzw.
+    $\dim(\sigma) = \gr{\V(\sigma)} - 1$. Wobei $\dim(\emptyset)=-1$
+    gesetzt wird.
   \item Der \textbf{Rand} von $\sigma$ ist die folgende Menge:
     \begin{gather*}
       \partial\sigma = \bigcup \; \left\{ \tau \; \Big| \; \tau \text{
@@ -251,10 +262,10 @@ Eine weitere Definition
 Zur vorherigen Definition ein anschauliches Beispiel.
 
 \begin{Bsp}
-  Betrachte den Simplex $\sigma^2 = e_0e_1e_2$.
-\newline
+  Betrachte den Simplex $\sigma^2 = e_0e_1e_2$, dann lassen sich alle
+  vorherigen Begriffsbildungen leicht anhand dieses Simplex angeben.
+  \newline
 
-%TODO: if possible, position with parbox
 \centering
 \parbox{0.7\linewidth}{% 
 \begin{tikzpicture}
@@ -291,8 +302,8 @@ Zur vorherigen Definition ein anschauliches Beispiel.
 Es werden nun einige Charakterisierungen und Aussagen über die
 Simplizes und deren geometrischen Objekten bewiesen.
 
-\begin{Satz}
-  \normalfont Sei $\sigma = a_0 \ldots a_n $ ein $n$-Simplex,
+\begin{Satz}\label{satz:simp}
+  \normalfont Sei $\sigma = a_0 \ldots a_n $ ein $n$-Simplex und
   $x \in \sigma$ mit der baryzentrischen Darstellung
   $x=\sum\limits_{i=0}^n t_i a_i$ , so gelten folgende Aussagen:
   \begin{enumerate}[$(a)$]
@@ -308,8 +319,8 @@ Simplizes und deren geometrischen Objekten bewiesen.
   \item Das Innere $\Int(\sigma)$ ist offen und konvex.
   \item Zwei Simplexe der selben Dimension sind homöomorph.
   \item Es gilt $\overline{\Int(\sigma)} = \sigma$.
-  \item Es gibt einen Homöomorphismus $\sigma \simeq \Bn$, der das
-    Innere $\Int(\sigma)$ auf die $\Sp^{n-1}$ abbildet.
+  \item Es gibt einen Homöomorphismus $\sigma \simeq \Bn$, der den
+    Rand $\partial\sigma$ auf die $\Sp^{n-1}$ abbildet.
   \end{enumerate}
   \begin{proof}
     \begin{enumerate}[$a)$:]
@@ -343,7 +354,7 @@ Simplizes und deren geometrischen Objekten bewiesen.
       \begin{description}
       \item[kompakt:] Definiere eine stetige Abbildung
         $f : \R^{n+1} \rightarrow \R^N$ mit
-        $ f(t_0,\ldots ,t_n) = \sp{0}{n} t_i a_i$, diese ist stetig da
+        $ t_0,\ldots ,t_n \mapsto \sp{0}{n} t_i a_i$, diese ist stetig da
         nach \cref{lem:bary} die baryzentrischen Koordinaten es
         sind. Die Menge
         \begin{gather*}
@@ -353,13 +364,14 @@ Simplizes und deren geometrischen Objekten bewiesen.
         ist kompakt, da man sie durch die $1$-Norm $\nn_1$ wie folgt
         schreiben kann $A = (\nn_1)^{-1}(\{ 1 \}) \cap
         [0,1]^{n+1}$.
-        Somit ist $\sigma = f(A)$ als Bild einer kompakten Mengen
-        unter einer stetigen Abbildung wieder kompakt.
+        Als Schnitt einer abgeschlossen und einer kompakten Menge ist
+        $A$ kompakt.  Somit ist $\sigma = f(A)$ als Bild einer
+        kompakten Mengen unter einer stetigen Abbildung wieder
+        kompakt.
       \item[konvex:] Seien zwei Punkte $x,y \in \sigma$ gegeben und
         ihre baryzentrischen Darstellungen seien $x = \sum t_i a_i$,
         $y = \sum s_i a_i$ mit $\sum t_i = \sum s_i = 1$. Dann folgt
         für eine Konvexkombination mit $\lambda \in [0,1]$
-        % TODO nur die zweite gleichung darf eine beschriftung tragen
         \renewcommand*{\theequation}{$*$}
         \begin{align}
           \nonumber
@@ -380,36 +392,14 @@ Simplizes und deren geometrischen Objekten bewiesen.
       \item[Konvexe Hülle:] Es ist zu zeigen
         $\conv(\sset{a_0,\ldots , a_n}) = \sigma$, hierbei gilt
         $\sset{a_0,\ldots,a_n} \subset \sigma$, da $\conv$ monoton
-        ist, also $\conv(\sset{a_0,\ldots , a_n}) \subset \sigma$.
+        ist, folgt $\conv(\sset{a_0,\ldots , a_n}) \subset \sigma$.
         
         Nun gilt $a_ia_j \subset \conv( \sset{a_0,\ldots , a_n} )$, da
         mit $a_i \in \ch$ auch jeder Punkt der sich als
         Konvexkombinationen schreiben lässt in der konvexen Hülle
-        liegt. Durch Induktion über $n$, folgt nun mit der Darstellung
+        liegt. Rekursiv folgt nun mit der Darstellung
         $x = t_0 a_0 + \lambda \cdot \sp{1}{n} \frac{t_i}{\lambda}
         a_0$ die andere Inklusion.
-        
-    %     Beweise zunächst folgende Darstellung
-    %   \begin{gather*}
-    %     \sigma = \bigcup \set{ a_0 b}{b \in a_1\ldots a_n}
-    %   \end{gather*}
-    %   Betrachte hierzu für einen Punkt $a_0 \not= x \in \sigma$ dessen baryzentrische
-    %   Darstellung, so folgt
-    %   \begin{align*}
-    %     x &= \sp{0}{n} t_i a_i \\
-    %       &= t_0 a_0 + \sp{1}{n} t_i a_i \\
-    %       &= t_0 a_0 + \lambda \cdot \sp{1}{n} \frac{t_i}{\lambda} a_i 
-    %   \end{align*}
-    %   Mit $\lambda \coloneqq \sp{1}{n} t_i \not= 0$, so ist
-    %   $ \sp{1}{n} \frac{t_i}{\lambda} a_i \in a_1 \ldots a_n$, denn
-    %   $\sp{1}{n} \frac{t_i}{\lambda} = \frac{1}{\lambda} \cdot
-    %   \sp{1}{n} t_i = 1$.
-      
-    %   % konvex durch andere darstellung und kompaktheit durch bild der
-    %   % abbildung von t_0 ... t_n auf \sum t_i a_i , kompaktes bild
-    %   % TODO: beweis für kompaktheit und konvex, nutze affine
-    %   % transformation für obda \sigma ist e_0 ... e_n nutze basis,
-    %   % und t_i sind beschränkt
      \end{description}
 
      % d)
@@ -418,23 +408,21 @@ Simplizes und deren geometrischen Objekten bewiesen.
        Simplex ist, ist diese auch kompakt, insbesondere
        abgeschlossen. Nun ist der Rand $\partial\sigma$ Vereinigung
        dieser abgeschlossen Mengen, also wieder abgeschlossen. Das
-       Innere ist nun das Komplement der abgeschlossen Menge, also
-       offen.
+       Innere ist nun das relative Komplement der abgeschlossen Menge
+       bezüglich des Simplex, also offen.
      \item[konvex:] Seien zwei Punkte $x,y \in \Int(\sigma)$ gegeben,
-       dann
-       % TODO: besseren cref verwenden
-       gilt nach \cref{satz:a} , das für die baryzentrischen
-       Koordinaten der Punkte~~$t_i,s_i >0$ gilt. Sei nun
-       $\lambda \in [0,1]$, so gilt für die baryzentrischen
-       Koordinaten der Konvexkombinationen $\lambda x + (1-\lambda y)$
-       die Darstellung $\lambda t_i + (1-\lambda)s_i$. Dies ist stets
+       dann gilt nach $b)$, das für die baryzentrischen Koordinaten
+       der Punkte~~$t_i,s_i >0$ gilt. Sei nun $\lambda \in [0,1]$, so
+       gilt für die baryzentrischen Koordinaten der
+       Konvexkombinationen $\lambda x + (1-\lambda y)$ die Darstellung
+       $\lambda t_i + (1-\lambda)s_i$. Dies ist offentsichlich stets
        größer als $0$.
         \end{description}
       \item Zeige das ein beliebiger Simplex $\sigma^n$ homöomorph zum
         Standardsimplex $e_0\ldots e_n$ ist. Betrachte hierfür die
         affine Transformation $f(x) = Ax+b$ mit $A \in \GL(N,\R)$ und
-        $b \in \R^N$, die $a_i$ auf $e_i$ abbildet. Dies ist
-        offentsichlich ein Homöomorphismus.
+        $b \in \R^N$, die $a_i$ auf $e_i$ abbildet. Dies ist ein
+        Homöomorphismus.
       \item Da $\sigma$ abgeschlossen ist und
         $\overline{\hspace{0.1cm} \cdot \hspace{0.1cm}}$ ist monoton
         gilt: $\overline{\Int(\sigma)} \subset \sigma$.
@@ -456,10 +444,13 @@ Simplizes und deren geometrischen Objekten bewiesen.
         Und somit folgt die Behauptung.
 
         % g)
-    \item Betrachte die stetige Abbildung
-      $f : \R^{n+1} \setminus \sset{0} \rightarrow \Sp^n, f(x) = \frac{x}{\nn[x]}$.
-      Definiere für $a \in \Int(\sigma), p \in \R^N \setminus \{ 0 \}$ die Menge
-      $ap_+ \coloneqq \set{ a + tp}{ t \geq 0}$. Dann beweise folgende Behauptung.
+      \item Betrachte die stetige Abbildung
+        $f : \R^{n+1} \setminus \sset{0} \rightarrow \Sp^{n}, f(x) =
+        \frac{x}{\nn[x]}$.
+        Definiere für
+        $a \in \Int(\sigma), p \in \R^N \setminus \{ 0 \}$ die
+        Halbgerade $ap_+ \coloneqq \set{ a + tp}{ t \geq 0}$. Dann
+        beweise folgende Behauptung.
       \begin{Beh}
         Der Schnitt $\partial\sigma \cap ap_+$ hat genau ein Element.
         \begin{proof}
@@ -471,39 +462,43 @@ Simplizes und deren geometrischen Objekten bewiesen.
           
           Seien nun zwei Punkte $x,y \in \partial\sigma$ die auch in
           $ap_+$ enthalten sind. Seien $t_x, t_y \in \R_{> 0}$ die
-          Paramter, so dass gilt: $a + t_i \cdot p = i$ mit
-          $i \in \sset{x,y}$ und sei \OE~ $t_y < t_x$. Dann folgt
-          durch umformen
+          Parameter, so dass $a + t_i \cdot p = i$ mit
+          $i \in \sset{x,y}$ gilt. Sei \OE~ $t_y < t_x$, dann folgt
+          durch eleminieren von $p$
           \begin{gather*}
-            x = (1-t) a + ty \text{ mit } t=\frac{t_y}{t_x} < 1
+            x = (1-t) a + ty \text{ mit } t=\frac{t_y}{t_x} < 1.
           \end{gather*}
-          Wähle nun eine Folge $\sset{y_n} \subset \Int(\sigma)$ die
-          gegen $y$ konvergiert und setze
-          $a_n \coloneqq \frac{x -ty_n}{1-t}$. Dann konvergiert nach
-          Konstruktion $a_n$ gegen $a$ und da $a \in \Int(\sigma)$ in
-          einer offenen Menge enthalten ist, existiert ein $n \geq 0$
-          so dass für alle $m \geq n$ gilt $a_m \in \Int(\sigma)$. Somit
-          liegt nun $x = (1-t) a_n + ty_n$ in $\Int(\sigma)$ da die
-          Menge konvex ist und die Folgenglieder ab einem $m$ in der
-          Menge $\Int(\sigma)$ liegen, dies ist ein Widerspruch zu
+          Wähle nun eine Folge $y_n \in \Int(\sigma)$ die gegen $y$
+          konvergiert und setze $a_n \coloneqq \frac{x -ty_n}{1-t}$.
+          Dann konvergiert nach Konstruktion $a_n$ gegen $a$ und da
+          $a \in \Int(\sigma)$ in einer offenen Menge enthalten ist,
+          existiert ein $n \geq 0$ so dass für alle $m \geq n$ gilt
+          $a_m \in \Int(\sigma)$. Somit gilt
+          $x = (1-t) a_n + ty_n \in \Int(\sigma)$, da die Menge konvex
+          ist und die Folgenglieder ab einem $m$ in der Menge
+          $\Int(\sigma)$ liegen, folgt ein Widerspruch zu
           $x \in \partial\sigma$.
         \end{proof}
       \end{Beh}
-      Sei nun \OE~ $0 \in \sigma$, sonst wende Translation auf
-      $\sigma$ an.  Schränke nun die Abbildung $f$ auf die Menge
-      $\partial\sigma$ ein. Nach obiger Behauptung ist die Abbildung
-      $f_{| \partial\sigma} : \partial\sigma \rightarrow \Sp^n$
-      bijektiv und stetig. Da $\partial\sigma$ und $\Sp^n$ kompakt und
-      hausdorffsch sind ist die Abbildung auch ein Homöomorphismus.
+      Sei nun \OE~ $0 \in \Int(\sigma)$, sonst wende eine affine
+      Transformation auf $\sigma$ an, die den Nullpunkt in das Innere
+      von $\sigma$ verschiebt.  
+%TODO: genauer erklären
+      Schränke nun die Abbildung $f$ auf die
+      Menge $\partial\sigma$ ein. Nach obiger Behauptung ist die
+      Abbildung
+      $f_{| \partial\sigma} : \partial\sigma \rightarrow \Sp^{n-1}$
+      bijektiv und stetig. Da $\partial\sigma$ und $\Sp^{n-1}$ kompakt und
+      hausdorffsch sind, ist die Abbildung auch ein Homöomorphismus.
       
-      Setze nun als Umkehrabbildung $g : \Sp^n \rightarrow \partial\sigma$ 
+      Setze nun als Umkehrabbildung $g : \Sp^{n-1} \rightarrow \partial\sigma$ 
       und erweitere diese zu einem Homöomorphismus der Form
       \begin{gather*}
         G : \Bn \rightarrow \sigma , \hspace{0.5cm}
         x \mapsto 
         \begin{cases}
-          0 & , x = 0 \\
-          \nn[g(\frac{x}{\nn[x]})] \cdot x & \text{, sonst}
+          \hspace{.7cm}0 & , x = 0 \\
+          ~\nn[g(\frac{x}{\nn[x]})] \cdot x & \text{, sonst}
         \end{cases}
       \end{gather*}
       Diese Abbildung erfüllt die gewünschten Eigenschaften.
@@ -513,7 +508,7 @@ Simplizes und deren geometrischen Objekten bewiesen.
 
 
 \begin{Bem}
-  Für eine beliebige Menge $J$ ist der Raum der Funktionen $\R^J$ ein
+  Für eine beliebige Indexmenge $J$ ist der Raum der Funktionen $\R^J$ ein
   $\R$-Vektorraum, dessen Elemente als Tupel $(x_j)_{j \in J}$
   geschrieben werden. Betrachte den Untervektorraum
   $\E^J \coloneqq \bigoplus\limits_{j \in J} \R$ der Elemente die bis
