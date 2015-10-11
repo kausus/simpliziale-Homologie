@@ -6,12 +6,12 @@ Für topologische Anwendung ist der $\R^J$ in vielen Fällen zu konkret
 und unnötiger gedanklicher Balast. Deshalb sollte man die
 Simplizialkomplexe unabhängig vom euklidischen Raum definieren. Diese
 abstrakten Simplizialkomplexe werden in diesem Abschnitt
-behandelt. Die zunächst stark erscheinende Vereinfachung, stellt sich
+behandelt. Die zunächst stark erscheinende Vereinfachung stellt sich
 als eine äquivalente Darstellung zu den geometrischen Komplexen
 heraus.
 
 \begin{Def}
-  Eine beliebige, nichtleere Menge $\Delta$ heißt \textbf{abstrakter
+  Eine beliebige, nicht leere Menge $\Delta$ heißt \textbf{abstrakter
     Simplizialkomplex} oder auch nur abstrakter Komplex, falls mit
   jedem Element aus $\Delta$ auch jede Teilmenge aus diesem Element in
   $\Delta$ enthalten ist und jedes Element eine endliche
@@ -20,7 +20,7 @@ heraus.
 \renewcommand*{\theequation}{\textbullet}
   \begin{gather}
     \sigma \in \Delta \text{ und }  \tau \subset \sigma
-    \Rightarrow \tau \in \Delta
+    \Rightarrow \tau \in \Delta.
   \end{gather}
   Für einen abstrakten Komplex werden folgende Begriffe benötigt
   \begin{enumerate}[({A}1)]
@@ -30,7 +30,7 @@ heraus.
     insbesondere für $k=1$ ist dies die \textbf{Knotenmenge}.
   \item Die \textbf{Dimension} des Komplexes ist das Supremum über die
     Mächtigkeit der Seiten von $\Delta$.
-  \item Eine Teilmenge vom Komplex die (\textbullet) erfüllt, heißt
+  \item Eine Teilmenge vom Komplex, die (\textbullet) erfüllt, heißt
     \textbf{Unterkomplex}.
   \item Eine Abbildung zwischen den Knotenmenge zweier abstrakten
     Komplexe heißt \textbf{simpliziale Abbildung}, falls Seiten auf
@@ -38,7 +38,7 @@ heraus.
   \item Zwei abstrakte Komplexe heißen \textbf{isomorph}, falls es eine
     bijektive simpliziale Abbildung gibt, deren Inverses auch
     simplizial ist.
-  \item Sei $\Delta$ ein geometrischer Komplex so bezeichnet die Menge
+  \item Sei $\Delta$ ein geometrischer Komplex, so bezeichnet die Menge
     \begin{gather*}
       V(\Delta) \coloneqq \set{ \sset{a_0 \ldots a_n} \subset
         \Delta^{(0)} }{ a_0 \ldots a_n \in \Delta}
@@ -52,14 +52,14 @@ heraus.
 
 \begin{Bsp}
   \begin{enumerate}[\textbullet]
-  \item Für einen geometrischen Komplex $\sigma$ ist die Menge all
-    seiner Seiten ein abstrakter Simplizalkomplex und das Knotenschema
-    wird auf triviale Art und Weise geometrisch durch $\sigma$
-    realisiert.
+  \item Für einen geometrischen Komplex $\sigma$ ist die Menge aller
+    Knotenschemata zu jeder Seite von $\sigma$ ein abstrakter
+    Simplizalkomplex und das Knotenschema wird auf triviale Art und
+    Weise geometrisch durch $\sigma$ realisiert.
   \item Die Menge $\Delta = \sset{%
       \sset{a,b},\sset{a,c},%
       \sset{b,c},\sset{a},\sset{b},\sset{c},\emptyset}$ ist ein Beispiel und 
-    seine geometrische Realisierung sieht wie folgt aus
+    seine geometrische Realisierung sieht wie folgt aus.
     \begin{center}
       \begin{tikzpicture}
         \draw [thin] (90:1) to (210:1) to (330:1) to (90:1);
@@ -73,57 +73,59 @@ heraus.
     \end{center}
 
   \item Betrachte die Menge
-    $\set{ \sset{i,i+1} , \sset{i} }{ i \in \Z} \cup \sset{\emptyset}$
+    $\set{ \sset{i,i+1} , \sset{i} }{ i \in \Z} \cup \sset{\emptyset}$,
     dann ist der Polyeder zu einer geometrischen Realisierung
-    homöomorph zu $\R$
+    homöomorph zu $\R$.
 
-  \item Für eine beliebige Menge $M$ deren Elemente endliche Mengen
-    sind, lässt sich stets ein abstrakter Komplex bilden, indem man
-    alle Teilmengen der Elemente hinzu nimmt. Schreibe dies als
+  \item Für eine Menge $M$, deren Elemente endliche Mengen sind, lässt
+    sich stets ein abstrakter Komplex bilden, indem man alle
+    Teilmengen der Elemente hinzu nimmt. Schreibe dies als
     $\pow^*(M)$.
 
   \item Die von-Neumann Zahlen liefern als Menge einen nicht endlichen
-    abstrakten Komplex.  Diese Menge erhält man wie folgt, setze
-    $V_0 \coloneqq \emptyset$ und
-    $V_{n+1} \coloneqq \sset{V_n} \cup \V_n$, dann ist 
-    $V \coloneqq \bigcup\limits_{n \geq 0} V_n$ ein nicht endlicher Komplex.
+    abstrakten Komplex.  Diese Menge erhält man wie folgt. Definiere
+    rekursiv $V_0 \coloneqq \emptyset$ und
+    $V_{n+1} \coloneqq \sset{V_n} \cup \V_n$, dann ist
+    $V \coloneqq \bigcup\limits_{n \geq 0} V_n$ ein nicht endlicher
+    Komplex.
   \item Ein ungerichteter Graph $G=(V,K)$ mit $V$ die Eckmenge und $K$
-    die Kanten ist ein abstrakter Simplizialkomplex
-  \item Das Knotenschema von einem geometrisch Komplex ist ein
-    abstrakter Komplex (siehe unten)
+    die Kanten ist ein abstrakter Simplizialkomplex.
+  \item Das Knotenschema von einem geometrischen Komplex ist ein
+    abstrakter Komplex.
   \end{enumerate}
 \end{Bsp}
 
 Der folgende Satz hat als Aussage, dass das letzte Beispiel das
 Entscheidende ist. Der Zusammenhang zwischen geometrischen und
-abstrakten Komplexen ergibt sich aus der folgenden Definition.
+abstrakten Komplexen ergibt sich aus dem folgenden Satz.
 
 
 \begin{Satz}
   Es gelten folgende Aussagen
   \begin{enumerate}[(1)]
   \item Für jeden abstrakten Komplex existiert ein geometrischer
-    Komplex dessen Knotenschema (abstrakt) isomorph zu diesem Komplex
+    Komplex, dessen Knotenschema (abstrakt) isomorph zu diesem Komplex
     ist.
-  \item Zwei geometrisch Komplexe sind (linear) isomorph, genau dann
+  \item Zwei geometrische Komplexe sind (linear) isomorph, genau dann
     wenn die dazuentsprechenden Knotenschemata (abstrakt) isomorph
     sind.
   \end{enumerate}
   \begin{proof}
     \begin{enumerate}[(1)]
-    \item Nach \cref{satz:geomsimp} $(e)$ existiert für einen
+    \item Nach \cref{satz:geosimp} $(e)$ existiert für einen
       endlichen geometrischen Komplex stets ein Standardkomplex
-      $\Delta^n$ so dass dieser als ein isomorpher Teilkomplex darin
+      $\Delta^n$, sodass dieser als ein isomorpher Teilkomplex darin
       enthalten ist. Verallgemeinere nun diesen Standardkomplex auf
       einen unendlich dimensionalen im Raum $\E^J$. Hierzu wird
       $\Delta^J$ von all den Einheitsvektoren im $\E^J$
       aufgespannt. Dies bildet wiederrum einen geometrischen Komplex.
-      Sei nun einen abstrakten Komplex $\Delta$ seine Knotenmenge
-      $\Delta^{(0)}$, dann betrachte die Einbettung
-      $f : \Delta^{(0)} \rightarrow J$. Es ist nun klar, dass die
-      Simplexe die von denen Einheitsvektoren $e_j$ aus dem Bild von
-      $f$ aufgespannt werden einen geometrischen Komplex bilden der
-      nach Konstruktion ein Knotenschema besitzt das isomorph zu
+
+      Sei nun ein abstrakter Komplex $\Delta$ und seine Knotenmenge
+      $\Delta^{(0)}$ gegeben, dann betrachte die Einbettung
+      $f : \Delta^{(0)} \rightarrow J$.  Es ist nun klar, dass die
+      Simplexe, die von den Einheitsvektoren $e_j$ aus dem Bild von
+      $f$ aufgespannt werden, einen geometrischen Komplex bilden, der
+      nach Konstruktion ein Knotenschema besitzt, das isomorph zu
       $\Delta$ ist.
 
     \item Seien zwei geometrischen Komplexe $\Delta,\Delta'$ mit ihren
@@ -144,15 +146,15 @@ abstrakten Komplexen ergibt sich aus der folgenden Definition.
 
 \begin{Bem}[Label,Abwicklung]
   Da im weiteren Verlauf des Seminars meist nicht zweidimensionale
-  Triangulierungen angegeben und benötigt werden, ist es notwendig
+  Triangulierungen angegeben und benötigt werden, ist es notwendig,
   eine vereinfachte Darstellung dieser höher dimensionalen Objekte
   abzugeben. Hierzu wird das Labeln von Triangulierungen angegeben.
 
   Betrachte zunächst für die Idee des Verfahrens den Tetraeder und
-  seine standard Abwicklung im Zweidimensionalen.
+  seine Standardabwicklung im Zweidimensionalen.
   % zeichne dreidim tetraeder, und eine zweidim abwicklung, tikz
   Bei der Abwicklung werden die $0$-Simplexe fortlaufend alphabetisch
-  nummeriert. Bei Knoten die in der ursprünglichen Dimension
+  nummeriert. Bei Knoten, die in der ursprünglichen Dimension
   zusammenfallen wird das gleiche Label verwendet.
 
 %TODO: auch für unendlich dimensionale abwicklung
@@ -172,9 +174,9 @@ abstrakten Komplexen ergibt sich aus der folgenden Definition.
 %einfache beispiele
 
 \begin{Bsp}[Triangulation]
-  Es werden nun Triangulierungen von für Kugel, Zylinder, Torus angegeben.
-  Wobei auch die nicht Eindeutigkeit von Triangulierungen anhand des Torus
-  aufgezeigt werden.
+  Es werden nun Triangulierungen für Kugel, Zylinder und Torus
+  angegeben durch abstrakte Komplexe deren Geometrische Realisierungen
+  eine Triangulation der entsprechenden Flächen im $\R^3$ sind.
 
   \begin{description}
   \item[Zylinder:] Betrachte die Menge
@@ -185,9 +187,9 @@ abstrakten Komplexen ergibt sich aus der folgenden Definition.
     \end{gather*}
     Dann ist $\pow^*(\Delta)$ ein abstrakter Komplex.  Durch
     identifizieren der Punkte gleichen Labels wird durch
-    zusammenfalten im dreidimensionalen daraus eine Fläche die
+    zusammenfalten im dreidimensionalen daraus eine Fläche, die
     homöomorph zur Zylinderoberfläche ist. Dies sieht man unmittelbar
-    ein, indem man zunächst annimmt das die Kante $\sset{a,b}$
+    ein, indem man zunächst annimmt, dass die Kante $\sset{a,b}$
     parallel zur $z$-Achse im $\R^3$ ist und dann eine
     Normierungsabbildung in der $x-y$-Ebene als Abbildung verwendet.
     \newline
@@ -324,7 +326,7 @@ abstrakten Komplexen ergibt sich aus der folgenden Definition.
 \end{center}
 
 Beschreibt man nun diesen erhaltenen Tetraeder in eine Sphäre ein, so
-folgt genauso wie in \cref{bsp:triangulierung} das dies eine
+folgt genauso wie in \cref{bsp:triangulierung}, dass dies eine
 Triangulierung der Sphäre liefert.
 
 \end{description}
