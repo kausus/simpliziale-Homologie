@@ -2,10 +2,10 @@
 
 \section{Geometrische Simplizialkomplexe}
 
-Die geometrischen Simpliziale alleine reichen nicht aus, um einen
+Die geometrischen Simplexe alleine reichen nicht aus, um einen
 komplizierten topolgischen Raum zu beschreiben bzw. modellieren. Denn
-ein $\sigma^n$ ist nach \cref{satz:simp} isomorph zu $\Bn$.  Mithilfe
-von Komplexen von Simplizialen können nun kompliziertere topologische
+ein $\sigma^n$ ist nach \cref{satz:simp} isomorph zum $\D^n$.  Mithilfe
+von Komplexen von Simplexen können nun kompliziertere topologische
 Räume modelliert werden.
 
 \begin{Def}[Geometrischer Simplizialkomplex]
@@ -67,7 +67,7 @@ Räume modelliert werden.
 \end{Bsp}
 
 \begin{Def}[Unterkomplex, $k$-Skelett, Dimension, Polyeder]
-  Sei $\Delta$ ein geometrischer Komplex, so definiere
+  Sei $\Delta$ ein geometrischer Komplex, so definieren wir:
   \begin{enumerate}[(a)]
   \item Eine Teilmenge $\Delta'$ von $\Delta$ heißt
     \textbf{Unterkomplex}, falls $\Delta'$ wiederum einen
@@ -75,25 +75,23 @@ Räume modelliert werden.
   \item Die Dimension eines Simplizialkomplexes ist wie folgt
     definiert:
     \begin{gather*}
-      \dim(\Delta) \coloneqq \sup \left\{ \dim(\sigma) \; \Big| \;
-        \sigma \in \Delta \right\}
+      \dim(\Delta) \coloneqq \sup \bigl\{ \dim(\sigma) \; | \;
+        \sigma \in \Delta \bigr\}
     \end{gather*}
-    Falls die Dimension unbeschränkt ist, wird diese auf unendlich
-    gesetzt.
   \item Das \textbf{$k$-Skelett} $\Delta^{(k)}$ ist der Unterkomplex
     aller Simplizes mit der Dimension kleiner gleich $k$. Der
-    Spezialfall $\Delta^{(0)}$ bezeichnet die \textbf{Eckmenge} von
+    Spezialfall $\Delta^{(0)}$ bezeichnet die \textbf{Eckenmenge} von
     $\Delta$.
   \item Der \textbf{Polyeder} von $\Delta$ ist wie folgt definiert
     \begin{gather*}
-      |\Delta| \coloneqq \bigcup \left\{ \sigma \; \Big| \; \sigma \in
-        \Delta \right\} \subset \R^{\dim(\Delta)}.
+      |\Delta| \coloneqq \bigcup \bigl\{ \sigma \; | \; \sigma \in
+        \Delta \bigr\} \subset \R^{\dim(\Delta)}.
     \end{gather*}
 %    Der Polyeder entspricht dem Komplex dessen zugrundeliegender Raum.
     Dies entspricht dem Komplex zugrundeliegenden Raum.
-  \item Eine Teilmenge von $\R^N$ heißt \textbf{triangulierbar}, falls
-    sie homöomorph zu einem Polyeder eines geometrischen Komplexes
-    sind.
+  \item Ein topologischer Raum heißt \textbf{triangulierbar}, falls
+    dieser homöomorph zu einem Polyeder eines geometrischen Komplexes
+    ist.
   \end{enumerate}
 \end{Def}
 
@@ -101,7 +99,8 @@ Zur Veranschaulichung der vorher definierten Begriffe ein Beispiel.
 
 \begin{Bsp}\label{bsp:triangulierung}
   \begin{description}
-  \item[Skelette:] Betrachte den folgenden Komplex $\Delta$ mit $\dim(\Delta)=2$\\
+  \item[Skelette:] Wir betrachten den folgenden Komplex $\Delta$ mit %
+    $\dim(\Delta)=2$\\
     \begin{center}
     \begin{tikzpicture}
       \draw [thin,fill=lightgray] (0,0) to (1,0) to (0,1) to (0,0);
@@ -153,12 +152,12 @@ Zur Veranschaulichung der vorher definierten Begriffe ein Beispiel.
   \end{tikzpicture}
 \end{center}
 Anschaulich biegt man die Seiten nach außen auf den Kreisbogen. Somit
-ist die $\Sp^1$ triangulierbar.
+ist $\Sp^1$ triangulierbar.
 \end{description}
 \end{Bsp}
 
 \begin{Lem}\label{lem:eindeutigSimplex}
-  Es gilt für eine Menge $\Delta$ folgende Äquivalenz
+  Es gilt für eine Menge $\Delta$ folgende Äquivalenz von Aussagen:
   \begin{enumerate}[(i)]
   \item (K1),(K2) und (K3)
   \item (K1),(K2) und (K4)
@@ -169,12 +168,12 @@ ist die $\Sp^1$ triangulierbar.
   \begin{proof}
     \begin{description}
     \item[i) $\Rightarrow$ ii)] Sei zunächst $(K3)$ gegeben. Dann
-      betrachte zu zwei verschiedenen Simplizialen
+      betrachte zu zwei verschiedenen Simplexen
       $\sigma,\tau \in \Delta$ ihren Schnitt. Dieser ist nach
-      Vorraussetzung wieder ein Simplex aus $\Delta$. Setze
+      Voraussetzung wieder ein Simplex aus $\Delta$. Setze
       $s \coloneqq \sigma \cap \tau$ und zeige, dass falls
-      $\Int(\sigma) \cap \Int(\tau)$ nicht leer ist die beiden
-      Simpliziale übereinstimmen müssen. Sei
+      $\Int(\sigma) \cap \Int(\tau)$ nicht leer ist, die beiden
+      Simplexe übereinstimmen müssen. Sei
       $x \in \Int(\sigma) \cap \Int(\tau) \subset s$. Nun gilt, dass
       $s$ eine echte Seite von $\sigma$ oder $\tau$ sein muss. Es muss
       also gelten $s \subset \partial\sigma , \partial\tau$. Nach der
@@ -196,8 +195,8 @@ ist die $\Sp^1$ triangulierbar.
 \end{Lem}
 
 
-Definiere auf dem zugrunde liegenden Raum eines Simplizialkomplexes eine 
-Topologie.
+Wir wollen nun auf dem zugrunde liegenden Raum eines
+Simplizialkomplexes eine Topologie definieren.
 
 \begin{Def}[schwache Topologie]
 	Sei $\Delta$ ein Simplizalkomplex, dann definiere die
@@ -213,9 +212,12 @@ Topologie.
 \end{Def}
 
 \begin{Lem}
-  Die schwache Topologie ist feiner als die Standardtopologie und
-  falls ein geometrischer Komplex $\Delta$ endlich ist, stimmen
-  Standardtopologie und schwache Topologie auf $\gr{\Delta}$ überein.
+  Für einen geometrischen Komplex $\Delta$ ist die schwache Topologie
+  feiner als die Standardtopologie\footnote{Hierbei ist die
+    Standardtopologie, die von $\gr{\Delta} \subset \R^{\dim(\Delta)}$
+    induzierte Unterraumtopologie gemeint.}. Falls $\Delta$ endlich
+  ist, stimmen Standardtopologie und schwache Topologie auf
+  $\gr{\Delta}$ überein.
   \begin{proof}
     Sei \OE\; $\gr{\Delta} \subset \R^N$ und $A \subset \gr{\Delta}$
     eine abgeschlossene Menge, so existiert ein $B \subset \R^N$
@@ -227,69 +229,69 @@ Topologie.
 		
     Falls nun $\Delta$ eine endliche Menge von Simplizes ist, gilt für
     eine abgeschlossene Menge $A$ bezüglich $\gr{\Delta}$, dass
-    $A \cap \sigma$ abgeschlossen in $\sigma$ ist und durch
-    Vereinigung über die endlichen vielen Simplizes die
-    Abgeschlossenheit bezüglich der Standardtopologie erreicht wird.
+    $A \cap \sigma$ abgeschlossen in $\sigma$ ist, für alle
+    $\sigma \in \Delta$. Durch Vereinigung über die endlichen vielen
+    Simplizes erreichen wir die Abgeschlossenheit bezüglich der
+    Standardtopologie.
   \end{proof}
 \end{Lem}
 
 \begin{Bem}
   Die schwache Topologie ist im allgemeinen echt feiner als die
-  Spurtopologie auf $\gr{\Delta}$ bezüglich dem $\R^N$. Betrachte
+  Unterraumtopologie auf $\gr{\Delta}$ bezüglich dem $\R^N$. Betrachte
   hierzu den folgenden Simplizialkomplex,
-  $\Delta \coloneqq \set{ \{t\} }{t \in \R}$.  Hierbei ist das Polyeder
-  gleich zu $\R$, aber die schwache Topologie entspricht der
-  Diskreten. Für eine beliebige Teilmenge von $A \subset \R$ ist der
-  Schnitt $A \cap \{ t \}$ mit einen beliebigen $0$-Simplex aus
-  $\Delta$ gleich dem Simplex selbst oder die leere Menge, somit stets
-  abgeschlossen, also ist jede Teilmenge abgeschlossen und damit die
-  schwache Topologie auf dem Polyeder der Diskreten und damit ungleich
-  der Standardtopologie auf $\R$.
+  $\Delta \coloneqq \set{ \{t\} }{t \in \R}$.  Hierbei ist das
+  Polyeder gleich zu $\R$, aber die schwache Topologie entspricht der
+  Diskreten. Für eine Teilmenge von $A \subset \R$ ist der Schnitt
+  $A \cap \{ t \}$ mit einen $0$-Simplex aus $\Delta$ gleich dem
+  Simplex selbst oder die leere Menge, somit stets abgeschlossen, also
+  ist jede Teilmenge abgeschlossen und damit die schwache Topologie
+  auf dem Polyeder der Diskreten und damit ungleich der
+  Standardtopologie auf $\R$.
 \end{Bem}
 
-Auf dem Polyeder ist nun stets die schwache Topologie von der die Rede
-ist, ausser es wird explizit die Spurtopologie von einem $\R^N$
-verwendet.
+Wir betrachten nun stets die schwache Topologie auf dem Polyeder,
+außer es wird explizit die Unterraumtopologie von dem $\R^N$ auf dem
+Polyeder verwendet.
 
-Beweise nun einige Aussagen über die schwache Topologie.
+Wir beweisen nun einige Aussagen über die schwache Topologie.
 
 \begin{Satz}
-  Sei $\Delta$ ein Simplizialkomplex, so gelten folgende Aussagen
+  Sei $\Delta$ ein Simplizialkomplex. Dann gelten folgende Aussagen:
   \begin{enumerate}[(a)]
         \item Die schwache Topologie ist hausdorffsch.
         \item Sei $A \subset \gr{\Delta}$ eine kompakte Teilmenge,
-          dann existiert ein endlicher Unterkomplex $\Delta'$ in
+          dann existiert ein endlicher \\Unterkomplex $\Delta'$ in
           dessen Polyeder $A$ enthalten ist. Insbesondere ist ein
           endlicher Komplex kompakt.
-        \item Eine Abbildung $f: \gr{\Delta} \rightarrow X$ ist
-          stetig, genau dann wenn $f_{| \sigma}$ für alle
+        \item Eine Abbildung $f: \gr{\Delta} \rightarrow X$ ist genau
+          dann stetig, wenn $f_{| \sigma}$ für alle
           $\sigma \in \Delta$ stetig ist.
-	\end{enumerate}
+	\end{enumerate}\pagebreak
 	\begin{proof}
           \begin{enumerate}[(a)]
-          \item Sei $v \in \Delta^{(0)}$ ein Knoten, so definiere
-            folgende Abbildungsvorschrift.  Nach
-            \cref{lem:eindeutigSimplex} existiert für jeden Punkt $x$
-            genau ein Simplex $\sigma \in \Delta$ mit
-            $x \in \Int(\sigma)$. Falls nun $x$ in einem von $v$
-            aufgespannten Simplex liegt, ist $t_v = t_i$ mit der
-            baryzentrischen Darstellung $x = \sum^{n}_{i=0} t_i a_i$
-            für $v=a_i $ und sonst $t_v = 0$.  Die Abbildung $t_v$ ist
-            nun stetig, da die baryzentrischen Koordinaten stetig
-            sind. Für zwei verschiedene Punkte
-            $x_0,x_1 \in \gr{\Delta}$ existiert ein $r \in \R$ mit
-            $t_v(x_0) < r < t_v(x_1)$, denn sonst würde durch die
-            Eindeutigkeit der baryzentrischen Darstellung und der
-            Verschiedenheit der Punkte ein Widerspruch folgen. So
-            defniere folgende offene, disjunkte Umgebungen
-            $U_1 \coloneqq \set{x}{ t_v(x)<r}$ und
-            $U_2 \coloneqq \set{x}{ t_v(x)>r}$, so sind für je zwei
-            Punkte disjunkte, offene Umgebungen konstruiert und der
-            Raum ist hausdorffsch.
+          \item Sei $v \in \Delta^{(0)}$ ein Knoten, dann definiere
+            folgende Abbildung.  Nach \cref{lem:eindeutigSimplex}
+            existiert für jeden Punkt $x$ genau ein Simplex
+            $\sigma \in \Delta$ mit $x \in \Int(\sigma)$. Falls nun
+            $x$ in einem von $v$ aufgespannten Simplex liegt, ist
+            $t_v = t_i$ mit der baryzentrischen Darstellung
+            $x = \sum^{n}_{i=0} t_i a_i$ für $v=a_i $ und sonst
+            $t_v = 0$.  Die Abbildung $t_v$ ist nun stetig, da die
+            baryzentrischen Koordinaten stetig sind. Für zwei
+            verschiedene Punkte $x_0,x_1 \in \gr{\Delta}$ existiert
+            ein $r \in \R$ mit $t_v(x_0) < r < t_v(x_1)$, denn sonst
+            würde durch die Eindeutigkeit der baryzentrischen
+            Darstellung und der Verschiedenheit der Punkte ein
+            Widerspruch folgen. Wir defnieren folgende offene,
+            disjunkte Umgebungen $U_1 \coloneqq \set{x}{ t_v(x)<r}$
+            und $U_2 \coloneqq \set{x}{ t_v(x)>r}$, so sind für je
+            zwei Punkte disjunkte, offene Umgebungen konstruiert und
+            der Raum ist hausdorffsch.
           \item Sei $A$ eine kompakte Teilmenge des Polyeders
             $\gr{\Delta}$, die in keinem endlichen Unterkomplex von
-            $\Delta$ enthalten ist, so wähle je einen Punkt
-            $x_\sigma \in A \cap \Int(\sigma)$, für alle $\sigma$ mit
+            $\Delta$ enthalten ist. Wähle je einen Punkt
+            $x_\sigma \in A \cap \Int(\sigma)$, für \\alle $\sigma$ mit
             nichtleeren Schnitt mit $A$. Die Menge
             $\Sigma \subset \gr{\Delta}$ all dieser Punkte ist nicht
             endlich und besitzt als induzierte Topologie die
@@ -307,7 +309,7 @@ Beweise nun einige Aussagen über die schwache Topologie.
             Somit muss die Menge $A$ in einem endlichen Unterkomplex
             enthalten sein. Es folgt nun unmittelbar, dass ein endlicher
             Komplex als endliche Vereinigung der kompakten Komplexe
-            wiederrum kompakt ist.
+            wiederum kompakt ist.
           \item 
             \begin{description}
               % TODO: zeige noch für kohärente topologien, das bei der
@@ -315,12 +317,12 @@ Beweise nun einige Aussagen über die schwache Topologie.
               % kann.
             \item[\glqq $\Rightarrow$\grqq] Falls die Abbildung
               bezüglich $\gr{\Delta}$ stetig ist, dann auch die
-              Restriktion nach einem Unterraum
+              Restriktion auf einem Unterraum
               $\sigma \subset \gr{\Delta}$.
-            \item[\glqq $\Leftarrow$ \grqq] Sei $U \subset X$ offen,
-              dann ist $f^{-1}(U) \cap \sigma$ für alle
-              $\sigma \in \Delta$ nach Vorraussetzung wieder offen.
-              Dann gilt aber
+            \item[\glqq $\Leftarrow$ \grqq] Sei $U \subset X$ offen.
+              Dann ist $f^{-1}(U) \cap \sigma$ für alle
+              $\sigma \in \Delta$ nach Voraussetzung wieder offen.
+              Dann gilt aber, dass
               \begin{align*}
                 f^{-1}(U) &= f^{-1} (U) \cap \gr{\Delta} \\ 
                           &= f^{-1} (U) \cap \bigcup \set{\sigma }%
@@ -328,13 +330,13 @@ Beweise nun einige Aussagen über die schwache Topologie.
                           &= \bigcup \set{ f^{-1}(U) \cap \sigma }%
                             { \sigma \in \Delta}
               \end{align*}
-              ist als Vereinigung offener Mengen wieder offen.
+              Somit ist $f^{-1}(U)$  als Vereinigung offener Mengen wieder offen.
             \end{description}
           \end{enumerate}
 	\end{proof}
 \end{Satz}
 
-Definiere nun für spätere Zwecke Abbildungen zwischen Simplizialkomplexen.
+%Definiere nun für spätere Zwecke Abbildungen zwischen Simplizialkomplexen.
 
 \begin{Def}[Simpliziale Abbildung] 
   Seien zwei Simplizialkomplexe $\Delta, \Delta'$ gegeben, dann heißt
@@ -345,77 +347,83 @@ Definiere nun für spätere Zwecke Abbildungen zwischen Simplizialkomplexen.
   dann $f: \Delta \rightarrow \Delta'$.
 \end{Def}
 
-\begin{Satz} \label{satz:geosimp}
-  Seien $\Delta, \Delta'$ zwei Simplizialkomplexe und
-  $f: \Delta \rightarrow \Delta'$ eine simpliziale Abbildung, dann
-  gelten folgende Aussagen
+\begin{Satz} \label{satz:geosimp} Seien $\Delta, \Delta'$ zwei
+  Simplizialkomplexe und $f: \Delta \rightarrow \Delta'$ eine
+  simpliziale Abbildung. Dann gelten folgende Aussagen
 	\begin{enumerate}[(a)]
         \item $f(\Delta)$ ist ein Unterkomplex und das Urbild eines
           Unterkomplexes ist wieder ein Unterkomplex.
-        \item Es gibt eine stetige Abbildung
+        \item Seien Es gibt eine stetige Abbildung
           $\gr{f} : \gr{\Delta} \rightarrow \gr{\Delta'}$ die durch
           $f$ induziert wird und folgende Bedingung erfüllt:
           \begin{gather*}
             x = \sp{0}{n} t_i a_i \Rightarrow \gr{f}(x) = \sp{0}{n}
             t_i f(a_i)
           \end{gather*}
-          Man nennt $\gr{f}$ die induzierte simpliziale Abbildung von
-          $f$.
+          Wobei $x \in \gr{\Delta}$ mit der baryzentrischen
+          Darstellung gegeben ist und die $a_i$ die Eckenmenge von dem
+          Simplex ist aus dem $x$ ist.  Man nennt $\gr{f}$ die
+          induzierte simpliziale Abbildung von $f$.
         \item Die Verkettung von induzierten simplizialen Abbildung
           ist wieder eine induzierte simpliziale Abbildung.
         \item Falls $f$ eine bijektive simpliziale Abbildung ist,
-          deren Umkehrfunktion wiederrum simplizial ist, dann ist die
+          deren Umkehrfunktion wiederum simplizial ist, dann ist die
           induzierte Abbildung $\gr{f}$ ein Homöomorphismus. Wir
           nennen dann $\gr{f}$ oder auch $f$ einen simplizialen
           Homöomorphismus, bzw. Isomorphismus.
-        \item Sei $\Delta$ ein endlicher simplizialer Komplex, dann
+        \item Sei $\Delta$ ein endlicher simplizialer Komplex. Dann
           existiert eine natürliche Zahl $N$, sodass $\Delta$
           isomorph zu einem Unterkomplex von $\Delta^N$ ist.
 	\end{enumerate}
 	\begin{proof}
           \begin{enumerate}[(a)]
-          \item Prüfe die Axiome $(K1)-(K3)$ nach. $(K1)$ ist klar als
-            Bild der leeren Menge. Sei $\sigma \in f(\Delta)$, dann
-            existiert $\sset{a_i} \subset \Delta^{(0)}$, sodass
+          \item Wir prüfen die Axiome $(K1)-(K3)$ nach. $(K1)$ ist
+            klar als Bild der leeren Menge. Sei
+            $\sigma \in f(\Delta)$. Dann existiert
+            $\sset{a_1 , \ldots , a_n} \subset \Delta^{(0)}$, sodass
             $\sigma = f(a_0)\ldots f(a_n)$. Nun wird jede Seite von
-            $\sigma$ durch eine Teilmenge von $\sset{a_i}$ aufgespannt
-            und ist nun aufgrund der Eigenschaft der simplizialen
-            Abbildung wiederrum aus $f(\Delta)$. 
+            $\sigma$ durch eine Teilmenge von
+            $\sset{a_1 ,\ldots , a_n}$ aufgespannt und ist aufgrund
+            der Eigenschaft der simplizialen Abbildung wiederum aus
+            $f(\Delta)$.
 
-            Für das Urbild eines Unterkomplexes ist nur zu $(K4)$ zu
+            Für das Urbild eines Unterkomplexes ist nur $(K4)$ zu
             zeigen.  Dies folgt aber unmittelbar daraus, dass der
             Urbildoperator $f^{-1}$ mit $\Int$, Vereinigungen und
             Schnitten von Mengen vertauscht.
+            % TODO: genauer
           \item Die Eindeutigkeit solch einer Abbildung ist klar, da
-            sie linear auf den Punkten $a_i$ und $f(a_i)$ vorgegeben
-            ist. 
+            sie linear auf den Punkten $a_i$ vorgegeben ist.
 
             Die Abbildung ist zudem wohldefiniert, da die
-            Koeffizienten von $\gr{f}(x)$ wieder in $[0,1]$ liegen und
-            als Summe die $1$ ergeben. Zudem liegt der Punkt
+            Koeffizienten von $\gr{f}(x)$ wieder \\in $[0,1]$ liegen
+            und als Summe die $1$ ergeben. Zudem liegt der Punkt
             $\gr{f}(x)$ in $\gr{\Delta'}$, denn die simpliziale
-            Abbildung $f$ bildet Simplexe auf Simplexe ab. Die
-            Stetigkeit folgt unmittelbar daraus, dass die Abbildung
-            stetig ist, als Abbildung von dem Simplex $a_0 \ldots a_n$
-            nach $f(a_0)\ldots f(a_n)$ und nach der Definition der
-            schwachen Topologie also auch als Abbildung bezüglich der
-            Polyeder.
-          \item Betrachte die Abbildungen
+            Abbildung $f$ bildet Simplexe auf Simplexe ab. 
+
+            Die Abbildung ist stetig eingeschränkt auf jedem
+            Simplex. Nun nach Satz 2.9 c) ist die Abbildung auch auf
+            dem Polyeder stetig.
+
+          \item Wir betrachten die Abbildungen
             $f : \Delta \rightarrow \Delta' , g : \Delta' \rightarrow
             \Delta''$.
-            Dann ist die Verkettung $\gr{g} \circ \gr{f}$ für den Punkt
-            $x = \sp{0}{n} t_i a_i \in \gr{\Delta}$
+            Dann ist die Verkettung $\gr{g} \circ \gr{f}$ für den
+            Punkt $x = \sp{0}{n} t_i a_i \sigma \subset \gr{\Delta}$,
+            mit $\sigma = a_0 \ldots a_n$ ein Simplex gegeben durch
+            ein geometrisch unabhängiges System:
             \begin{gather*}
               \left( \gr{g} \circ \gr{f} \right) (x) = \gr{g} \left(
                 \sp{0}{n} t_i f(a_i) \right) = \sp{0}{n} t_i g(f(a_i)
             \end{gather*}
-            wieder eine simpliziale Abbildung, diese wird von
-            $g \circ f$ induziert.
+            Die Verkettung ist also wieder eine simpliziale Abbildung,
+            diese wird von $g \circ f$ induziert.
           \item Die induzierten Abbildungen $\gr{f},\gr{f^{-1}}$ sind
             stetig nach $(b)$. Es ist nur zu zeigen, dass diese
             zueinander inverse Abbildungen sind. Dies sieht man sofort
             aufgrund der Linearität ein bzw. für einen Punkt
-            $x = \sp{0}{n} t_i a_i \in \gr{\Delta}$ folgt
+            $x = \sp{0}{n} t_i a_i \in \sigma \subset \gr{\Delta}$, mit 
+             $\sigma = a_0 \ldots a_n$:
             \begin{gather*}
               \left( \gr{f^{-1}} \circ \gr{f} \right) (x) =
               \gr{f^{-1}} \left( \sp{0}{n} t_i f(a_i) \right) =
@@ -433,11 +441,15 @@ Definiere nun für spätere Zwecke Abbildungen zwischen Simplizialkomplexen.
             Betrachte nun zu den gegeben Daten die folgende
             simpliziale Abbildung
             $f : \Delta \rightarrow \Delta^n , a_i \mapsto b_i$.  Die
-            Abbildung $f$ ist nach Konstruktion injektiv (also
+            Abbildung $f$ 
+
+            ist nach Konstruktion injektiv (also
             bijektiv, wegen den endlichen Mengen) und simplizial,
             falls man nun den Bildbereich noch auf den Komplex
             $f(\Delta)$ einschränkt, wird die Umkehrabbildung
             simplizial und nach $(d)$ ein Isomorphismus.
+            % TODO: falscher beweis, die abbildung ist so wie sie
+            % angegeben ist nicht bijektiv
           \end{enumerate}
 	\end{proof}
 \end{Satz}

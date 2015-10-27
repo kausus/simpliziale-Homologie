@@ -3,19 +3,21 @@
 %kapitel über konventionen
 \section*{Konventionen}
 
-In diesem Seminarvortrag werden folgende Konventionen verwendet.  $0$
-ist eine natürliche Zahl.  $\R$ steht für die reellen Zahlen. Eine
-Menge $A \subset \R^n$ ist konvex, wenn die Verbindungslinie je zweier
-Punkte vollkommen in $A$ enthalten ist.
+In diesem Seminarvortrag werden folgende Konventionen verwendet. Die
+Null ist eine natürliche Zahl. Die reellen Zahlen werden durch $\R$
+geschreiben.  Eine Menge $A \subset \R^n$ ist konvex, wenn die
+Verbindungslinie je zweier Punkte vollkommen in $A$ enthalten ist.
 
-Die konvexe Hülle einer Teilmenge eines Vektorraums, ist der Schnitt
-aller konvexen Mengen, die diese Mengen enthalten. Diese ist
-konvex. Schreibe hierfür $\conv(A)$.
+Die konvexe Hülle einer Teilmenge $A \subset \R^n$ eines
+$\R$-Vektorraums, ist der Schnitt aller konvexen Mengen, die diese
+Menge enthalten. Diese ist konvex. Schreibe hierfür $\conv(A)$.
 
-Es bezeichnet $e_i$ den Einheitsvektor in $\R^n$, wobei $e_0$ als der Nullvektor gesetzt wird.
+Es bezeichnet $e_i$ den $i$-ten Einheitsvektor in $\R^n$, wobei $e_0$
+als der Nullvektor gesetzt wird.
 
-Die Konvexkombination zweier Vektoren $x$ und $y$ ist eine
-Linearekombination $\lambda x + \mu y$ mit $\lambda + \mu = 1$.
+Eine Konvexkombination zweier Vektoren $x$ und $y$, mit Parametern
+$\lambda,\mu \in [0,1]$, ist eine Linearekombination
+$\lambda x + \mu y$ mit $\lambda + \mu = 1$.
 
 Die Potenzmenge wird durch $\pow$ geschrieben.
 
@@ -24,9 +26,11 @@ $\overline{A}$ den Abschluss von $A$.
 
 Das Zeichen \OE~ bedeutet ohne Einschränkung.
 
-Die $1$-Norm $\nn_1$ auf dem $\R^N$ ist wie folgt definiert:
-$\nn[x]_1 \coloneqq \sp{1}{N} |x_i|$.
-
+Die $1$-Norm $\nn_1$ auf dem $\R^N$ ist durch folgende Abbildung gegeben:
+\begin{gather*}
+  \nn_1 : \R^N \rightarrow \R_{\geq 0}\\
+  x = (x_1,\ldots ,x_N) \mapsto \sp{1}{N} |x_i|
+\end{gather*}
 
 
 %%% Local Variables:

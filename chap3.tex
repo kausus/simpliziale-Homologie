@@ -2,7 +2,7 @@
 
 \section{Abstrakte Simplizialkomplexe}
 
-Für topologische Anwendung ist der $\R^J$ in vielen Fällen zu konkret
+Für topologische Anwendungen ist der $\R^N$ in vielen Fällen zu konkret
 und unnötiger gedanklicher Balast. Deshalb sollte man die
 Simplizialkomplexe unabhängig vom euklidischen Raum definieren. Diese
 abstrakten Simplizialkomplexe werden in diesem Abschnitt
@@ -11,28 +11,30 @@ als eine äquivalente Darstellung zu den geometrischen Komplexen
 heraus.
 
 \begin{Def}
-  Eine beliebige, nicht leere Menge $\Delta$ heißt \textbf{abstrakter
+  Eine nicht leere Menge $\Delta$ heißt \textbf{abstrakter
     Simplizialkomplex} oder auch nur abstrakter Komplex, falls mit
   jedem Element aus $\Delta$ auch jede Teilmenge aus diesem Element in
-  $\Delta$ enthalten ist und jedes Element eine endliche
-  Menge ist. Oder in Formeln geschrieben
-%  \setcounter{equation}{(*)}
-\renewcommand*{\theequation}{\textbullet}
+  $\Delta$ enthalten ist und jedes Element eine endliche Menge
+  ist. Oder in Formeln geschrieben
+  \renewcommand*{\theequation}{\textbullet}
   \begin{gather}
     \sigma \in \Delta \text{ und }  \tau \subset \sigma
-    \Rightarrow \tau \in \Delta.
+    \Rightarrow \tau \in \Delta. \\
+    \nonumber
+    \forall \; \sigma \in \Delta : \sigma \text{ ist endliche Menge.}
   \end{gather}
-  Für einen abstrakten Komplex werden folgende Begriffe benötigt
+  Für einen abstrakten Komplex werden folgende Begriffe benötigt:
   \begin{enumerate}[({A}1)]
 % dimension, seite, knoten, unterkomplex, simpliziale abbildung, isomorphie
-  \item Ein Element des Komplexes heißt \textbf{Seite}. Die Teilmenge aller
-    Seiten der Mächtigkeit kleiner gleich $k$ heißt das \textbf{$k$-Skelett},
+  \item Ein Element des Komplexes heißt \textbf{Simplex}. Die Teilmenge aller
+    Simplexe der Mächtigkeit kleiner gleich $k$ heißt das \textbf{$k$-Skelett},
     insbesondere für $k=1$ ist dies die \textbf{Knotenmenge}.
   \item Die \textbf{Dimension} des Komplexes ist das Supremum über die
-    Mächtigkeit der Seiten von $\Delta$.
+    Mächtigkeit der Seiten von $\Delta$. Für den leeren Komplex $\emptyset$ ist
+    die Dimension $-1$.
   \item Eine Teilmenge vom Komplex, die (\textbullet) erfüllt, heißt
     \textbf{Unterkomplex}.
-  \item Eine Abbildung zwischen den Knotenmenge zweier abstrakten
+  \item Eine Abbildung zwischen den Knotenmengen zweier abstrakten
     Komplexe heißt \textbf{simpliziale Abbildung}, falls Seiten auf
     Seiten abgebildet werden.
   \item Zwei abstrakte Komplexe heißen \textbf{isomorph}, falls es eine
@@ -58,8 +60,9 @@ heraus.
     Weise geometrisch durch $\sigma$ realisiert.
   \item Die Menge $\Delta = \sset{%
       \sset{a,b},\sset{a,c},%
-      \sset{b,c},\sset{a},\sset{b},\sset{c},\emptyset}$ ist ein Beispiel und 
-    seine geometrische Realisierung sieht wie folgt aus.
+      \sset{b,c},\sset{a},\sset{b},\sset{c},\emptyset}$
+    ist ein abstrakter Komplex und seine geometrische Realisierung
+    sieht wie folgt aus.
     \begin{center}
       \begin{tikzpicture}
         \draw [thin] (90:1) to (210:1) to (330:1) to (90:1);
@@ -79,15 +82,20 @@ heraus.
 
   \item Für eine Menge $M$, deren Elemente endliche Mengen sind, lässt
     sich stets ein abstrakter Komplex bilden, indem man alle
-    Teilmengen der Elemente hinzu nimmt. Schreibe dies als
+    Teilmengen der Elemente hinzu nimmt. Wir schreiben dies als
     $\pow^*(M)$.
 
-  \item Die von-Neumann Zahlen liefern als Menge einen nicht endlichen
+  \item Die Von-Neumann-Zahlen liefern als Menge einen nicht endlichen
     abstrakten Komplex.  Diese Menge erhält man wie folgt. Definiere
     rekursiv $V_0 \coloneqq \emptyset$ und
     $V_{n+1} \coloneqq \sset{V_n} \cup \V_n$, dann ist
     $V \coloneqq \bigcup\limits_{n \geq 0} V_n$ ein nicht endlicher
-    Komplex.
+    Komplex. Um einzusehen das die Menge wirklich einen abstrakten
+    Komplex bildet sind nur die Regeln (\textbullet) nachzuweißen.
+    Die unendliche Dimension ergibt sich daraus, dass man zu jeder
+    natürlichen Zahl ein Element aus Komplex findet, das diese
+    Dimension besitzt.
+    
   \item Ein ungerichteter Graph $G=(V,K)$ mit $V$ die Eckmenge und $K$
     die Kanten ist ein abstrakter Simplizialkomplex.
   \item Das Knotenschema von einem geometrischen Komplex ist ein
@@ -101,14 +109,13 @@ abstrakten Komplexen ergibt sich aus dem folgenden Satz.
 
 
 \begin{Satz}
-  Es gelten folgende Aussagen
+  Es gelten folgende Aussagen:
   \begin{enumerate}[(1)]
   \item Für jeden abstrakten Komplex existiert ein geometrischer
     Komplex, dessen Knotenschema (abstrakt) isomorph zu diesem Komplex
     ist.
   \item Zwei geometrische Komplexe sind (linear) isomorph, genau dann
-    wenn die dazuentsprechenden Knotenschemata (abstrakt) isomorph
-    sind.
+    wenn die dazugehörigen Knotenschemata (abstrakt) isomorph sind.
   \end{enumerate}
   \begin{proof}
     \begin{enumerate}[(1)]
@@ -118,7 +125,7 @@ abstrakten Komplexen ergibt sich aus dem folgenden Satz.
       enthalten ist. Verallgemeinere nun diesen Standardkomplex auf
       einen unendlich dimensionalen im Raum $\E^J$. Hierzu wird
       $\Delta^J$ von all den Einheitsvektoren im $\E^J$
-      aufgespannt. Dies bildet wiederrum einen geometrischen Komplex.
+      aufgespannt. Dies bildet wiederum einen geometrischen Komplex.
 
       Sei nun ein abstrakter Komplex $\Delta$ und seine Knotenmenge
       $\Delta^{(0)}$ gegeben, dann betrachte die Einbettung
@@ -144,42 +151,42 @@ abstrakten Komplexen ergibt sich aus dem folgenden Satz.
 % erkläre das labeln von triangulierungen, bzw
 % geometrischen,abstrakten simplizialkomplexen
 
-\begin{Bem}[Label,Abwicklung]
-  Da im weiteren Verlauf des Seminars meist nicht zweidimensionale
-  Triangulierungen angegeben und benötigt werden, ist es notwendig,
-  eine vereinfachte Darstellung dieser höher dimensionalen Objekte
-  abzugeben. Hierzu wird das Labeln von Triangulierungen angegeben.
+% \begin{Bem}[Label,Abwicklung]
+%   Da im weiteren Verlauf des Seminars meist nicht zweidimensionale
+%   Triangulierungen angegeben und benötigt werden, ist es notwendig,
+%   eine vereinfachte Darstellung dieser höher dimensionalen Objekte
+%   abzugeben. Hierzu wird das Labeln von Triangulierungen angegeben.
 
-  Betrachte zunächst für die Idee des Verfahrens den Tetraeder und
-  seine Standardabwicklung im Zweidimensionalen.
-  % zeichne dreidim tetraeder, und eine zweidim abwicklung, tikz
-  Bei der Abwicklung werden die $0$-Simplexe fortlaufend alphabetisch
-  nummeriert. Bei Knoten, die in der ursprünglichen Dimension
-  zusammenfallen wird das gleiche Label verwendet.
+%   Betrachte zunächst für die Idee des Verfahrens den Tetraeder und
+%   seine Standardabwicklung im Zweidimensionalen.
+%   % zeichne dreidim tetraeder, und eine zweidim abwicklung, tikz
+%   Bei der Abwicklung werden die $0$-Simplexe fortlaufend alphabetisch
+%   nummeriert. Bei Knoten, die in der ursprünglichen Dimension
+%   zusammenfallen wird das gleiche Label verwendet.
 
-%TODO: auch für unendlich dimensionale abwicklung
-  Die Formalisierung der obigen Idee wird durch die Angabe eines
-  abstrakten Komplexes gegeben, dessen geometrische Realisierung dem
-  geometrischen Komplex entspricht. Sei $\Delta$ ein endlich
-  dimensionaler geometrischer Komplex gegeben. Dann ist die Abwicklung
-  durch einen zweidimensionalen geometrischen Komplex $\Delta'$ und
-  eine surjektive Abbildung $f: \Delta \rightarrow \Delta'$ gegeben.
+% %TODO: auch für unendlich dimensionale abwicklung
+%   Die Formalisierung der obigen Idee wird durch die Angabe eines
+%   abstrakten Komplexes gegeben, dessen geometrische Realisierung dem
+%   geometrischen Komplex entspricht. Sei $\Delta$ ein endlich
+%   dimensionaler geometrischer Komplex gegeben. Dann ist die Abwicklung
+%   durch einen zweidimensionalen geometrischen Komplex $\Delta'$ und
+%   eine surjektive Abbildung $f: \Delta \rightarrow \Delta'$ gegeben.
 
-%TODO: weiter ausführen
+% %TODO: weiter ausführen
 
-\end{Bem}
+% \end{Bem}
 
-% TODO: label und zweidim abwicklungen vom torus, zylinder, kugel und kleinsche flasche
+% % TODO: label und zweidim abwicklungen vom torus, zylinder, kugel und kleinsche flasche
 
 %einfache beispiele
 
-\begin{Bsp}[Triangulation]
-  Es werden nun Triangulierungen für Kugel, Zylinder und Torus
-  angegeben durch abstrakte Komplexe deren Geometrische Realisierungen
-  eine Triangulation der entsprechenden Flächen im $\R^3$ sind.
+\begin{Bsp}[Triangulierung]
+  Es werden nun Triangulierungen für Sphäre, Zylinder und Torus
+  angegeben durch abstrakte Komplexe, deren Geometrische Realisierungen
+  eine Triangulierung der entsprechenden Flächen im $\R^3$ sind.
 
   \begin{description}
-  \item[Zylinder:] Betrachte die Menge
+  \item[Zylinder:] Wir betrachten die Menge
     \begin{gather*}
       \Delta \coloneqq
       \sset{\sset{a,b,c},\sset{b,c,e},\sset{c,e,f},\sset{c,d,f}%
@@ -290,9 +297,10 @@ abstrakten Komplexen ergibt sich aus dem folgenden Satz.
       \end{scope}
     \end{tikzpicture}}
   \end{center}
-  Identifiziert man nun jeweils die gegenüberliegende Seiten, dann
-  erhält man den Torus als zwei dimensionale Fläche im $\R^3$.
-\item[Kugel:]
+  Identifiziert man nun jeweils die gegenüberliegende Seiten, indem
+  man diese Seiten miteinander verklebt, erhält man den Torus als zwei
+  dimensionale Fläche im $\R^3$.
+\item[Sphäre:]
   Betrachte den Komplex
   \begin{gather*}
     \Delta \coloneqq \{ \sset{a,b,c},\sset{a,c,d},

@@ -53,12 +53,12 @@
 \newcommand{\pma}[1]{\begin{pmatrix} #1 \end{pmatrix}}
 \newcommand{\A}{\mathscr{A}}
 \newcommand{\F}{\mathbb{F}}                                            
-\newcommand{\gs}{$\{a_0\ldots a_n\}$ }
+\newcommand{\gs}{$\{a_0,\ldots ,a_n\}$ }
 \newcommand{\gr}[1]{\left| #1 \right|}
 % TODO: schreibe newcommand, das #2 als optional nimmt, und somit kein
 % \Big| setzt
-\newcommand{\set}[2]{\left\{ #1 \; \Big| \; #2 \right\}}
-\newcommand{\sset}[1]{\left\{ #1 \right\}}
+\newcommand{\set}[2]{\bigl\{ #1 \;  | \; #2 \bigr\}}
+\newcommand{\sset}[1]{\bigl\{ #1 \bigr\}}
 \renewcommand{\sp}[2]{\sum\limits_{i=#1}^{#2}}
 
 \newcommand{\nn}[1][\,\bullet\,]{\left\| #1 \right\|}	% norm       
@@ -114,6 +114,7 @@
 %\renewenvironment*{proof}{\bfseries}{}
 
 %stuff used only a few times                        
+\DeclareMathOperator{\D}{D}
 \DeclareMathOperator{\pow}{P} 
 \DeclareMathOperator{\f}{\varphi} 
 \DeclareMathOperator{\GL}{GL}
